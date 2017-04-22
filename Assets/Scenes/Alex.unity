@@ -1114,8 +1114,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 375, y: 375}
+  m_AnchoredPosition: {x: 0, y: -1}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1162077159
 GameObject:
@@ -1150,7 +1150,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0.0000000012805685}
-  m_SizeDelta: {x: 375, y: 375}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1162077161
 MonoBehaviour:
@@ -1264,8 +1264,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.00048828125}
-  m_SizeDelta: {x: 375, y: 375}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1483293233
 MonoBehaviour:
@@ -1617,7 +1617,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294967279
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 4f59a8487a0571c4db04802f5dead0c7, type: 2}
   m_TargetDisplay: 0
