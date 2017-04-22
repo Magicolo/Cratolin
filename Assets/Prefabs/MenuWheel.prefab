@@ -68,6 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4103065596965998}
   - component: {fileID: 114212878758966884}
+  - component: {fileID: 114748845819713374}
   - component: {fileID: 212491318259472446}
   - component: {fileID: 61029630177928378}
   m_Layer: 0
@@ -86,6 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4844694237655022}
   - component: {fileID: 114017998254712572}
+  - component: {fileID: 114495688298072142}
   - component: {fileID: 212668539579275512}
   - component: {fileID: 61330285651604402}
   m_Layer: 0
@@ -310,8 +312,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d224cb3ad2b62846b417608cdc85a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 1287662089442476, guid: c72be736de68bf849ba8d4b82f5205bf,
-    type: 2}
 --- !u!114 &114212878758966884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -323,8 +323,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d224cb3ad2b62846b417608cdc85a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 1287662089442476, guid: c72be736de68bf849ba8d4b82f5205bf,
-    type: 2}
 --- !u!114 &114321861673791002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -337,6 +335,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimTransform: {fileID: 4885645751149260}
+--- !u!114 &114495688298072142
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1736312954908858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef9368eca1a852f43988efbf6d91a94b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mask:
+    serializedVersion: 2
+    m_Bits: 256
+  Prefab: {fileID: 114660228201442166, guid: c72be736de68bf849ba8d4b82f5205bf, type: 2}
 --- !u!114 &114574182524267226
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -348,8 +361,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d224cb3ad2b62846b417608cdc85a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 1287662089442476, guid: c72be736de68bf849ba8d4b82f5205bf,
-    type: 2}
+--- !u!114 &114748845819713374
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1718738974270350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfaa0bf922086494cbab9da085f6b267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mask:
+    serializedVersion: 2
+    m_Bits: 256
+  Prefab: {fileID: 114567798090970034, guid: 6a4b30cd87928cc4db0fe39f6c2fcd56, type: 2}
 --- !u!212 &212256089911613112
 SpriteRenderer:
   m_ObjectHideFlags: 1

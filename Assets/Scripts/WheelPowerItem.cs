@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class WheelPowerItem : MonoBehaviour {
 
-    public GameObject prefabToSpawn;
-
 	// Use this for initialization
 	void Start () {
 		
@@ -18,7 +16,9 @@ public class WheelPowerItem : MonoBehaviour {
 
     public void Spawn(Vector3 pPosition)
     {
-        GameObject obj = Instantiate(prefabToSpawn);
-        obj.transform.position = pPosition;
+        PowerBase basePower = GetComponent<PowerBase>();
+
+        if(basePower != null)
+            basePower.Create(pPosition);
     }
 }

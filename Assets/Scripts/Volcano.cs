@@ -4,11 +4,17 @@ public class Volcano : MonoBehaviour
 {
 	public enum States { Spawning, Idle, Erupting, Extinguished }
 
+	public Lava Lava;
 	public SpriteRenderer Sprite;
 	public float ShakeAmplitude = 5f;
 	public float SpawnSpeed = 3f;
 
 	States state;
+
+	void Awake()
+	{
+		SwitchState(States.Spawning);
+	}
 
 	void FixedUpdate()
 	{
@@ -33,13 +39,13 @@ public class Volcano : MonoBehaviour
 		Sprite.transform.localPosition = position;
 
 		if (position.y >= 0f)
-			state = States.Idle;
+			SwitchState(States.Idle);
 
 	}
 
 	void UpdateIdle()
 	{
-
+		SwitchState(States.Erupting);
 	}
 
 	void UpdateErupting()
@@ -50,5 +56,11 @@ public class Volcano : MonoBehaviour
 	void UpdateExtinguished()
 	{
 
+	}
+
+	void SwitchState(States state)
+	{
+		this.state = state;
+		Lava.gameObject.SetActive(state == States.Erupting);
 	}
 }
