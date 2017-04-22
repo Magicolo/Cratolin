@@ -28,7 +28,7 @@ public class GeneratePlanetMask : MonoBehaviour {
 	void Update ()
     {
 		if(Time.time > nextUpdate){
-			nextUpdate =  Chronos.Instance.CurrentTime + timeBetweenUpdate;
+			nextUpdate =  Chronos.Instance.Time + timeBetweenUpdate;
 		}else{
 			return;
 		}
