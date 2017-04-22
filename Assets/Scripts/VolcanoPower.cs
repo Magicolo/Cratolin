@@ -9,7 +9,7 @@ public class VolcanoPower : PowerBase
 
 	public override bool CanUse
 	{
-		get { return base.CanUse && Chronos.Instance.CurrentTime - lastUse >= Cooldown; }
+		get { return base.CanUse && Chronos.Instance.Time - lastUse >= Cooldown; }
 	}
 	public override int RemainingUses
 	{
@@ -36,7 +36,7 @@ public class VolcanoPower : PowerBase
 		if (hit)
 		{
 			uses++;
-			lastUse = Chronos.Instance.CurrentTime;
+			lastUse = Chronos.Instance.Time;
 			var instance = Instantiate(Prefab, hit.point, Quaternion.FromToRotation(Vector2.up, direction), Planet.Instance.transform);
 			return instance.gameObject;
 		}
