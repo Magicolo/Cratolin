@@ -30,6 +30,11 @@ public class WheelPower : MonoBehaviour {
                 if (item != null)
                 {
                     currentItem = item;
+                    foreach(WheelPowerItem powerItem in items)
+                    {
+                        powerItem.SetDestinationAlpha(powerItem == currentItem ? 1 : 0);
+                    }
+
                     aimTransform.gameObject.SetActive(true);
 
                     Vector2 v2 = (Vector2)worldPos - Vector2.zero;
@@ -78,5 +83,10 @@ public class WheelPower : MonoBehaviour {
         currentItem = null;
         transform.localEulerAngles = Vector3.zero;
         aimTransform.gameObject.SetActive(false);
+
+        foreach (WheelPowerItem powerItem in items)
+        {
+            powerItem.SetDestinationAlpha(1);
+        }
     }
 }
