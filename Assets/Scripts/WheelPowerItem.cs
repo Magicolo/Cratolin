@@ -23,6 +23,9 @@ public class WheelPowerItem : MonoBehaviour {
         {
             sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, currentAlpha);
         }
+
+        int uses = GetComponent<PowerBase>().RemainingUses;
+        GetComponentInChildren<TextMesh>().text = uses == -1 ? "" : uses.ToString();
     }
 
     public void Spawn(Vector3 pPosition)
