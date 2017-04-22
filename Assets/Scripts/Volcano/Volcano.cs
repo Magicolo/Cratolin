@@ -6,8 +6,8 @@ public class Volcano : MonoBehaviour
 
 	public float ShakeAmplitude = 5f;
 	public float SpawnSpeed = 3f;
-	public Lava Lava;
-	public Smoke Smoke;
+	public LavaEmitter Lava;
+	public SmokeEmitter Smoke;
 	public SpriteRenderer Renderer;
 	public Sprite Erupting;
 	public Sprite Extinguished;
