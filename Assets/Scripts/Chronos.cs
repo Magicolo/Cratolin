@@ -8,11 +8,12 @@ public class Chronos : MonoBehaviour
 
 	public float TimeScale
 	{
-		get { return Time.timeScale; }
-		set { Time.timeScale = value; }
+		get { return UnityEngine.Time.timeScale; }
+		set { UnityEngine.Time.timeScale = value; }
 	}
-	public float CurrentTime { get; private set; }
-	public float DeltaTime { get { return Time.fixedDeltaTime; } }
+	public float Time { get; private set; }
+	public float NormalizedTime { get { return Time / LifeTime; } }
+	public float DeltaTime { get { return UnityEngine.Time.fixedDeltaTime; } }
 
 	void Awake()
 	{
@@ -21,6 +22,6 @@ public class Chronos : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		CurrentTime += DeltaTime;
+		Time += DeltaTime;
 	}
 }

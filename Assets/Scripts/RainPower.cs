@@ -8,7 +8,7 @@ public class RainPower : PowerBase
 
 	public override bool CanUse
 	{
-		get { return base.CanUse && Chronos.Instance.CurrentTime - lastUse >= Cooldown; }
+		get { return base.CanUse && Chronos.Instance.Time - lastUse >= Cooldown; }
 	}
 	public override int RemainingUses
 	{
@@ -33,7 +33,7 @@ public class RainPower : PowerBase
 		objRainCloud.transform.localEulerAngles = new Vector3(0, 0, angle - 90);
 
 		objRainCloud.transform.position = (Vector3)hit.point + objRainCloud.transform.up * objRainCloud.distanceToGround;
-		lastUse = Chronos.Instance.CurrentTime;
+		lastUse = Chronos.Instance.Time;
 
 		return objRainCloud.gameObject;
 	}

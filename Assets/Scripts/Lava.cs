@@ -13,12 +13,12 @@ public class Lava : MonoBehaviour
 
 	void OnEnable()
 	{
-		nextParticle = Chronos.Instance.CurrentTime;
+		nextParticle = Chronos.Instance.Time;
 	}
 
 	void FixedUpdate()
 	{
-		while (Chronos.Instance.CurrentTime >= nextParticle)
+		while (Chronos.Instance.Time >= nextParticle)
 		{
 			var burst = (int)Random.Range(Burst.x, Burst.y);
 

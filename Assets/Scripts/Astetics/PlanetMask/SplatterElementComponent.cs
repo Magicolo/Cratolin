@@ -12,7 +12,7 @@ public class SplatterElementComponent : MonoBehaviour {
     private SplattersGroup CurrentSplatter;
 
     public Sprite getSplatter(){
-        var t = (Chronos.Instance.CurrentTime - startT) / TimeToFullGrow;
+        var t = (Chronos.Instance.Time - startT) / TimeToFullGrow;
         t = t * (maxGrow - minGrow) + minGrow;
         t = Mathf.Clamp(t,minGrow,maxGrow);
         
@@ -20,7 +20,7 @@ public class SplatterElementComponent : MonoBehaviour {
     }
 
     void Start () {
-        startT = Chronos.Instance.CurrentTime;
+        startT = Chronos.Instance.Time;
         CurrentSplatter = SplattersRandom[Random.Range(0,SplattersRandom.Length-1)];
     }
 
