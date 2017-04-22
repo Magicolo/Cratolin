@@ -2,11 +2,14 @@
 
 public class Rotator : MonoBehaviour
 {
-	public float Speed = 1f;
+	public float Rotations = 1f;
 	public Transform Transform;
 
 	void FixedUpdate()
 	{
-		Transform.Rotate(0f, 0f, Speed * Chronos.Instance.DeltaTime);
+		transform.localEulerAngles = new Vector3(
+			transform.localEulerAngles.x,
+			transform.localEulerAngles.y,
+			Chronos.Instance.NormalizedTime * Rotations * 360f);
 	}
 }

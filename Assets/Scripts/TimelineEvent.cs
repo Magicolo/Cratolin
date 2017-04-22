@@ -10,7 +10,7 @@ public abstract class TimelineEvent : MonoBehaviour
 
 	public abstract void Trigger();
 
-	void OnValidate()
+	protected virtual void OnValidate()
 	{
 		if (Timeline == null || Slider == null)
 			return;

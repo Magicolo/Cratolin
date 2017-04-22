@@ -51,6 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfaa0bf922086494cbab9da085f6b267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Uses: 4
+  Cooldown: 5
   Mask:
     serializedVersion: 2
     m_Bits: 256
