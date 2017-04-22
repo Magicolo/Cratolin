@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Lava : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class Lava : MonoBehaviour
 
 	float nextParticle;
 	readonly Stack<LavaParticle> pool = new Stack<LavaParticle>();
+
+	void OnEnable()
+	{
+		nextParticle = Chronos.Instance.CurrentTime;
+	}
 
 	void FixedUpdate()
 	{
@@ -28,7 +34,7 @@ public class Lava : MonoBehaviour
 	{
 		var particle = pool.Count > 0 ? pool.Pop() : Instantiate(Prefab, transform);
 		particle.gameObject.SetActive(true);
-		particle.Initialize(this, transform.position, new Vector2(Random.Range(-50f, 50f), Random.Range(25f, 100f)), 0.98f);
+		particle.Initialize(this, transform.position, new Vector2(Random.Range(-150f, 150f), Random.Range(50f, 150f)), 0.98f);
 
 		return particle;
 	}

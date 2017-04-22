@@ -2,8 +2,22 @@
 
 public class VolcanoPower : PowerBase
 {
+	public int Uses = 4;
+	public float Cooldown = 5f;
 	public LayerMask Mask;
 	public Volcano Prefab;
+
+	public override bool CanUse
+	{
+		get { return base.CanUse && Chronos.Instance.CurrentTime - lastUse >= Cooldown; }
+	}
+	public override int RemainingUses
+	{
+		get { return Uses - uses; }
+	}
+
+	int uses;
+	float lastUse = float.MinValue;
 
 	void Update()
 	{
@@ -21,16 +35,13 @@ public class VolcanoPower : PowerBase
 
 		if (hit)
 		{
+			uses++;
+			lastUse = Chronos.Instance.CurrentTime;
 			var instance = Instantiate(Prefab, hit.point, Quaternion.FromToRotation(Vector2.up, direction), Planet.Instance.transform);
 			return instance.gameObject;
 		}
 		else
 			return null;
 
-	}
-
-	public override bool CanPlace(Vector2 position)
-	{
-		return true;
 	}
 }

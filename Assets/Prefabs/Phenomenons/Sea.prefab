@@ -109,6 +109,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   increment: 0.05
   sprite: {fileID: 212529804836261126}
+  treePrefab: {fileID: 114046027632892338, guid: 0fa82a2b05cbdaa458a0a238a6e8056f,
+    type: 2}
+  timeBetweenTreeSpawn: 1
+  maxTreeCountEachSide: 3
+  planetMask:
+    serializedVersion: 2
+    m_Bits: 256
+  lstTreesSpawnedLeft: []
+  lstTreesSpawnedRight: []
 --- !u!212 &212529804836261126
 SpriteRenderer:
   m_ObjectHideFlags: 1
