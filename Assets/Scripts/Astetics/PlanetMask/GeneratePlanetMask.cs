@@ -22,7 +22,7 @@ public class GeneratePlanetMask : MonoBehaviour {
 		width = (int)ssize.x;
 		height = (int)ssize.y;
 
-		nextUpdate =  Chronos.Instance.CurrentTime + timeBetweenUpdate;
+		nextUpdate =  0;
 	}
 	
 	void Update ()
