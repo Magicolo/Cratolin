@@ -7,7 +7,6 @@ public class WindSource : MonoBehaviour {
     public float totalLifeTime;
     public WindParticle WindParticlePrefab;
 
-	// Use this for initialization
 	IEnumerator Start ()
     {
         yield return null;
@@ -20,7 +19,6 @@ public class WindSource : MonoBehaviour {
             float randomTime = Random.Range(0.05f, 0.2f);
             totalTime += randomTime;
 
-            print(totalTime + "   " + totalLifeTime);
             if (totalTime < totalLifeTime)
             {
                 WindParticle windParticle = Instantiate(WindParticlePrefab);
@@ -34,7 +32,5 @@ public class WindSource : MonoBehaviour {
                 break;
             }
         }
-        
-
     }
 }
