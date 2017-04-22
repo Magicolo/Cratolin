@@ -8,10 +8,12 @@ public class Volcano : MonoBehaviour
 	public float SpawnSpeed = 3f;
 	public LavaEmitter Lava;
 	public SmokeEmitter Smoke;
+	public SmokeCloudEmitter Cloud;
 	public SpriteRenderer Renderer;
 	public Sprite Erupting;
 	public Sprite Extinguished;
 
+	float stateTime;
 	States state;
 
 	void Awake()
@@ -21,6 +23,8 @@ public class Volcano : MonoBehaviour
 
 	void FixedUpdate()
 	{
+		stateTime += Chronos.Instance.DeltaTime;
+
 		switch (state)
 		{
 			case States.Spawning: UpdateSpawning(); break;
@@ -53,7 +57,6 @@ public class Volcano : MonoBehaviour
 
 	void UpdateErupting()
 	{
-
 	}
 
 	void UpdateExtinguished()
@@ -64,9 +67,11 @@ public class Volcano : MonoBehaviour
 	void SwitchState(States state)
 	{
 		this.state = state;
+		this.stateTime = 0f;
 
 		Renderer.sprite = state == States.Extinguished ? Extinguished : Erupting;
 		Lava.gameObject.SetActive(state == States.Erupting);
 		Smoke.gameObject.SetActive(state == States.Idle || state == States.Erupting);
+		Cloud.gameObject.SetActive(state == States.Idle || state == States.Erupting);
 	}
 }
