@@ -3,15 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SplatterElementComponent : MonoBehaviour {
+public class SplatterElementComponent : SplatterComponent {
     private float startT;
     public float TimeToFullGrow;
+    [TooltipAttribute("After the full growth, if not -1, will kill the component and make a decay splatter element.")]
+    public float TimeToDieAfterGrow = -1;
+    [TooltipAttribute("Time to die!")]
+    public float TimeToDecay=1;
+    
     public float minGrow = 0;
     public float maxGrow = 1;
     public SplattersGroup[] SplattersRandom;
     private SplattersGroup CurrentSplatter;
 
-    public Sprite getSplatter(){
+    public override Sprite getSplatter(){
         var t = (Chronos.Instance.Time - startT) / TimeToFullGrow;
         t = t * (maxGrow - minGrow) + minGrow;
         t = Mathf.Clamp(t,minGrow,maxGrow);
@@ -25,7 +30,22 @@ public class SplatterElementComponent : MonoBehaviour {
     }
 
     void Update () {
+        if(TimeToDieAfterGrow != -1 && Chronos.Instance.Time > TimeToDieAfterGrow + startT + TimeToFullGrow){
+            DIE();
+        }
+    }
 
+    void DIE(){
+        GameObject go = new GameObject("Dying Splater");
+        go.transform.parent = this.transform.parent;
+        go.transform.localPosition = this.transform.localPosition;
+        go.tag = tag;
+       
+        var sed = go.AddComponent<SplatterElementDying>();
+        sed.CurrentSplatter = CurrentSplatter;
+        sed.TimeToDie = TimeToDecay;
+
+        Destroy(gameObject);
     }
 
 }
