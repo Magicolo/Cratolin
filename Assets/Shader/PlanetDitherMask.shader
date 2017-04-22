@@ -3,6 +3,7 @@ Shader "R/Planet Mask Shader"
 	Properties{
 		_MainTex("Base (RGBA)", 2D) = "white" {}
 		_MaskTex("Mask (RGBA)", 2D) = "white" {}
+		[MaterialToggle] _PixelSnap ("Pixel snap", Float) = 0
 	}
 
 	SubShader{
@@ -18,7 +19,9 @@ Shader "R/Planet Mask Shader"
 			#pragma vertex vert
 			#pragma fragment frag
 			#pragma target 2.0
-			#pragma multi_compile_fog
+			#pragma multi_compile_instancing
+			#pragma multi_compile _ ETC1_EXTERNAL_ALPHA
+			#pragma multi_compile _ PIXELSNAP_ON
 
 			#include "UnityCG.cginc"
 
@@ -50,6 +53,12 @@ Shader "R/Planet Mask Shader"
 				o.texcoord = TRANSFORM_TEX(v.texcoord, _MainTex);
 				o.scrPos = ComputeScreenPos(o.vertex);
 				UNITY_TRANSFER_FOG(o,o.vertex);
+
+
+                #ifdef PIXELSNAP_ON
+                o.vertex = UnityPixelSnap (o.vertex);
+                #endif
+
 				return o;
 			}
 
@@ -57,7 +66,7 @@ Shader "R/Planet Mask Shader"
 			{
 				fixed4 col = tex2D(_MainTex, i.texcoord);
 				fixed4 colMask = tex2D(_MaskTex, i.texcoord);
-				col.a = col.a * colMask.r;
+				col.a = col.a * colMask.a;
 				return col;
 			}
 			ENDCG
