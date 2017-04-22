@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4664712709750366}
   - component: {fileID: 114574182524267226}
+  - component: {fileID: 114572265205528148}
   - component: {fileID: 212305818653798566}
   - component: {fileID: 61795103139009936}
   m_Layer: 0
@@ -312,6 +313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d224cb3ad2b62846b417608cdc85a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentAlpha: 1
+  destAlpha: 1
 --- !u!114 &114212878758966884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -323,6 +326,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d224cb3ad2b62846b417608cdc85a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentAlpha: 1
+  destAlpha: 1
 --- !u!114 &114321861673791002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -350,6 +355,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   Prefab: {fileID: 114660228201442166, guid: c72be736de68bf849ba8d4b82f5205bf, type: 2}
+--- !u!114 &114572265205528148
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1096017540199182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71486d0ac107c804982045cc0500fb55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 114354174627089110, guid: f5bbd7fd627fc4e4f9bd0dceeab8dd46, type: 2}
+  Mask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &114574182524267226
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -361,6 +381,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d224cb3ad2b62846b417608cdc85a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentAlpha: 1
+  destAlpha: 1
 --- !u!114 &114748845819713374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -407,7 +429,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -100
   m_Sprite: {fileID: 21300000, guid: 6c6fec9f8df4c9e498d27d9654972f6b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.216}
   m_FlipX: 0
