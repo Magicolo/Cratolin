@@ -35,14 +35,16 @@ public class GeneratePlanetMask : MonoBehaviour {
 
         MakeItBlack();
 
-        var grass = GameObject.FindGameObjectsWithTag(SplatterTag);
+        var spaters = GameObject.FindGameObjectsWithTag(SplatterTag);
 
-        foreach (var g in grass)
+        foreach (var spater in spaters)
         {
-            var x = (int)(g.transform.localPosition.x - width/2);
-            var y = (int)(g.transform.localPosition.y - height/2);
-			var splatterElement = g.GetComponent<SplatterComponent>();
+			
+            var x = (int)(spater.transform.localPosition.x - width/2);
+            var y = (int)(spater.transform.localPosition.y - height/2);
+			var splatterElement = spater.GetComponent<SplatterComponent>();
 			var splater = splatterElement.getSplatter();
+			Debug.Log("PStare" + splater);
             DrawFrom(x, y, splater);
         }
 
