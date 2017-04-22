@@ -645,7 +645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db52470896f3f384fac533a5f52e29c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rotations: 4
+  Rotations: -1
   Transform: {fileID: 1191048911}
 --- !u!58 &1191048914
 CircleCollider2D:

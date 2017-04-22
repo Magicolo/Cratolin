@@ -4,9 +4,10 @@ public class Volcano : MonoBehaviour
 {
 	public enum States { Spawning, Idle, Erupting, Extinguished }
 
-	public Lava Lava;
 	public float ShakeAmplitude = 5f;
 	public float SpawnSpeed = 3f;
+	public LavaEmitter Lava;
+	public SmokeEmitter Smoke;
 	public SpriteRenderer Renderer;
 	public Sprite Erupting;
 	public Sprite Extinguished;
@@ -66,5 +67,6 @@ public class Volcano : MonoBehaviour
 
 		Renderer.sprite = state == States.Extinguished ? Extinguished : Erupting;
 		Lava.gameObject.SetActive(state == States.Erupting);
+		Smoke.gameObject.SetActive(state == States.Idle || state == States.Erupting);
 	}
 }
