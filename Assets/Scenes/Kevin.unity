@@ -415,7 +415,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 105.66
+  m_Radius: 305.1
 --- !u!114 &1191048915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,7 +487,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 128
+  orthographic size: 400
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
