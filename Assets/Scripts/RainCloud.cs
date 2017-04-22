@@ -7,17 +7,21 @@ public class RainCloud : MonoBehaviour {
     public float distanceToGround;
     public GameObject rainDropPrefab;
     public float rainZoneWidth;
+    public float timeBetweenRainDrop;
+    public float lifeTime;
 
     private float lastTimeSpawn;
 
 	// Use this for initialization
 	void Start () {
         lastTimeSpawn = Time.time;
+
+        Destroy(gameObject, lifeTime);
     }
 	
 	// Update is called once per frame
 	void Update () {
-		if(Time.time - lastTimeSpawn > 1)
+		if(Time.time - lastTimeSpawn > timeBetweenRainDrop)
         {
             lastTimeSpawn = Time.time;
             GameObject obj = Instantiate(rainDropPrefab); 
