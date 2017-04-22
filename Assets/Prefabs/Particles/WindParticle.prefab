@@ -78,7 +78,7 @@ TrailRenderer:
   m_Time: 3
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 1
+    widthMultiplier: 6
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -93,8 +93,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 0.6666667}
-      key1: {r: 1, g: 1, b: 1, a: 0.6666667}
+      key0: {r: 1, g: 1, b: 1, a: 0.15686275}
+      key1: {r: 1, g: 1, b: 1, a: 0.15686275}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -140,7 +140,7 @@ MonoBehaviour:
   maskPlanet:
     serializedVersion: 2
     m_Bits: 256
-  distanceFormPlanetCenter: 345
+  distanceFormPlanetCenter: 355
   moveSpeed: 100
   TreePrefab: {fileID: 114046027632892338, guid: 0fa82a2b05cbdaa458a0a238a6e8056f,
     type: 2}

@@ -18,7 +18,7 @@ public class WindPower : PowerBase {
 
     public override GameObject Create(Vector2 position)
     {
-        if (!CanPlace(position))
+        if (!CanPlace(position)) 
             return null;
 
         var direction = position.normalized;

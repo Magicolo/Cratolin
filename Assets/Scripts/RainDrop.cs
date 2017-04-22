@@ -22,6 +22,9 @@ public class RainDrop : MonoBehaviour {
         if (collision.gameObject.GetComponent<Sea>() != null)
             collision.gameObject.GetComponent<Sea>().IncreaseWater();
 
+        if (collision.gameObject.GetComponentInParent<FireAbleObject>() != null)
+            collision.gameObject.GetComponentInParent<FireAbleObject>().StopFire();
+
         if (PlanetLayer == (PlanetLayer | (1 << collision.gameObject.layer)))
         {
             Destroy(gameObject);

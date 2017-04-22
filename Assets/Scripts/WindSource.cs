@@ -16,7 +16,7 @@ public class WindSource : MonoBehaviour {
         while (true)
         {
             
-            float randomTime = Random.Range(0.05f, 0.2f);
+            float randomTime = Random.Range(0.15f, 0.25f);
             totalTime += randomTime;
 
             if (totalTime < totalLifeTime)

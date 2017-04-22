@@ -13,36 +13,41 @@ public class WindParticle : MonoBehaviour {
     private float lifeTimer;
     private float waveAmplitude;
     private bool polenized = false;
+    private bool disabled = false;
 
     public float Direction { get { return direction; } set { direction = value; } }
 
-	// Use this for initialization
 	void Start () {
         lifeTimer = Random.Range(0f, 10f);
-        waveAmplitude = Random.Range(0f, 25f);
+        waveAmplitude = Random.Range(0f, 15f);
 
         GetComponent<TrailRenderer>().sortingOrder = -5;
         GetComponent<TrailRenderer>().Clear();
 
-        // Not all particles have trails
-        if (Random.Range(0, 5) > 0)
-            Destroy(GetComponent<TrailRenderer>());
+        moveSpeed = moveSpeed * Random.Range(0.8f, 1.2f);
+
+        //// Not all particles have trails
+        //if (Random.Range(0, 5) > 0)
+        //    Destroy(GetComponent<TrailRenderer>());
     }
 	
-	// Update is called once per frame
 	void Update () {
+
+        if (disabled)
+            return;
 
         // Destroy on hitting ground
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero, 1000f, maskPlanet);
         if(hit.collider != null)
         {
             // Small chance to spawn tree if polenized
-            if(polenized && Random.Range(0, 5) == 0)
+            if(polenized)// && Random.Range(0, 5) == 0)
             {
                 Tree tree = Instantiate(TreePrefab, transform.position, Quaternion.FromToRotation(Vector2.up, transform.position.normalized), Planet.Instance.transform);
             }  
 
-            Destroy(gameObject);
+            Destroy(gameObject, 5);
+            disabled = true;
             return;
         }
 

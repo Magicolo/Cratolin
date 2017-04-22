@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class WheelPowerItem : MonoBehaviour {
 
-    public float currentAlpha = 1;
-    public float destAlpha = 1;
+    private float currentAlpha = 1;
+    private float destAlpha = 1;
 
 	// Use this for initialization
 	void Start () {
