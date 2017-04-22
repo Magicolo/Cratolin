@@ -41,7 +41,7 @@ public class GeneratePlanetMask : MonoBehaviour {
         {
             var x = (int)(g.transform.localPosition.x - width/2);
             var y = (int)(g.transform.localPosition.y - height/2);
-			var splatterElement = g.GetComponent<SplatterElementComponent>();
+			var splatterElement = g.GetComponent<SplatterComponent>();
 			var splater = splatterElement.getSplatter();
             DrawFrom(x, y, splater);
         }
