@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Smoke : ParticleEmitter<SmokeParticle>
+public class Smoke : ParticleEmitterBase<SmokeParticle>
 {
 	public Vector2 SpawnDelay = new Vector2(0.25f, 1f);
 

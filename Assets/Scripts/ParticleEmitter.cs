@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ParticleEmitter<T> : MonoBehaviour where T : Component
+public abstract class ParticleEmitterBase<T> : MonoBehaviour where T : Component
 {
 	public T[] Prefabs;
 

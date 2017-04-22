@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Lava : ParticleEmitter<LavaParticle>
+public class Lava : ParticleEmitterBase<LavaParticle>
 {
 	public Vector2 SpawnDelay = new Vector2(0.25f, 1f);
 	public Vector2 Burst = new Vector2(1f, 5f);
