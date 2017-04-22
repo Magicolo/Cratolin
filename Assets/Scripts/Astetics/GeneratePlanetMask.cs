@@ -21,7 +21,6 @@ public class GeneratePlanetMask : MonoBehaviour {
 		sr.material.SetTexture("_MaskTex",mask);
 		width = (int)ssize.x;
 		height = (int)ssize.y;
-		
 
 		nextUpdate =  Chronos.Instance.CurrentTime + timeBetweenUpdate;
 	}
