@@ -5,6 +5,7 @@ using UnityEngine;
 public class FireAbleObject : MonoBehaviour {
 
     public ParticleSystem smokeParticles;
+    public GameObject[] fireAnimatedSprites;
     public float timeToBurn;
 
     private bool inFire;
@@ -32,6 +33,9 @@ public class FireAbleObject : MonoBehaviour {
         timeInFire = 0;
 
         smokeParticles.Play();
+
+        foreach (GameObject fire in fireAnimatedSprites)
+            fire.SetActive(true);
     }
 
     public void StopFire()
@@ -41,6 +45,9 @@ public class FireAbleObject : MonoBehaviour {
             inFire = false;
 
             smokeParticles.Stop();
+
+            foreach (GameObject fire in fireAnimatedSprites)
+                fire.SetActive(false);
         }
         
     }
