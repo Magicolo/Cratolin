@@ -20,8 +20,6 @@ public class Timeline : UIBehaviour
 
 		float distance = Mathf.Max(GhostSlider.value - Slider.value, 0f);
 		Chronos.Instance.TimeScale = 1f + distance * 10f;
-
-		Debug.Log(Chronos.Instance.TimeScale + " " + distance);
 	}
 
 	public void OnGhostBeginDrag()

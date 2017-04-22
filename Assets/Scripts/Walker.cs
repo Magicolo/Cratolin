@@ -5,6 +5,7 @@ using UnityEngine;
 public class Walker : MonoBehaviour {
 
     public float distanceToGround;
+    public LayerMask WalkerCollision;
 
     private bool isGoingRight = false;
 
@@ -19,7 +20,7 @@ public class Walker : MonoBehaviour {
         //transform.position += transform.right * Time.deltaTime;
 
         // stick to ground
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up /*Vector3.zero - transform.position*/);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, 100000, WalkerCollision);
         if(hit.collider != null)
         {
             Collider2D col = hit.collider;
@@ -28,9 +29,9 @@ public class Walker : MonoBehaviour {
         }
 
         // walk in current direction, left or right
-        RaycastHit2D hitLeftRight = Physics2D.Raycast(transform.position + transform.up * distanceToGround, transform.right, distanceToGround * 2);
+        RaycastHit2D hitLeftRight = Physics2D.Raycast(transform.position + transform.up * distanceToGround, transform.right, distanceToGround * 2, WalkerCollision);
         bool canGoRight = (hitLeftRight.collider == null);
-        hitLeftRight = Physics2D.Raycast(transform.position + transform.up * distanceToGround, -transform.right, distanceToGround * 2);
+        hitLeftRight = Physics2D.Raycast(transform.position + transform.up * distanceToGround, -transform.right, distanceToGround * 2, WalkerCollision);
         bool canGoLeft = (hitLeftRight.collider == null);
 
 
