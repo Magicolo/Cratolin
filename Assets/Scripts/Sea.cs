@@ -40,14 +40,14 @@ public class Sea : MonoBehaviour {
             if(spawnLeft && lstTreesSpawnedLeft.Count < maxTreeCountEachSide)
             {
                 lstListToSpawnIn = lstTreesSpawnedLeft;
-                spawnPos = new Vector3(GetComponent<BoxCollider2D>().bounds.min.x, GetComponent<BoxCollider2D>().bounds.max.y);
-                spawnPos += -transform.right * Random.Range(40, 60) * lstListToSpawnIn.Count;
+                spawnPos = transform.position - transform.right * transform.localScale.x / 2 + transform.up * transform.localScale.y / 2;
+                spawnPos -= transform.right * Random.Range(15, 40) * lstListToSpawnIn.Count;
             }
             else if (!spawnLeft && lstTreesSpawnedRight.Count < maxTreeCountEachSide)
             {
                 lstListToSpawnIn = lstTreesSpawnedRight;
-                spawnPos = new Vector3(GetComponent<BoxCollider2D>().bounds.max.x, GetComponent<BoxCollider2D>().bounds.max.y);
-                spawnPos += transform.right * Random.Range(40, 60) * lstListToSpawnIn.Count;
+                spawnPos = transform.position + transform.right * transform.localScale.x / 2 + transform.up * transform.localScale.y / 2;
+                spawnPos += transform.right * Random.Range(15, 40) * lstListToSpawnIn.Count;
             }
 
             if(lstListToSpawnIn != null)
@@ -63,6 +63,15 @@ public class Sea : MonoBehaviour {
             }
         }
         
+    }
+
+    void OnDrawGizmos()
+    {
+        Vector3 left = transform.position - transform.right * transform.localScale.x / 2 + transform.up * transform.localScale.y / 2;
+        Vector3 right = transform.position + transform.right * transform.localScale.x / 2 + transform.up * transform.localScale.y / 2;
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(left, 4);
+        Gizmos.DrawSphere(right, 4);
     }
 
     public void IncreaseWater()
