@@ -40,7 +40,6 @@ public class Sea : MonoBehaviour {
 
     private void RefreshRatio()
     {
-        print(ratio);
         ratio = Mathf.Clamp(ratio, 0f, 1f);
         sprite.transform.localScale = new Vector3(sprite.transform.localScale.x, ratio, 1);
     }

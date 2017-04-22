@@ -5,6 +5,7 @@ using UnityEngine;
 public class RainDrop : MonoBehaviour {
 
     public LayerMask PlanetLayer;
+    public float speed;
 
 	// Use this for initialization
 	void Start () {
@@ -13,7 +14,7 @@ public class RainDrop : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position -= transform.up * Time.deltaTime;
+        transform.position -= transform.up * Time.deltaTime * speed;
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)
