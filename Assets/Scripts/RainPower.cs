@@ -1,34 +1,40 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class RainPower : PowerBase {
+public class RainPower : PowerBase
+{
+	public float Cooldown = 1f;
+	public LayerMask Mask;
+	public RainCloud Prefab;
 
-    public LayerMask Mask;
-    public RainCloud Prefab;
+	public override bool CanUse
+	{
+		get { return base.CanUse && Chronos.Instance.CurrentTime - lastUse >= Cooldown; }
+	}
+	public override int RemainingUses
+	{
+		get { return -1; }
+	}
 
-    public override GameObject Create(Vector2 position)
-    {
-        if (!CanPlace(position))
-            return null;
+	float lastUse = float.MinValue;
 
-        RainCloud objRainCloud = Instantiate(Prefab);
-        objRainCloud.transform.position = position;
+	public override GameObject Create(Vector2 position)
+	{
+		if (!CanPlace(position))
+			return null;
 
-        RaycastHit2D hit = Physics2D.Raycast(objRainCloud.transform.position, Vector3.zero - objRainCloud.transform.position, 10000, Mask);
+		RainCloud objRainCloud = Instantiate(Prefab);
+		objRainCloud.transform.position = position;
 
-        Vector2 v2 = (Vector2)objRainCloud.transform.position - Vector2.zero;
-        float angle = Mathf.Atan2(v2.y, v2.x) * Mathf.Rad2Deg;
+		RaycastHit2D hit = Physics2D.Raycast(objRainCloud.transform.position, Vector3.zero - objRainCloud.transform.position, 10000, Mask);
 
-        objRainCloud.transform.localEulerAngles = new Vector3(0, 0, angle - 90);
+		Vector2 v2 = (Vector2)objRainCloud.transform.position - Vector2.zero;
+		float angle = Mathf.Atan2(v2.y, v2.x) * Mathf.Rad2Deg;
 
-        objRainCloud.transform.position = (Vector3)hit.point + objRainCloud.transform.up * objRainCloud.distanceToGround;
+		objRainCloud.transform.localEulerAngles = new Vector3(0, 0, angle - 90);
 
-        return objRainCloud.gameObject;
-    }
+		objRainCloud.transform.position = (Vector3)hit.point + objRainCloud.transform.up * objRainCloud.distanceToGround;
+		lastUse = Chronos.Instance.CurrentTime;
 
-    public override bool CanPlace(Vector2 position)
-    {
-        return true;
-    }
+		return objRainCloud.gameObject;
+	}
 }
