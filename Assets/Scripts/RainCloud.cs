@@ -20,7 +20,7 @@ public class RainCloud : MonoBehaviour {
 		if(Time.time - lastTimeSpawn > 1)
         {
             lastTimeSpawn = Time.time;
-            GameObject obj = Instantiate(rainDropPrefab);
+            GameObject obj = Instantiate(rainDropPrefab); 
             obj.transform.position = transform.position;
             obj.transform.up = transform.up;
 

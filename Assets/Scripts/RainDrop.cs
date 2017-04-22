@@ -18,7 +18,10 @@ public class RainDrop : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(PlanetLayer == (PlanetLayer | (1 << collision.gameObject.layer)))
+        if (collision.gameObject.GetComponent<Sea>() != null)
+            collision.gameObject.GetComponent<Sea>().IncreaseWater();
+
+        if (PlanetLayer == (PlanetLayer | (1 << collision.gameObject.layer)))
         {
             Destroy(gameObject);
         }
