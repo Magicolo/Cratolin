@@ -11,6 +11,8 @@ public class SplatterElementDying : SplatterComponent {
     public SplattersGroup CurrentSplatter;
 
     public override Sprite getSplatter(){
+         if(CurrentSplatter == null)
+            return null;
         var t = 1 - (Chronos.Instance.Time - startT) / TimeToDie;
         t = t * (maxGrow - minGrow) + minGrow;
         t = Mathf.Clamp(t,minGrow,maxGrow);

@@ -17,6 +17,8 @@ public class SplatterElementComponent : SplatterComponent {
     private SplattersGroup CurrentSplatter;
 
     public override Sprite getSplatter(){
+        if(CurrentSplatter == null)
+            return null;
         var t = (Chronos.Instance.Time - startT) / TimeToFullGrow;
         t = t * (maxGrow - minGrow) + minGrow;
         t = Mathf.Clamp(t,minGrow,maxGrow);
