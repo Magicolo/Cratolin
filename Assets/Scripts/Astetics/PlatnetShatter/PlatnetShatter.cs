@@ -34,6 +34,10 @@ public PlatnetShatterChunk[] ShaderedPrefabs;
     {
 		var newPiece = GameObject.Instantiate(ShaderedPrefabs[Random.Range(0,ShaderedPrefabs.Length-1)]);
 		var newPieceGo = newPiece.gameObject;
+
+		Vector3 randomDirection = new Vector3(Random.value, Random.value, Random.value);
+		newPiece.Velocity = randomDirection * Random.Range(40,90);
+		newPiece.spin = Random.Range(-60f,60f);
 		
     }
 
