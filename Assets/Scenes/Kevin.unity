@@ -108,6 +108,50 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &487518450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 487518452}
+  - component: {fileID: 487518451}
+  m_Layer: 0
+  m_Name: Volcano
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &487518451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 487518450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfaa0bf922086494cbab9da085f6b267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mask:
+    serializedVersion: 2
+    m_Bits: 256
+  Prefab: {fileID: 114567798090970034, guid: 6a4b30cd87928cc4db0fe39f6c2fcd56, type: 2}
+--- !u!4 &487518452
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 487518450}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &790209721
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,7 +224,9 @@ GameObject:
   - component: {fileID: 1191048911}
   - component: {fileID: 1191048912}
   - component: {fileID: 1191048913}
-  m_Layer: 0
+  - component: {fileID: 1191048914}
+  - component: {fileID: 1191048915}
+  m_Layer: 8
   m_Name: Planet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,6 +299,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 2
   Transform: {fileID: 1191048911}
+--- !u!58 &1191048914
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1191048910}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 320
+--- !u!114 &1191048915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1191048910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a072d126ece8d964b84980b69ffd543d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1747889885
 GameObject:
   m_ObjectHideFlags: 0
