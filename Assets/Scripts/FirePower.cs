@@ -8,7 +8,7 @@ public class FirePower : PowerBase {
 
     public override bool CanUse
     {
-        get { return base.CanUse && Chronos.Instance.CurrentTime - lastUse >= Cooldown; }
+        get { return base.CanUse && Chronos.Instance.Time - lastUse >= Cooldown; }
     }
     public override int RemainingUses
     {
