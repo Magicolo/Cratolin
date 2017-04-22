@@ -43,17 +43,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1819943128840694
+--- !u!1 &1656776549952148
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4402122513909256}
-  - component: {fileID: 60680115279327704}
+  - component: {fileID: 4547755138794572}
+  - component: {fileID: 58617977096745714}
   m_Layer: 0
-  m_Name: Collider
+  m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,6 +70,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4278626930203982}
+  - {fileID: 4547755138794572}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -82,53 +83,38 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: -0.21643952, w: 0.97629607}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4402122513909256}
+  m_Children: []
   m_Father: {fileID: 4083603221072714}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -25}
---- !u!4 &4402122513909256
+--- !u!4 &4547755138794572
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1819943128840694}
+  m_GameObject: {fileID: 1656776549952148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4278626930203982}
-  m_RootOrder: 0
+  m_Father: {fileID: 4083603221072714}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &60680115279327704
-PolygonCollider2D:
+--- !u!58 &58617977096745714
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1819943128840694}
+  m_GameObject: {fileID: 1656776549952148}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 53.00935, y: 24.587759}
-      - {x: -14.096975, y: 19.28479}
-      - {x: -54.526085, y: -24.82996}
-      - {x: 3.5823162, y: -8.685964}
-      - {x: 25.942951, y: 5.4037466}
+  m_Offset: {x: 0, y: 4}
+  serializedVersion: 2
+  m_Radius: 20
 --- !u!114 &114586020833897292
 MonoBehaviour:
   m_ObjectHideFlags: 1

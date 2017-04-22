@@ -13,6 +13,8 @@ public class GeneratePlanetMask : MonoBehaviour {
 	float nextUpdate;
 	public float timeBetweenUpdate = 1;
 
+	private Color[] allBlack;
+
 	void Start () {
 		var sr = GetComponent<SpriteRenderer>();
 		var ssize = sr.bounds.size;
@@ -23,7 +25,16 @@ public class GeneratePlanetMask : MonoBehaviour {
 		height = (int)ssize.y;
 
 		nextUpdate =  0;
+		CrateBlack();
 	}
+	
+	Color fillColor = new Color(0,0,0,0);
+    private void CrateBlack()
+    {
+		allBlack = new Color[width * height];
+        for (int i = 0; i < allBlack.Length; i++)
+            allBlack[i] = fillColor;
+    }
 	
 	void Update ()
     {
@@ -51,13 +62,9 @@ public class GeneratePlanetMask : MonoBehaviour {
         mask.Apply();
     }
 
-	Color fillColor = new Color(0,0,0,0);
     private void MakeItBlack()
     {
-        Color[] cs = new Color[width * height];
-        for (int i = 0; i < cs.Length; i++)
-            cs[i] = fillColor;
-        mask.SetPixels(cs);
+        mask.SetPixels(allBlack);
     }
 
     private void DrawFrom(int xc, int yc, Sprite splater)

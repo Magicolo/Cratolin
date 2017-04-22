@@ -149,7 +149,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Renderer: {fileID: 212359220342742306}
-  Body: {fileID: 50438491555433840}
 --- !u!114 &114994306756868972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -162,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rotations: 50
-  Transform: {fileID: 4706376219659274}
+  Transform: {fileID: 4868535008367840}
 --- !u!212 &212359220342742306
 SpriteRenderer:
   m_ObjectHideFlags: 1
