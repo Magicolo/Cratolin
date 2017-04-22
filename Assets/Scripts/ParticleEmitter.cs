@@ -3,13 +3,13 @@ using UnityEngine;
 
 public abstract class ParticleEmitter<T> : MonoBehaviour where T : Component
 {
-	public T Prefab;
+	public T[] Prefabs;
 
 	readonly Stack<T> pool = new Stack<T>();
 
 	public virtual T Spawn()
 	{
-		var particle = pool.Count > 0 ? pool.Pop() : Instantiate(Prefab, transform);
+		var particle = pool.Count > 0 ? pool.Pop() : Instantiate(Prefabs[Random.Range(0, Prefabs.Length)], transform);
 		particle.gameObject.SetActive(true);
 
 		return particle;

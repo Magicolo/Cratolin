@@ -228,7 +228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19d64141d76916e4e9bf51563b7c05ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 114788366557875622, guid: c9dec94f207094f4d8a30b00000918e6, type: 2}
+  Prefabs:
+  - {fileID: 114788366557875622, guid: c9dec94f207094f4d8a30b00000918e6, type: 2}
   SpawnDelay: {x: 2, y: 4}
 --- !u!114 &114567798090970034
 MonoBehaviour:
@@ -259,7 +260,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36ba6cb6d8e077145895e5b200a17fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 114537073347499870, guid: b896dc4dffb8f06469286aebe117fa85, type: 2}
+  Prefabs:
+  - {fileID: 114537073347499870, guid: b896dc4dffb8f06469286aebe117fa85, type: 2}
+  - {fileID: 114537073347499870, guid: dd61942ee0ad15b48b76e40525bcc2c5, type: 2}
+  - {fileID: 114537073347499870, guid: c55ee98d0e3f1e047a8418d214f4ca5e, type: 2}
   SpawnDelay: {x: 0.5, y: 2}
   Burst: {x: 2, y: 10}
 --- !u!212 &212722801031386966

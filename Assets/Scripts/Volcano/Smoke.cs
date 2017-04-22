@@ -23,7 +23,7 @@ public class Smoke : ParticleEmitter<SmokeParticle>
 	public override SmokeParticle Spawn()
 	{
 		var particle = base.Spawn();
-		particle.Initialize(this, transform.position, new Vector2(Random.Range(-25f, 25f), 25f));
+		particle.Initialize(this, transform.position, new Vector2(Random.Range(-15f, 15f), 15f));
 
 		return particle;
 	}
