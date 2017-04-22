@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class WheelPowerItem : MonoBehaviour {
 
+    public GameObject grayedOutSprite;
+
     private float currentAlpha = 1;
     private float destAlpha = 1;
 
@@ -18,14 +20,16 @@ public class WheelPowerItem : MonoBehaviour {
         transform.eulerAngles = Vector3.zero;
 
         currentAlpha = Mathf.Lerp(currentAlpha, destAlpha, Time.unscaledDeltaTime * 8);
-        SpriteRenderer[] sprites = GetComponentsInChildren<SpriteRenderer>();
-        foreach (SpriteRenderer sprite in sprites)
+        Renderer[] sprites = GetComponentsInChildren<Renderer>();
+        foreach (Renderer sprite in sprites)
         {
-            sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, currentAlpha);
+            sprite.material.color = new Color(sprite.material.color.r, sprite.material.color.g, sprite.material.color.b, currentAlpha);
         }
 
         int uses = GetComponent<PowerBase>().RemainingUses;
         GetComponentInChildren<TextMesh>().text = uses == -1 ? "" : uses.ToString();
+
+        grayedOutSprite.SetActive(!GetComponent<PowerBase>().CanUse);
     }
 
     public void Spawn(Vector3 pPosition)
