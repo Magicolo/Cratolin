@@ -2,19 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatnetShader : MonoBehaviour {
+public class PlatnetShatter : MonoBehaviour {
+public PlatnetShatterChunk[] ShaderedPrefabs;
 
-	public GameObject[] ShaderedPrefabs;
+	public int ShatterAmountMin;
+	public int ShatterAmountMax;
 
-	// Use this for initialization
+	public bool testDestroy;	
 	void Start () {
 		
 	}
 	
-	// Update is called once per frame
 	void Update () {
-		
+		if(testDestroy){
+			testDestroy = false;
+			Shatter();
+		}
 	}
+    public void Shatter()
+    {
+		int amount =  Random.Range(ShatterAmountMin,ShatterAmountMax);
+		for (int i = 0; i < amount; i++)
+		{
+			SpawnPiece();
+		}
 
-	
+        Destroy(this.gameObject);
+    }
+
+    private void SpawnPiece()
+    {
+		var newPiece = GameObject.Instantiate(ShaderedPrefabs[Random.Range(0,ShaderedPrefabs.Length-1)]);
+		var newPieceGo = newPiece.gameObject;
+		
+    }
+
 }

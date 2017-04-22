@@ -2,19 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatnetShader : MonoBehaviour {
+public class PlatnetShatterChunk : MonoBehaviour {
 
-	public GameObject[] ShaderedPrefabs;
+    
+    void Start () {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    }
 
-	
+    void Update () {
+
+    }
+
 }
