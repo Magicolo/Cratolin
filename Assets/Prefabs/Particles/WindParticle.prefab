@@ -137,8 +137,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a96c5cf669371154b83f73207e3eaa12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maskPlanet:
+    serializedVersion: 2
+    m_Bits: 256
   distanceFormPlanetCenter: 325
   moveSpeed: 100
+  TreePrefab: {fileID: 114046027632892338, guid: 0fa82a2b05cbdaa458a0a238a6e8056f,
+    type: 2}
 --- !u!212 &212346766772774596
 SpriteRenderer:
   m_ObjectHideFlags: 1

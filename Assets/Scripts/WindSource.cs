@@ -12,14 +12,15 @@ public class WindSource : MonoBehaviour {
     {
         yield return null;
 
-        
 
-        while(true)
+        float totalTime = 0;
+        while (true)
         {
-            float totalTime = 0;
+            
             float randomTime = Random.Range(0.05f, 0.2f);
             totalTime += randomTime;
 
+            print(totalTime + "   " + totalLifeTime);
             if (totalTime < totalLifeTime)
             {
                 WindParticle windParticle = Instantiate(WindParticlePrefab);
@@ -30,6 +31,7 @@ public class WindSource : MonoBehaviour {
             else
             {
                 Destroy(gameObject);
+                break;
             }
         }
         

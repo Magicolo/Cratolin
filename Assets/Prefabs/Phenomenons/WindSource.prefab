@@ -51,6 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9008effcdadb37e489146b09ca342b0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalLifeTime: 5
+  totalLifeTime: 2.5
   WindParticlePrefab: {fileID: 114442345268315598, guid: 41428ce44a173614981217b3cf4ad5d1,
     type: 2}

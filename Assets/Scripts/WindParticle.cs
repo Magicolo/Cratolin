@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class WindParticle : MonoBehaviour {
 
+    public LayerMask maskPlanet;
     public float distanceFormPlanetCenter;
     public float moveSpeed;
+    public Tree TreePrefab;
 
     private float direction = 1;
     private float lifeTimer;
     private float waveAmplitude;
+    private bool polenized = false;
 
     public float Direction { get { return direction; } set { direction = value; } }
 
@@ -22,12 +25,30 @@ public class WindParticle : MonoBehaviour {
         GetComponent<TrailRenderer>().Clear();
 
         // Not all particles have trails
-        if (Random.Range(0, 4) > 0)
+        if (Random.Range(0, 5) > 0)
             Destroy(GetComponent<TrailRenderer>());
     }
 	
 	// Update is called once per frame
 	void Update () {
+
+        // Destroy on hitting ground
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero, 1000f, maskPlanet);
+        if(hit.collider != null)
+        {
+            // Small chance to spawn tree if polenized
+            if(polenized && Random.Range(0, 10) == 0)
+            {
+                Tree tree = Instantiate(TreePrefab, transform.position, Quaternion.FromToRotation(Vector2.up, transform.position.normalized), Planet.Instance.transform);
+            }  
+
+            Destroy(gameObject);
+            return;
+        }
+
+        RaycastHit2D hitTree = Physics2D.Raycast(transform.position, Vector2.zero);
+        if (hitTree.collider != null && hitTree.collider.GetComponent<Tree>() != null)
+            polenized = true;
 
         lifeTimer += Time.deltaTime;
 
