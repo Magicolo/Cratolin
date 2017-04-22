@@ -197,52 +197,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7c5ef5d5709aa06448aa4347aef4a01a, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &737418554
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4311367466446092, guid: 6a4b30cd87928cc4db0fe39f6c2fcd56, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4311367466446092, guid: 6a4b30cd87928cc4db0fe39f6c2fcd56, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4311367466446092, guid: 6a4b30cd87928cc4db0fe39f6c2fcd56, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4311367466446092, guid: 6a4b30cd87928cc4db0fe39f6c2fcd56, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4311367466446092, guid: 6a4b30cd87928cc4db0fe39f6c2fcd56, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4311367466446092, guid: 6a4b30cd87928cc4db0fe39f6c2fcd56, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4311367466446092, guid: 6a4b30cd87928cc4db0fe39f6c2fcd56, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4311367466446092, guid: 6a4b30cd87928cc4db0fe39f6c2fcd56, type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1068102580707832, guid: 6a4b30cd87928cc4db0fe39f6c2fcd56, type: 2}
-      propertyPath: m_Name
-      value: Volcano (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 6a4b30cd87928cc4db0fe39f6c2fcd56, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &790209721
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +487,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 400
+  orthographic size: 420
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

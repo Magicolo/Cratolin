@@ -13,7 +13,7 @@ public class VolcanoPower : PowerBase
 	}
 	public override int RemainingUses
 	{
-		get { return Uses = uses; }
+		get { return Uses - uses; }
 	}
 
 	int uses;
