@@ -60,6 +60,7 @@ public class WheelPower : MonoBehaviour {
             if(aimTransform.GetComponentInChildren<SpriteRenderer>().color.a > 0.5f)
             {
                 //TODO do power item effect if far away from center
+                currentItem.Spawn((worldPos - Vector3.zero) * 10);
             }
 
             Stop();

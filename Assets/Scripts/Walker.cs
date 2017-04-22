@@ -17,8 +17,6 @@ public class Walker : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        //transform.position += transform.right * Time.deltaTime;
-
         // stick to ground
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, 100000, WalkerCollision);
         if(hit.collider != null)
