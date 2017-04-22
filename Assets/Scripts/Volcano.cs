@@ -8,6 +8,8 @@ public class Volcano : MonoBehaviour
 	public SpriteRenderer Sprite;
 	public float ShakeAmplitude = 5f;
 	public float SpawnSpeed = 3f;
+	public Sprite Erupting;
+	public Sprite Extinguished;
 
 	States state;
 
