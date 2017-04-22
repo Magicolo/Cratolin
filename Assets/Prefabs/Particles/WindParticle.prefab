@@ -140,7 +140,7 @@ MonoBehaviour:
   maskPlanet:
     serializedVersion: 2
     m_Bits: 256
-  distanceFormPlanetCenter: 325
+  distanceFormPlanetCenter: 345
   moveSpeed: 100
   TreePrefab: {fileID: 114046027632892338, guid: 0fa82a2b05cbdaa458a0a238a6e8056f,
     type: 2}

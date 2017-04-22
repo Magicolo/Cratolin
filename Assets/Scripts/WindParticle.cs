@@ -37,7 +37,7 @@ public class WindParticle : MonoBehaviour {
         if(hit.collider != null)
         {
             // Small chance to spawn tree if polenized
-            if(polenized && Random.Range(0, 10) == 0)
+            if(polenized && Random.Range(0, 5) == 0)
             {
                 Tree tree = Instantiate(TreePrefab, transform.position, Quaternion.FromToRotation(Vector2.up, transform.position.normalized), Planet.Instance.transform);
             }  
@@ -47,8 +47,10 @@ public class WindParticle : MonoBehaviour {
         }
 
         RaycastHit2D hitTree = Physics2D.Raycast(transform.position, Vector2.zero);
-        if (hitTree.collider != null && hitTree.collider.GetComponent<Tree>() != null)
+        if (hitTree.collider != null && hitTree.collider.GetComponentInParent<Tree>() != null)
+        {
             polenized = true;
+        }
 
         lifeTimer += Time.deltaTime;
 
@@ -56,6 +58,9 @@ public class WindParticle : MonoBehaviour {
         transform.position = transform.up * (distanceFormPlanetCenter + Mathf.Sin(lifeTimer * 4) * waveAmplitude);
 
         transform.position += transform.right * Time.deltaTime * moveSpeed * Direction;
+
+        // go more and more closer to the planet
+        distanceFormPlanetCenter -= Time.deltaTime * 5;
 
     }
 }
