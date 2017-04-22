@@ -4,9 +4,9 @@ public class SmokeParticle : ParticleBase
 {
 	SmokeEmitter smoke;
 
-	public void Initialize(SmokeEmitter smoke, Vector2 position, Vector2 velocity, float friction = 0.995f, float lifeTime = 10f, float fadeOut = 3f)
+	public void Initialize(SmokeEmitter smoke, Vector2 position, Vector2 velocity, float friction = 0.995f, float lifeTime = 10f, float fadeIn = 1f, float fadeOut = 3f)
 	{
-		base.Initialize(position, velocity, friction, lifeTime, fadeOut);
+		base.Initialize(position, velocity, friction, lifeTime, fadeIn, fadeOut);
 
 		this.smoke = smoke;
 	}

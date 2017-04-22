@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4083603221072714}
   - component: {fileID: 114586020833897292}
   m_Layer: 0
-  m_Name: SmokeCloud
+  m_Name: SmokeCloud1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,10 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffaf9dc20b16d874aa18bbedcdeb79ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 1
-  Mask:
-    serializedVersion: 2
-    m_Bits: 0
   Renderer: {fileID: 212561457613401588}
 --- !u!212 &212561457613401588
 SpriteRenderer:

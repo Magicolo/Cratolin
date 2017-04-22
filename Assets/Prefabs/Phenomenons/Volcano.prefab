@@ -83,6 +83,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4159862160202894}
+  - component: {fileID: 114285402465779558}
   m_Layer: 0
   m_Name: Cloud
   m_TagString: Untagged
@@ -127,12 +128,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1802518310133108}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 40, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8, y: 107.000015, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4797639410637614}
-  m_RootOrder: 0
+  m_Father: {fileID: 4763650717593598}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4274287759797116
 Transform:
@@ -145,7 +146,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4763650717593598}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4311367466446092
 Transform:
@@ -186,6 +187,7 @@ Transform:
   m_Children:
   - {fileID: 4359614432413014}
   - {fileID: 4797639410637614}
+  - {fileID: 4159862160202894}
   - {fileID: 4274287759797116}
   m_Father: {fileID: 4915395522605788}
   m_RootOrder: 0
@@ -199,8 +201,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8, y: 67, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4159862160202894}
+  m_Children: []
   m_Father: {fileID: 4763650717593598}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -246,6 +247,22 @@ PolygonCollider2D:
       - {x: -95.054, y: -17.436005}
       - {x: 77.53876, y: -17.149994}
       - {x: 10.597931, y: 65.60693}
+--- !u!114 &114285402465779558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1802518310133108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f37b00d27338009488db44ceba5bb26f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prefabs:
+  - {fileID: 114586020833897292, guid: 3b3c589a8798d1445af0158cc6597004, type: 2}
+  - {fileID: 114586020833897292, guid: ba444d26eb29945438174a44e0a4f304, type: 2}
+  - {fileID: 114586020833897292, guid: 7df796b52d4fe514a881d78f219d8372, type: 2}
+  SpawnDelay: 8
 --- !u!114 &114552874372740532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -259,10 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefabs:
   - {fileID: 114788366557875622, guid: c9dec94f207094f4d8a30b00000918e6, type: 2}
-  SpawnDelay: {x: 2, y: 4}
-  CloudRoot: {fileID: 4159862160202894}
-  CloudPrefab: {fileID: 114586020833897292, guid: 3b3c589a8798d1445af0158cc6597004,
-    type: 2}
+  SpawnDelay: {x: 0.5, y: 2}
 --- !u!114 &114567798090970034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -278,6 +292,7 @@ MonoBehaviour:
   SpawnSpeed: 5
   Lava: {fileID: 114827596113131400}
   Smoke: {fileID: 114552874372740532}
+  Cloud: {fileID: 114285402465779558}
   Renderer: {fileID: 212722801031386966}
   Erupting: {fileID: 21300000, guid: 4d617417c3e15454899b8c07917d0f4e, type: 3}
   Extinguished: {fileID: 21300000, guid: f3a044cb731b728428740e6e38b1da59, type: 3}

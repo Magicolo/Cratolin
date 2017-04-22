@@ -1,4 +1,4 @@
-﻿public class SmokeCloudEmitter : ParticleEmitterBase<SmokeCloud>
+﻿public class SmokeCloudEmitter : ParticleEmitterBase<SmokeCloudParticle>
 {
 	public float SpawnDelay = 8f;
 
@@ -18,10 +18,10 @@
 		}
 	}
 
-	public override SmokeCloud Spawn()
+	public override SmokeCloudParticle Spawn()
 	{
 		var cloud = base.Spawn();
-		cloud.Initialize(this, transform.position);
+		cloud.Initialize(this, transform.position, 1.5f);
 
 		return cloud;
 	}
