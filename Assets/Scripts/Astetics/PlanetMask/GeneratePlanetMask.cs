@@ -27,7 +27,7 @@ public class GeneratePlanetMask : MonoBehaviour {
 	
 	void Update ()
     {
-		if(Time.time > nextUpdate){
+		if(Time.time > nextUpdate){	
 			nextUpdate =  Chronos.Instance.Time + timeBetweenUpdate;
 		}else{
 			return;
@@ -39,8 +39,8 @@ public class GeneratePlanetMask : MonoBehaviour {
 
         foreach (var g in grass)
         {
-            var x = (int)(g.transform.position.x + width / 2);
-            var y = (int)(g.transform.position.y + height / 2);
+            var x = (int)(g.transform.localPosition.x - width/2);
+            var y = (int)(g.transform.localPosition.y - height/2);
 			var splatterElement = g.GetComponent<SplatterElementComponent>();
 			var splater = splatterElement.getSplatter();
             DrawFrom(x, y, splater);
@@ -65,8 +65,8 @@ public class GeneratePlanetMask : MonoBehaviour {
 		// TODO si on veux separer le texture en plusieurs sprites, on doit 
 		// seulement prend la zone du sprite
 		var colors = splater.texture.GetPixels();
-		int x0 = xc;// - width/2;
-		int y0 = yc;// - height/2;
+		int x0 = xc - sw/2;
+		int y0 = yc - sh/2;
 		for (int x = 0; x < sw; x++)
 		{
 			for (int y = 0; y < sh; y++)
