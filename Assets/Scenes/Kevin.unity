@@ -179,6 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1191048911}
   - component: {fileID: 1191048912}
+  - component: {fileID: 1191048913}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Untagged
@@ -239,6 +240,19 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+--- !u!114 &1191048913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1191048910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db52470896f3f384fac533a5f52e29c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 2
+  Transform: {fileID: 1191048911}
 --- !u!1 &1747889885
 GameObject:
   m_ObjectHideFlags: 0
