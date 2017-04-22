@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Lava : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class Lava : MonoBehaviour
 
 	float nextParticle;
 	readonly Stack<LavaParticle> pool = new Stack<LavaParticle>();
+
+	void OnEnable()
+	{
+		nextParticle = Chronos.Instance.CurrentTime;
+	}
 
 	void FixedUpdate()
 	{
