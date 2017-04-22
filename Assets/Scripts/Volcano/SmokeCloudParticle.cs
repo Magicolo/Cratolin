@@ -5,7 +5,7 @@ public class SmokeCloudParticle : ParticleBase
 	SmokeCloudEmitter emitter;
 	float moveSpeed;
 
-	public void Initialize(SmokeCloudEmitter emitter, Vector2 position, float moveSpeed, float lifeTime = 75f, float fadeIn = 5f, float fadeOut = 4f)
+	public void Initialize(SmokeCloudEmitter emitter, Vector3 position, float moveSpeed, float lifeTime = 75f, float fadeIn = 5f, float fadeOut = 4f)
 	{
 		base.Initialize(position, Vector2.zero, 1f, lifeTime, fadeIn, fadeOut);
 

@@ -11,7 +11,7 @@ public abstract class ParticleBase : MonoBehaviour
 	protected float fadeOut;
 	protected bool hasFaded;
 
-	protected void Initialize(Vector2 position, Vector2 velocity, float friction, float lifeTime, float fadeIn, float fadeOut)
+	protected void Initialize(Vector3 position, Vector2 velocity, float friction, float lifeTime, float fadeIn, float fadeOut)
 	{
 		transform.position = position;
 		transform.localEulerAngles = Vector3.zero;

@@ -129,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1802518310133108}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8, y: 107.000015, z: 1}
+  m_LocalPosition: {x: -8, y: 107.000015, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4763650717593598}
@@ -169,7 +169,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1388659696706098}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8, y: 67, z: 1}
+  m_LocalPosition: {x: -8, y: 67, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4763650717593598}
@@ -311,8 +311,8 @@ MonoBehaviour:
   - {fileID: 114537073347499870, guid: b896dc4dffb8f06469286aebe117fa85, type: 2}
   - {fileID: 114537073347499870, guid: dd61942ee0ad15b48b76e40525bcc2c5, type: 2}
   - {fileID: 114537073347499870, guid: c55ee98d0e3f1e047a8418d214f4ca5e, type: 2}
-  SpawnDelay: {x: 0.5, y: 2}
-  Burst: {x: 2, y: 10}
+  SpawnDelay: {x: 0.5, y: 1.5}
+  Burst: {x: 4, y: 10}
 --- !u!212 &212722801031386966
 SpriteRenderer:
   m_ObjectHideFlags: 1
