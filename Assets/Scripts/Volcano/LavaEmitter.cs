@@ -34,4 +34,11 @@ public class LavaEmitter : ParticleEmitterBase<LavaParticle>
 
 		return particle;
 	}
+
+	public override void Despawn(LavaParticle particle)
+	{
+		base.Despawn(particle);
+
+		Planet.Instance.Temperature += Chronos.Instance.DeltaTime;
+	}
 }

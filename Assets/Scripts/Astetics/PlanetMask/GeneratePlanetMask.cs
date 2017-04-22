@@ -60,6 +60,7 @@ public class GeneratePlanetMask : MonoBehaviour {
 
     private void DrawFrom(int xc, int yc, Sprite splater)
     {
+		if(splater == null) return;
 		var sw = (int)splater.bounds.size.x;
 		var sh = (int)splater.bounds.size.y;
 		// TODO si on veux separer le texture en plusieurs sprites, on doit 

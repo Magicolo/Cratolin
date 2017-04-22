@@ -6,7 +6,7 @@ public class LavaParticle : ParticleBase
 
 	public void Initialize(LavaEmitter lava, Vector2 position, Vector2 velocity, float friction = 0.98f, float lifeTime = 5f, float fadeOut = 1f)
 	{
-		base.Initialize(position, velocity, friction, lifeTime, fadeOut);
+		base.Initialize(position, velocity, friction, lifeTime, 0f, fadeOut);
 
 		this.lava = lava;
 	}
