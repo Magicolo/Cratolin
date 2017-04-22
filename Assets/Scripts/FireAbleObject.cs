@@ -11,8 +11,10 @@ public class FireAbleObject : MonoBehaviour {
     private bool inFire;
     private float timeInFire;
     
+    public bool IsOnFire { get { return inFire; } }
 
-	void Start () {
+
+    void Start () {
 		
 	}
 	
@@ -29,13 +31,16 @@ public class FireAbleObject : MonoBehaviour {
 
     public void StartFire()
     {
-        inFire = true;
-        timeInFire = 0;
+        if(!inFire)
+        {
+            inFire = true;
+            timeInFire = 0;
 
-        smokeParticles.Play();
+            smokeParticles.Play();
 
-        foreach (GameObject fire in fireAnimatedSprites)
-            fire.SetActive(true);
+            foreach (GameObject fire in fireAnimatedSprites)
+                fire.SetActive(true);
+        }
     }
 
     public void StopFire()

@@ -363,7 +363,7 @@ MonoBehaviour:
   - {fileID: 1628303484921588}
   - {fileID: 1750942940473278}
   - {fileID: 1875991629367590}
-  timeToBurn: 10
+  timeToBurn: 20
 --- !u!114 &114046027632892338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3479,7 +3479,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: -109
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0

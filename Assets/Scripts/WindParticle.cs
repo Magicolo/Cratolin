@@ -13,6 +13,7 @@ public class WindParticle : MonoBehaviour {
     private float lifeTimer;
     private float waveAmplitude;
     private bool polenized = false;
+    private bool inFire = false;
     private bool disabled = false;
 
     public float Direction { get { return direction; } set { direction = value; } }
@@ -54,7 +55,19 @@ public class WindParticle : MonoBehaviour {
         RaycastHit2D hitTree = Physics2D.Raycast(transform.position, Vector2.zero);
         if (hitTree.collider != null && hitTree.collider.GetComponentInParent<Tree>() != null)
         {
-            polenized = true;
+            if (inFire && hitTree.collider.GetComponentInParent<FireAbleObject>() != null && !hitTree.collider.GetComponentInParent<FireAbleObject>().IsOnFire)
+            {
+                // propagate fire particle on other tree;
+                hitTree.collider.GetComponentInParent<FireAbleObject>().StartFire();
+
+            }
+            else if (hitTree.collider.GetComponentInParent<FireAbleObject>() != null && hitTree.collider.GetComponentInParent<FireAbleObject>().IsOnFire)
+            {
+                inFire = true;
+                polenized = false;
+            }  
+            else if(!inFire)
+                polenized = true;
         }
 
         lifeTimer += Time.deltaTime;
