@@ -27,7 +27,7 @@ public class WheelPower : MonoBehaviour {
             foreach (RaycastHit2D hit in hits)
             {
                 WheelPowerItem item = hit.collider.GetComponent<WheelPowerItem>();
-                if (item != null)
+                if (item != null && item.GetComponent<PowerBase>().CanUse)
                 {
                     currentItem = item;
                     foreach(WheelPowerItem powerItem in items)
