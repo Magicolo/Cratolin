@@ -19,12 +19,6 @@ public class VolcanoPower : PowerBase
 	int uses;
 	float lastUse = float.MinValue;
 
-	void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Space))
-			Create(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-	}
-
 	public override GameObject Create(Vector2 position)
 	{
 		if (!CanPlace(position))
