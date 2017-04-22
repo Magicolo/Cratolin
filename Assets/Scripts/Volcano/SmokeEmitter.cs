@@ -23,7 +23,8 @@ public class SmokeEmitter : ParticleEmitterBase<SmokeParticle>
 	public override SmokeParticle Spawn()
 	{
 		var particle = base.Spawn();
-		particle.Initialize(this, transform.position, new Vector2(Random.Range(-15f, 15f), 15f));
+		particle.Initialize(this, transform.position, new Vector2(Random.Range(-15f, 15f), 10f));
+		Planet.Instance.CO2 += Chronos.Instance.DeltaTime;
 
 		return particle;
 	}
