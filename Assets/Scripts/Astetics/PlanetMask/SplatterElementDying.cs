@@ -30,7 +30,7 @@ public class SplatterElementDying : SplatterComponent
 
 	void Update()
 	{
-		if (TimeToDie != -1 && Chronos.Instance.Time > TimeToDie + startT)
+		if (TimeToDie != -1 && Chronos.Instance.Time > startT + TimeToDie)
 		{
 			Destroy(this.gameObject);
 		}
