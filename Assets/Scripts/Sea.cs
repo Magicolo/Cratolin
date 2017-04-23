@@ -7,11 +7,13 @@ public class Sea : MonoBehaviour {
     public float increment;
     public SpriteRenderer sprite;
     public Tree[] treePrefab;
+    public Walker walkerprefab;
     public float timeBetweenTreeSpawn;
     public int maxTreeCountEachSide;
     public LayerMask planetMask;
     
     public SmokeEmitter EvaporationParticle;
+    private float lastTimeSpawnedWalker;
 
     private float ratio;
     public float Ratio{
@@ -36,7 +38,16 @@ public class Sea : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         
-        if(Planet.Instance.Temperature > GameConstants.Instance.SeaDryoffTemperatureThreshold){
+        // spawn walker
+        if(Time.time - lastTimeSpawnedWalker > 10 && Planet.Instance.Ozone > 75 && ratio > 0.75f)
+        {
+            lastTimeSpawnedWalker = Time.time;
+            Walker walker = Instantiate(walkerprefab);
+            walker.transform.position = transform.position * 1.05f;
+        }
+
+
+        if (Planet.Instance.Temperature > GameConstants.Instance.SeaDryoffTemperatureThreshold){
             Ratio += GameConstants.Instance.SeaDryoffRate * Chronos.Instance.DeltaTime;
             EvaporationParticle.enabled = ratio > 0;
         }else{
