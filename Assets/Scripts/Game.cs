@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
@@ -7,11 +8,41 @@ public class Game : MonoBehaviour
 
 	void Awake()
 	{
-		Instance = this;
+		if (Instance != null)
+			Destroy(gameObject);
+		else
+		{
+			transform.parent = null;
+			DontDestroyOnLoad(gameObject);
+			Instance = this;
+		}
 	}
 
 	public void Reload()
 	{
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		StartCoroutine(LoadRoutine(SceneManager.GetActiveScene().name));
+	}
+
+	IEnumerator LoadRoutine(string name)
+	{
+		const float fadeIn = 0.25f;
+		const float fadeOut = 0.25f;
+
+		for (float i = 0; i < fadeIn; i += Chronos.Instance.DeltaTime)
+		{
+			WhiteScreen.Instance.Fade(i / fadeIn);
+			yield return null;
+		}
+
+		WhiteScreen.Instance.Fade(1f);
+		SceneManager.LoadScene(name);
+
+		for (float i = 0; i < fadeOut; i += Chronos.Instance.DeltaTime)
+		{
+			WhiteScreen.Instance.Fade(1f - i / fadeIn);
+			yield return null;
+		}
+
+		WhiteScreen.Instance.Fade(0f);
 	}
 }
