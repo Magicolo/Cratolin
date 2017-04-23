@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 public class PowerManager : MonoBehaviour
 {
@@ -8,9 +9,21 @@ public class PowerManager : MonoBehaviour
 
 	const string data = "Data";
 
+	public PowerCollectable[] Prefabs;
+
 	void Awake()
 	{
 		Instance = this;
+	}
+
+	public bool TrySpawnPower(Powers power, Vector3 position)
+	{
+		var prefab = Prefabs.FirstOrDefault(p => p.Power == power);
+
+		if (prefab == null || HasPower(prefab.Power)) return false;
+
+		Instantiate(prefab, position, Quaternion.identity, transform);
+		return true;
 	}
 
 	public bool HasPower(Powers power)
