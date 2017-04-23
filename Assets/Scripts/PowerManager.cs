@@ -16,13 +16,13 @@ public class PowerManager : MonoBehaviour
 		Instance = this;
 	}
 
-	public bool TrySpawnPower(Powers power, Vector3 position)
+	public bool TrySpawnPower(Powers power, Vector2 position)
 	{
 		var prefab = Prefabs.FirstOrDefault(p => p.Power == power);
 
 		if (prefab == null || HasPower(prefab.Power)) return false;
 
-		Instantiate(prefab, position, Quaternion.identity, transform);
+		Instantiate(prefab, new Vector3(position.x, position.y, -100f), Quaternion.identity, transform);
 		return true;
 	}
 
