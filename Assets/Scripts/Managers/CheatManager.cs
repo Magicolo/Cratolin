@@ -46,6 +46,13 @@ public class CheatManager : MonoBehaviour
 		if (Input.GetKey(KeyCode.P))
 			foreach (var item in FindObjectsOfType<Sea>())
 				item.ReduceWater();
+
+
+				
+		if (Input.GetKey(KeyCode.X)){
+			
+		}
+			
 	}
 #endif
 }
