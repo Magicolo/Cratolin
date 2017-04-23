@@ -109,8 +109,16 @@ public class Sea : MonoBehaviour
 			}
 		}
 
-		if (!windSpawned && willSpawnWind == this && !PowerManager.Instance.HasPower(PowerManager.Powers.Wind) && FindObjectsOfType<WindParticle>().Length > 20f)
-			PowerManager.Instance.TrySpawnPower(PowerManager.Powers.Wind, transform.position + transform.position.normalized * 50f);
+		if (!windSpawned && willSpawnWind == this && !PowerManager.Instance.HasPower(PowerManager.Powers.Wind))
+		{
+			var particles = FindObjectsOfType<WindParticle>();
+
+			if (particles.Length > 50f)
+			{
+				windSpawned = true;
+				PowerManager.Instance.TrySpawnPower(PowerManager.Powers.Wind, transform.position + transform.position.normalized * 50f);
+			}
+		}
 	}
 
 	void OnDrawGizmos()

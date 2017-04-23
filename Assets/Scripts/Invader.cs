@@ -65,7 +65,7 @@ public class Invader : MonoBehaviour
 
 	void UpdateCharging()
 	{
-		const float duration = 3f;
+		const float duration = 2f;
 
 		if (!Monolith.Instance.IsCompleted)
 			Shake(stateTime);
@@ -93,8 +93,8 @@ public class Invader : MonoBehaviour
 
 	void UpdateBeaming()
 	{
-		const float duration = 4f;
-		Shake(stateTime * duration + 3f);
+		const float duration = 3f;
+		Shake(stateTime * duration + 2f);
 
 		if (stateTime > duration)
 		{
@@ -108,7 +108,7 @@ public class Invader : MonoBehaviour
 
 	void UpdateWaiting()
 	{
-		const float duration = 6f;
+		const float duration = 3f;
 
 		if (stateTime > duration)
 		{
