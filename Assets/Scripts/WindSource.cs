@@ -23,6 +23,7 @@ public class WindSource : MonoBehaviour {
             {
                 WindParticle windParticle = Instantiate(WindParticlePrefab);
                 windParticle.transform.position = transform.position;
+                windParticle.transform.parent = null;
 
                 yield return new WaitForSeconds(randomTime);
             }
