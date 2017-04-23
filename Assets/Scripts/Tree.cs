@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Tree : MonoBehaviour {
 
+    public static readonly List<Tree> Trees = new List<Tree>();
+
     public enum States { Spawning, Idle }
 
     public SpriteRenderer[] Sprites;
@@ -17,8 +19,14 @@ public class Tree : MonoBehaviour {
 
     void Awake()
     {
+        Trees.Add(this);
         SwitchState(States.Spawning);
     }
+    
+	void OnDisable()
+	{
+		Trees.Remove(this);
+	}
 
     void FixedUpdate()
     {

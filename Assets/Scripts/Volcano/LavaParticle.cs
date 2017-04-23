@@ -32,16 +32,11 @@ public class LavaParticle : ParticleBase
 
 	void OnTriggerEnter2D(Collider2D collision)
 	{
-		var splatterC = collision.gameObject.GetComponent<SplatterElementComponent>();
-		if(splatterC != null && splatterC.FireKillsMe){
-			splatterC.DIE();
-			if (splater != null)
-			{
-				var splat = Instantiate(splater, transform.position, transform.rotation);
-				splat.transform.parent = Planet.Instance.Root;
-			}
-		}
-		
+		var splatter = collision.gameObject.GetComponent<SplatterElementComponent>();
+
+		if (splatter != null && splatter.FireKillsMe)
+			splatter.DIE();
+
 		Despawn();
 	}
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Walker : MonoBehaviour {
 
+    public static readonly List<Walker> Walkers = new List<Walker>();
+
     public float distanceToGround;
     public LayerMask WalkerCollision;
     public Transform Visual;
@@ -32,7 +34,7 @@ public class Walker : MonoBehaviour {
         timeSpawn = Time.time;
 
         lookAroundTimer = Random.Range(0f, 5f);
-
+        Walkers.Add(this);
     }
 
     public void Fear(Vector3 pPosition)
@@ -160,6 +162,10 @@ public class Walker : MonoBehaviour {
         lookAround.SetActive(!scared.activeInHierarchy && IsEvolved && !isWalking && lookAroundTimer < 1f);
         idle.SetActive(!scared.activeInHierarchy && IsEvolved && !isWalking && !lookAround.activeInHierarchy);
     }
-
     
+    void OnDisable()
+    {
+        Walkers.Remove(this);    
+    }
+
 }

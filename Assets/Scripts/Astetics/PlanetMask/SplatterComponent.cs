@@ -3,9 +3,14 @@ using UnityEngine;
 
 public abstract class SplatterComponent : MonoBehaviour
 {
-	public readonly static Dictionary<string, List<SplatterComponent>> Splatters = new Dictionary<string, List<SplatterComponent>>();
+	public readonly static Dictionary<string, List<SplatterComponent>> Splatters = new Dictionary<string, List<SplatterComponent>>
+	{
+		{ "Lava", new List<SplatterComponent>() },
+		{ "Grass", new List<SplatterComponent>() },
+	};
 
 	public abstract Sprite Splatter { get; }
+	public float radiusEffect;
 	public Color[] Pixels
 	{
 		get
@@ -14,6 +19,7 @@ public abstract class SplatterComponent : MonoBehaviour
 
 			if (splatter != lastSplatter && splatter != null)
 			{
+				radiusEffect = splatter.bounds.size.magnitude;
 				pixels = splatter.texture.GetPixels();
 				lastSplatter = splatter;
 			}
@@ -41,5 +47,5 @@ public abstract class SplatterComponent : MonoBehaviour
 	{
 		Splatters[transform.tag].Remove(this);
 	}
-
+	public abstract void DIE(float timeToDecayFactor = 1);
 }

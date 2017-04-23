@@ -6,6 +6,8 @@ public class FireAbleObject : MonoBehaviour {
 
     public static int nbInFire;
 
+    public static readonly List<FireAbleObject> FireAbles = new List<FireAbleObject>();
+
 
     public ParticleSystem smokeParticles;
     public GameObject[] fireAnimatedSprites;
@@ -18,10 +20,16 @@ public class FireAbleObject : MonoBehaviour {
     public bool IsOnFire { get { return inFire; } }
 
 
-    private float internalTemperature;
+    public float internalTemperature;
     void Start () {
 		internalTemperature = 0;
+        FireAbles.Add(this);
 	}
+
+    void OnDisable()
+    {
+        FireAbles.Remove(this);
+    }
 	
 	void Update () {
 

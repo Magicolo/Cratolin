@@ -73,7 +73,7 @@ public class GeneratePlanetMask : MonoBehaviour
 		if (splatter == null) return;
 
 		var sprite = splatter.Splatter;
-		if(sprite == null) return;
+		if (sprite == null) return;
 		var splatterWidth = (int)sprite.bounds.size.x;
 		var splatterHeight = (int)sprite.bounds.size.y;
 

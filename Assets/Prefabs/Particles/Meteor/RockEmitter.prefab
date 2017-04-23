@@ -55,7 +55,7 @@ MonoBehaviour:
   - {fileID: 114266260953527440, guid: de419fb3abf30084bae7d5e78fc04470, type: 2}
   - {fileID: 114628152978037010, guid: cfcf1c01b71a0df4fab307e9c76ad9ad, type: 2}
   - {fileID: 114597373767880612, guid: 202fa8c31ef9534428c88b16b26f7112, type: 2}
-  Burst: {x: 6, y: 10}
+  Burst: {x: 3, y: 5}
   StartDelay: {x: 0, y: 0}
   Once: 1
   DestroyWhenDone: 1
