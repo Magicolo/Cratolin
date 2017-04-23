@@ -2555,6 +2555,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimTransform: {fileID: 4542604850944360}
+  Powers:
+  - {fileID: 114246838699876968}
+  - {fileID: 114673408455716828}
+  - {fileID: 114809054260770726}
+  - {fileID: 114145431086366316}
+  - {fileID: 114126188219185378}
 --- !u!114 &114858438217403122
 MonoBehaviour:
   m_ObjectHideFlags: 1
