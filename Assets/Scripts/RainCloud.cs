@@ -9,6 +9,7 @@ public class RainCloud : MonoBehaviour {
     public float rainZoneWidth;
     public float timeBetweenRainDrop;
     public float lifeTime;
+    public AudioClip audioClip;
 
     private float lastTimeSpawn;
 
@@ -17,6 +18,8 @@ public class RainCloud : MonoBehaviour {
         lastTimeSpawn = Time.time;
 
         Destroy(gameObject, lifeTime);
+
+        SoundManager.Instance.PlaySound(audioClip);
     }
 	
 	// Update is called once per frame
