@@ -32,5 +32,14 @@ public class MeteorParticle : ParticleBase
 	void OnTriggerEnter2D(Collider2D collision)
 	{
 		Despawn();
+
+        Walker[] walkers = FindObjectsOfType<Walker>();
+        foreach(Walker walker in walkers)
+        {
+            if (Vector2.Distance(walker.transform.position, transform.position) < 15)
+            {
+                walker.CatchFire();
+            }
+        }
 	}
 }
