@@ -24,7 +24,7 @@ public class SmokeEmitter : ParticleEmitterBase<SmokeParticle>
 	{
 		var particle = base.Spawn();
 		particle.Initialize(this, transform.position, new Vector2(Random.Range(-15f, 15f), 10f));
-		Planet.Instance.CO2 += Chronos.Instance.DeltaTime;
+		Planet.Instance.CO2 += GameConstants.Instance.SmokeParticleCO2Emission;
 
 		return particle;
 	}
