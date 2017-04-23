@@ -27,10 +27,10 @@ public class SplatterElementComponent : SplatterComponent
 	}
 
 	void Awake(){
-		/*triggerCollider = gameObject.GetComponent<BoxCollider2D>();
+		triggerCollider = gameObject.GetComponent<BoxCollider2D>();
 		if(triggerCollider == null)
 			triggerCollider = gameObject.AddComponent<BoxCollider2D>();
-			triggerCollider.isTrigger = true;*/
+			triggerCollider.isTrigger = true;
 	}
 
 	void Start()
