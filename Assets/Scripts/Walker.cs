@@ -8,24 +8,36 @@ public class Walker : MonoBehaviour {
     public LayerMask WalkerCollision;
     public Transform Visual;
 
-    private bool isGoingRight = false;
-    private float timeSinceLastFear;
+    private bool isGoingRight = true;
+    private float timeSinceLastFear = float.MinValue;
 
 	// Use this for initialization
 	void Start () {
-		
+        transform.parent = Planet.Instance.transform;
 	}
 
-    public void Fear()
+    public void Fear(Vector3 pPosition)
     {
         timeSinceLastFear = Time.time;
+
+        bool fearLeftOf = (Vector2.Angle(transform.right, pPosition)) > 90 && (Vector2.Angle(transform.right, pPosition)) < 180;
+
+        if (fearLeftOf)
+            isGoingRight = false;
+        else
+            isGoingRight = true;
     }
 
     public float CurrentSpeed
     {
         get
         {
-            float speed = 1;
+            float speed = 20;
+
+            //to compensate for planet rotation
+            if (isGoingRight)
+                speed *= 2;
+
             if (Time.time - timeSinceLastFear < 3)
                 speed *= 3;
 
@@ -34,7 +46,7 @@ public class Walker : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update ()
+	void LateUpdate ()
     {
         // stick to ground
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, 100000, WalkerCollision);
@@ -53,11 +65,11 @@ public class Walker : MonoBehaviour {
 
 
         if (isGoingRight && canGoRight)
-            transform.position += transform.right * Time.deltaTime * CurrentSpeed;
+            transform.localPosition += transform.right * Time.deltaTime * CurrentSpeed;
         else if (isGoingRight && !canGoRight)
             isGoingRight = false;
         else if (!isGoingRight && canGoLeft)
-            transform.position -= transform.right * Time.deltaTime * CurrentSpeed;
+            transform.localPosition -= transform.right * Time.deltaTime * CurrentSpeed;
         else if (!isGoingRight && !canGoLeft)
             isGoingRight = true;
 
