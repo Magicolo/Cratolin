@@ -27,6 +27,7 @@ public class SoundManager : MonoBehaviour {
     public AudioClip generalErrorAudio;
     public AudioClip generalKeypadAudio;
     public AudioClip generalDoorOpeningAudio;
+    public AudioClip generalClick;
 
     void Start () {
 		cameraTransform = Camera.main.transform;
@@ -109,6 +110,12 @@ public class SoundManager : MonoBehaviour {
     public float DoorOpeningSound()
     {
         AudioClip clip = generalDoorOpeningAudio;
+        return PlaySound(clip);
+    }
+
+    public float PlayGeneralClick()
+    {
+        AudioClip clip = generalClick;
         return PlaySound(clip);
     }
 

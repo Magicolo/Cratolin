@@ -18,6 +18,7 @@ public class PauseMenu : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             IsShown = !IsShown;
+            SoundManager.Instance.PlayGeneralClick();
         }
 
         CanvasGroup group = GetComponent<CanvasGroup>();
@@ -31,12 +32,20 @@ public class PauseMenu : MonoBehaviour {
 
     public void GoMainMenu()
     {
+        SoundManager.Instance.PlayGeneralClick();
         Game.Instance.GoMainMenu();
         //UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 
     public void Exit()
     {
+        SoundManager.Instance.PlayGeneralClick();
         Application.Quit();
+    }
+
+    public void Resume()
+    {
+        IsShown = !IsShown;
+        SoundManager.Instance.PlayGeneralClick();
     }
 }
