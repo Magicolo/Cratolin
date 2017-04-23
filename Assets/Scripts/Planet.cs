@@ -5,6 +5,7 @@ public class Planet : MonoBehaviour
 	public static Planet Instance { get; private set; }
 
 	public PlanetSplosionEmitter EmitterWhenDestroyed;
+    public AudioClip explosionPlanet;
 
 	public Transform Root;
 
@@ -52,6 +53,8 @@ public class Planet : MonoBehaviour
 
 	public void Destroy()
 	{
+        SoundManager.Instance.PlaySound(explosionPlanet);
+
 		PowerManager.Instance.TrySpawnPower(PowerManager.Powers.Volcano, transform.position);
 		gameObject.SetActive(false);
 

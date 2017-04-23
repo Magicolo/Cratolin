@@ -2866,7 +2866,6 @@ MonoBehaviour:
   maxGrow: 1
   SplattersRandom:
   - {fileID: 11400000, guid: d0d61a847d0868146bed0e4fc93b6b53, type: 2}
-  canDie: 1
 --- !u!114 &114474336643233624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2946,6 +2945,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EmitterWhenDestroyed: {fileID: 114888577808731270, guid: e851477168bb8b94db938c436772bb2d,
     type: 2}
+  explosionPlanet: {fileID: 8300000, guid: 859b6cf7d7a2274419d421d438a72e04, type: 3}
   Root: {fileID: 4361542592884722}
   temperature: 0
   co2: 0
@@ -3327,7 +3327,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1553661708
+  randomSeed: 1961479534
   InitialModule:
     serializedVersion: 3
     enabled: 1
