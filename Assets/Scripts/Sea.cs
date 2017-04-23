@@ -10,8 +10,18 @@ public class Sea : MonoBehaviour {
     public float timeBetweenTreeSpawn;
     public int maxTreeCountEachSide;
     public LayerMask planetMask;
+    
+    public SmokeEmitter EvaporationParticle;
 
     private float ratio;
+    public float Ratio{
+        get{return ratio;}
+        set{
+            ratio = Mathf.Clamp(value, 0f, 1f);
+            sprite.transform.localScale = new Vector3(sprite.transform.localScale.x, ratio, 1);
+        }
+    
+    }
     private float lastTimeSpawnedTree;
     public List<Tree> lstTreesSpawnedLeft = new List<Tree>();
     public List<Tree> lstTreesSpawnedRight = new List<Tree>();
@@ -29,6 +39,13 @@ public class Sea : MonoBehaviour {
             IncreaseWater();
         if (Input.GetKeyDown(KeyCode.P))
             ReduceWater();
+        if(Planet.Instance.Temperature > GameConstants.Instance.SeaDryoffTemperatureThreshold){
+            Ratio += GameConstants.Instance.SeaDryoffRate * Chronos.Instance.DeltaTime;
+            EvaporationParticle.enabled = ratio > 0;
+        }else{
+            EvaporationParticle.enabled = false;
+        }
+            
 
         if(ratio > 0.5f && Time.time - lastTimeSpawnedTree > timeBetweenTreeSpawn)
         {
