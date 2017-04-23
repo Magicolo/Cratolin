@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Planet : MonoBehaviour
 {
@@ -37,6 +38,13 @@ public class Planet : MonoBehaviour
 	void Awake()
 	{
 		Instance = this;
+	}
+
+	internal void Cooldown(float v)
+	{
+		if(temperature - v > 0)
+			temperature -= v;
+		
 	}
 
 	void FixedUpdate()
