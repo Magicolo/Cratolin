@@ -660,22 +660,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1736703228252352
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4833319690605738}
-  - component: {fileID: 114466055044142882}
-  m_Layer: 0
-  m_Name: GrassStamp
-  m_TagString: Grass
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1768374285851580
 GameObject:
   m_ObjectHideFlags: 1
@@ -1267,7 +1251,6 @@ Transform:
   - {fileID: 4008778078794674}
   - {fileID: 4061920797267938}
   - {fileID: 4754350818259898}
-  - {fileID: 4833319690605738}
   m_Father: {fileID: 4802106775480546}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1623,19 +1606,6 @@ Transform:
   - {fileID: 4903743632076546}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4833319690605738
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1736703228252352}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -185.9136, y: -266.71918, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
-  m_Children: []
-  m_Father: {fileID: 4361542592884722}
-  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4837979809793246
 Transform:
@@ -2600,7 +2570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cooldown: 0
   firePreview: {fileID: 212402131838695554}
-  audioFire: {fileID: 8300000, guid: 9424a1bed82939e409658653e333fe8c, type: 3}
+  audioFire: {fileID: 8300000, guid: 378b3b64cda3a3948a29f2af9c954800, type: 3}
   particles: {fileID: 198591385471584592}
 --- !u!114 &114150150370226404
 MonoBehaviour:
@@ -2615,10 +2585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   increment: 0.05
   sprite: {fileID: 212793656838512266}
-  treePrefab:
-  - {fileID: 114046027632892338, guid: 0fa82a2b05cbdaa458a0a238a6e8056f, type: 2}
-  - {fileID: 114450053469841580, guid: e496bf0eec776a84d9633b7574652668, type: 2}
-  - {fileID: 114636673595509074, guid: 3b62f76df7a68724597ca714d29061ac, type: 2}
+  Trees: {fileID: 0}
   walkerprefab: {fileID: 114040540524320316, guid: 43f5eada46180bc49aa4918abe05607a,
     type: 2}
   timeBetweenTreeSpawn: 1
@@ -2642,10 +2609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   increment: 0.05
   sprite: {fileID: 212355861965379274}
-  treePrefab:
-  - {fileID: 114046027632892338, guid: 0fa82a2b05cbdaa458a0a238a6e8056f, type: 2}
-  - {fileID: 114450053469841580, guid: e496bf0eec776a84d9633b7574652668, type: 2}
-  - {fileID: 114636673595509074, guid: 3b62f76df7a68724597ca714d29061ac, type: 2}
+  Trees: {fileID: 0}
   walkerprefab: {fileID: 114040540524320316, guid: 43f5eada46180bc49aa4918abe05607a,
     type: 2}
   timeBetweenTreeSpawn: 1
@@ -2766,10 +2730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   increment: 0.05
   sprite: {fileID: 212989534902896856}
-  treePrefab:
-  - {fileID: 114046027632892338, guid: 0fa82a2b05cbdaa458a0a238a6e8056f, type: 2}
-  - {fileID: 114450053469841580, guid: e496bf0eec776a84d9633b7574652668, type: 2}
-  - {fileID: 114636673595509074, guid: 3b62f76df7a68724597ca714d29061ac, type: 2}
+  Trees: {fileID: 0}
   walkerprefab: {fileID: 114040540524320316, guid: 43f5eada46180bc49aa4918abe05607a,
     type: 2}
   timeBetweenTreeSpawn: 1
@@ -2845,27 +2806,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114466055044142882
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1736703228252352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cccd04eec3afc34497247c62dfb9910, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RainKillsMe: 0
-  FireKillsMe: 1
-  radiusEffect: 0
-  TimeToFullGrow: 5
-  TimeToDieAfterGrow: -1
-  TimeToDecay: 1
-  minGrow: 0
-  maxGrow: 1
-  SplattersRandom:
-  - {fileID: 11400000, guid: d0d61a847d0868146bed0e4fc93b6b53, type: 2}
 --- !u!114 &114474336643233624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2991,7 +2931,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   windPreview: {fileID: 212504557796232646}
-  audioWind: {fileID: 8300000, guid: 99efc309e08d6154c87f34965c6f1263, type: 3}
+  audioWind: {fileID: 8300000, guid: 2cab7bdd665d2764b9d4d7f46d3ed158, type: 3}
 --- !u!114 &114682165389259434
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3141,10 +3081,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   increment: 0.1
   sprite: {fileID: 212548821428150428}
-  treePrefab:
-  - {fileID: 114046027632892338, guid: 0fa82a2b05cbdaa458a0a238a6e8056f, type: 2}
-  - {fileID: 114450053469841580, guid: e496bf0eec776a84d9633b7574652668, type: 2}
-  - {fileID: 114636673595509074, guid: 3b62f76df7a68724597ca714d29061ac, type: 2}
+  Trees: {fileID: 0}
   walkerprefab: {fileID: 114040540524320316, guid: 43f5eada46180bc49aa4918abe05607a,
     type: 2}
   timeBetweenTreeSpawn: 1
@@ -3239,10 +3176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   increment: 0.1
   sprite: {fileID: 212942317477276698}
-  treePrefab:
-  - {fileID: 114046027632892338, guid: 0fa82a2b05cbdaa458a0a238a6e8056f, type: 2}
-  - {fileID: 114450053469841580, guid: e496bf0eec776a84d9633b7574652668, type: 2}
-  - {fileID: 114636673595509074, guid: 3b62f76df7a68724597ca714d29061ac, type: 2}
+  Trees: {fileID: 0}
   walkerprefab: {fileID: 114040540524320316, guid: 43f5eada46180bc49aa4918abe05607a,
     type: 2}
   timeBetweenTreeSpawn: 1
@@ -3327,7 +3261,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1961479534
+  randomSeed: -1286661488
   InitialModule:
     serializedVersion: 3
     enabled: 1
