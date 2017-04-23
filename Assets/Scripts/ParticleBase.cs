@@ -9,9 +9,10 @@ public abstract class ParticleBase : MonoBehaviour
 	protected float lifeTime;
 	protected float fadeIn;
 	protected float fadeOut;
+	protected float fadeMaxA;
 	protected bool hasFaded;
 
-	protected void Initialize(Vector3 position, Vector2 velocity, float friction, float lifeTime, float fadeIn, float fadeOut)
+	protected void Initialize(Vector3 position, Vector2 velocity, float friction, float lifeTime, float fadeIn, float fadeOut, float fadeMaxA = 1)
 	{
 		transform.position = position;
 		transform.localEulerAngles = Vector3.zero;
@@ -20,6 +21,7 @@ public abstract class ParticleBase : MonoBehaviour
 		this.lifeTime = lifeTime;
 		this.fadeIn = fadeIn;
 		this.fadeOut = fadeOut;
+		this.fadeMaxA = fadeMaxA;
 		hasFaded = false;
 
 		if (fadeIn > 0)
@@ -39,7 +41,7 @@ public abstract class ParticleBase : MonoBehaviour
 			var color = Renderer.color;
 			color.a += Chronos.Instance.DeltaTime / fadeOut;
 			Renderer.color = color;
-			hasFaded |= color.a >= 1f;
+			hasFaded |= color.a >= fadeMaxA;
 		}
 		else if (lifeTime <= fadeOut && fadeOut > 0f)
 		{

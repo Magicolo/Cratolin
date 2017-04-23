@@ -277,6 +277,11 @@ MonoBehaviour:
   Prefabs:
   - {fileID: 114788366557875622, guid: c9dec94f207094f4d8a30b00000918e6, type: 2}
   SpawnDelay: {x: 0.5, y: 2}
+  LifeTime: 10
+  FadeIn: 1
+  FadeOut: 3
+  XOffsetRange: {x: -4, y: 4}
+  YOffsetRange: {x: 0, y: 0}
 --- !u!114 &114567798090970034
 MonoBehaviour:
   m_ObjectHideFlags: 1

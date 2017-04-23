@@ -19,7 +19,7 @@ public class GameConstants : MonoBehaviour {
 	
 	public float TreeBurnTemperatureThreshold = 70f;
 	public float SeaDryoffTemperatureThreshold = 80f;
-	public float SeaDryoffRate = 1f;
+	public float SeaDryoffRate = -0.2f;
 
 
 	void Awake()
