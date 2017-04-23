@@ -18,10 +18,10 @@ public class MainMenuController : MonoBehaviour {
         for(int i = 0; i < parentTreeSpawnPoint.childCount; i++)
         {
             Transform tr = parentTreeSpawnPoint.GetChild(i);
-            var hit = Physics2D.Raycast(tr.position, -tr.position.normalized, 100000f, planetMask);
+            var hit = Physics2D.Raycast(tr.position * 2, -tr.position.normalized, 100000f, planetMask);
 
             
-            Tree newTree = Instantiate(treePrefab[Random.Range(0, treePrefab.Length)], hit.point, Quaternion.FromToRotation(Vector2.up, -tr.position.normalized), Planet.Instance.Root);
+            Tree newTree = Instantiate(treePrefab[Random.Range(0, treePrefab.Length)], hit.point, Quaternion.FromToRotation(Vector2.up, tr.position.normalized), Planet.Instance.Root);
         }
 
         
