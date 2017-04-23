@@ -14,7 +14,7 @@ public class OzoneLayer : MonoBehaviour {
 
 	void Update () {
 		float t = (Planet.Instance.Ozone - Planet.Instance.CO2 ) / 100;
-		float a = Mathf.Min((Planet.Instance.CO2 + Planet.Instance.Ozone)/76.852f, 1);
+		float a = Planet.Instance.PlanetPressure;
 		var c = Color.Lerp(FullCO2,FullOzone,t);
 		sr.color = new Color(c.r, c.g, c.b, a);
 	}

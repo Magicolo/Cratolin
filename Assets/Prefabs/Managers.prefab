@@ -186,6 +186,8 @@ MonoBehaviour:
   TreeCO2ConsumationRate: 0.1
   SmokeParticleCO2Emission: 1
   LavaEmitterTemperature: 1
+  PlanetCooldownRate: -1
+  PlanetSerreEffectHeatRate: 2
 --- !u!114 &114309956878880636
 MonoBehaviour:
   m_ObjectHideFlags: 1
