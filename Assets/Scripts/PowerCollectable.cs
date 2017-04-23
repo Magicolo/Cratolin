@@ -13,6 +13,7 @@ public class PowerCollectable : MonoBehaviour
 	void OnMouseDown()
 	{
 		StartCoroutine(ShrinkRoutine(0.25f));
+        SoundManager.Instance.PlaySound("Powerup2");
 	}
 
 	IEnumerator GrowRoutine(float duration)
