@@ -8,6 +8,7 @@ public class LifeMeteor : MonoBehaviour
 
 	public float Speed = 50f;
 	public float MeltTime = 4f;
+	public LayerMask SplatterRayMask;
 	public IceMeteorEmitter Chunks;
 	public SpriteRenderer NormalRenderer;
 	public SpriteRenderer BurningRenderer;
@@ -93,8 +94,13 @@ public class LifeMeteor : MonoBehaviour
 		Chunks.transform.parent = null;
 		Chunks.gameObject.SetActive(true);
 
-		var splat = Instantiate(Splatter, transform.position - transform.position.normalized * 30f, transform.rotation);
-		splat.transform.parent = Planet.Instance.Root;
+		var hit = Physics2D.Raycast(transform.position, Planet.Instance.Root.position, 1000f, SplatterRayMask);
+
+		if (hit)
+		{
+			var splat = Instantiate(Splatter, hit.point, transform.rotation);
+			splat.transform.parent = Planet.Instance.Root;
+		}
 
 		yield return null;
 

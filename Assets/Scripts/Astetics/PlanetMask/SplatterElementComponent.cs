@@ -16,6 +16,8 @@ public class SplatterElementComponent : SplatterComponent
 	private SplattersGroup splatterGroup;
 	private Sprite CurrentSplatter;
 
+	public bool canDie = true;
+
 
 
 	public override Sprite Splatter
@@ -51,6 +53,9 @@ public class SplatterElementComponent : SplatterComponent
 
 	public override void DIE(float timeToDecayFactor = 1)
 	{
+		if(!canDie)
+			return;
+			
 		GameObject go = new GameObject("Dying Splater");
 		go.transform.parent = this.transform.parent;
 		go.transform.localPosition = this.transform.localPosition;
