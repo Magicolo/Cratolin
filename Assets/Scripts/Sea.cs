@@ -15,6 +15,8 @@ public class Sea : MonoBehaviour {
     public SmokeEmitter EvaporationParticle;
     private float lastTimeSpawnedWalker;
 
+    public bool CanSpawnLifeAround { get; set; }
+
     private float ratio;
     public float Ratio{
         get{return ratio;}
@@ -65,7 +67,7 @@ public class Sea : MonoBehaviour {
         }
             
 
-        if(ratio > 0.5f && Time.time - lastTimeSpawnedTree > timeBetweenTreeSpawn)
+        if(CanSpawnLifeAround && ratio > 0.5f && Time.time - lastTimeSpawnedTree > timeBetweenTreeSpawn)
         {
             lastTimeSpawnedTree = Time.time;
 
