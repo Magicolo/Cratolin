@@ -25,7 +25,17 @@ public class FirePower : PowerBase
 				fire.StartFire();
 		}
 
-		firePreview.gameObject.SetActive(false);
+        Walker[] walkers = GameObject.FindObjectsOfType<Walker>();
+        foreach (Walker walker in walkers)
+        {
+            if (Vector2.Distance(walker.transform.position, hit.point) < 100)
+            {
+                walker.Fear(position * 2);
+            }
+
+        }
+
+        firePreview.gameObject.SetActive(false);
 
 		return null;
 	}
@@ -38,13 +48,13 @@ public class FirePower : PowerBase
 		firePreview.gameObject.SetActive(true);
 	}
 
-	void Update()
-	{
-		if (Input.GetMouseButtonUp(0))
-		{
-			firePreview.gameObject.SetActive(false);
-		}
+    override public void Cancel()
+    {
+        firePreview.gameObject.SetActive(false);
+    }
 
+    void Update()
+	{
 		if (firePreview.gameObject.activeInHierarchy)
 		{
 			Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
