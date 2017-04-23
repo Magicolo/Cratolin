@@ -52,6 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeToFullGrow: 5
+  TimeToDieAfterGrow: 2
+  TimeToDecay: 5
   minGrow: 0
   maxGrow: 1
   SplattersRandom:

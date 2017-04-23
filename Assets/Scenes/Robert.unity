@@ -926,6 +926,7 @@ MonoBehaviour:
   WalkerCollision:
     serializedVersion: 2
     m_Bits: 256
+  Visual: {fileID: 0}
 --- !u!4 &1937192999
 Transform:
   m_ObjectHideFlags: 0
