@@ -7,7 +7,9 @@ public class PlanetSplosionEmitter : BurstEmitter<GravityParticle> {
 	public override GravityParticle Spawn()
 	{
 		var particle = base.Spawn();
-		particle.Initialize(this, transform.position, new Vector2(Random.Range(-360, 360), Random.Range(-360, 360)));
+		var speed = 250;
+		particle.Initialize(this, transform.position, new Vector2(Random.Range(-speed, speed), Random.Range(-speed, speed))
+		,lifeTime:15f, friction:1f);
 
 		return particle;
 	}

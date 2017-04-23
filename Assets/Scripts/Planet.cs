@@ -4,6 +4,8 @@ public class Planet : MonoBehaviour
 {
 	public static Planet Instance { get; private set; }
 
+	public PlanetSplosionEmitter EmitterWhenDestroyed;
+
 	public Transform Root;
 
 	public float temperature;
@@ -52,5 +54,9 @@ public class Planet : MonoBehaviour
 	{
 		PowerManager.Instance.TrySpawnPower(PowerManager.Powers.Volcano, transform.position);
 		gameObject.SetActive(false);
+
+		if (EmitterWhenDestroyed != null)
+			Instantiate(EmitterWhenDestroyed, transform.position, transform.rotation);
+
 	}
 }

@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4163676769912056}
-  - component: {fileID: 114120720471155218}
+  - component: {fileID: 114888577808731270}
   m_Layer: 0
   m_Name: PlanetExplosionEmitter
   m_TagString: Untagged
@@ -40,7 +40,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114120720471155218
+--- !u!114 &114888577808731270
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -48,12 +48,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1830680580569194}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96dd1e99693192e45b3f9a3f77b3a345, type: 3}
+  m_Script: {fileID: 11500000, guid: fefe2e6226baedf4dad96a801a107865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Prefabs: []
-  Burst: {x: 25, y: 10}
-  StartDelay: {x: 0, y: 0}
+  Prefabs:
+  - {fileID: 114496761955301110, guid: 89f54fea72ce90c4a9e8e77295bb7d65, type: 2}
+  - {fileID: 114141442767419142, guid: 633d15f7460fca042b70b16313598f8f, type: 2}
+  - {fileID: 114425775028199746, guid: 6391764ee23a42c42908c32bfa6f0d34, type: 2}
+  - {fileID: 114706944077034938, guid: 602a32e1141ba6b4ea111db316e3ebbc, type: 2}
+  - {fileID: 114417374435547216, guid: b3e0209db9d4f4348904bc94f0b0ec26, type: 2}
+  - {fileID: 114096138540196318, guid: 778036be0e994384e91d5b31c2cad848, type: 2}
+  - {fileID: 114171662324211944, guid: a32f82f66dafdbd4c9d6ea9dc3db25b5, type: 2}
+  - {fileID: 114015849928273098, guid: ecf61769d51ca154eae934369d8f1a00, type: 2}
+  - {fileID: 114572930620887492, guid: f18553954b8e0d1498920f6c2704ae6e, type: 2}
+  Burst: {x: 20, y: 30}
+  StartDelay: {x: 1.5, y: 1.5}
   Once: 1
   DestroyWhenDone: 1
   Cooldown: {x: 0.25, y: 1}

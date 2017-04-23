@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class FireAbleObject : MonoBehaviour {
 
+    public static int nbInFire;
+
+
     public ParticleSystem smokeParticles;
     public GameObject[] fireAnimatedSprites;
     public float timeToBurn;
 
     private bool inFire;
     private float timeInFire;
+
     
     public bool IsOnFire { get { return inFire; } }
 
@@ -31,6 +35,7 @@ public class FireAbleObject : MonoBehaviour {
             timeInFire += Time.deltaTime;
             if(timeInFire > timeToBurn)
             {
+                nbInFire--;
                 Destroy(gameObject);
             }
         }
@@ -40,6 +45,7 @@ public class FireAbleObject : MonoBehaviour {
     {
         if(!inFire)
         {
+            nbInFire++;
             inFire = true;
             timeInFire = 0;
 
@@ -54,6 +60,7 @@ public class FireAbleObject : MonoBehaviour {
     {
         if(inFire)
         {
+            nbInFire--;
             inFire = false;
 
             smokeParticles.Stop();
