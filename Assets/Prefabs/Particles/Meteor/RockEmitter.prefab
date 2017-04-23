@@ -58,4 +58,5 @@ MonoBehaviour:
   Burst: {x: 6, y: 10}
   StartDelay: {x: 0, y: 0}
   Once: 1
+  DestroyWhenDone: 1
   Cooldown: {x: 0.25, y: 1}

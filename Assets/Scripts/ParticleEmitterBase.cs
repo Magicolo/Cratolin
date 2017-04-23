@@ -8,6 +8,7 @@ public abstract class ParticleEmitterBase<T> : MonoBehaviour where T : Component
 	public IEnumerable<T> Particles { get { return particles; } }
 
 	readonly List<T> particles = new List<T>();
+	public int ParticleCount{get{return particles.Count;}}
 	readonly Stack<T> pool = new Stack<T>();
 
 	public virtual T Spawn()
