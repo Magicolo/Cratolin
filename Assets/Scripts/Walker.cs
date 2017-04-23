@@ -67,7 +67,7 @@ public class Walker : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate ()
     {
-        isWalking = !ReachedGoal;
+        isWalking = !ReachedGoal && (!IsEvolved || Time.time - timeSinceLastFear > 1f) ;
 
         
 
@@ -129,10 +129,12 @@ public class Walker : MonoBehaviour {
                 lookAroundTimer = Random.Range(4f, 10f);
         }
 
+        scared.SetActive(IsEvolved && Time.time - timeSinceLastFear < 1f);
+
         walkBase.SetActive(!IsEvolved);
-        walkEvolved.SetActive(IsEvolved && isWalking);
+        walkEvolved.SetActive(!scared.activeInHierarchy && IsEvolved && isWalking);
         
-        lookAround.SetActive(IsEvolved && !isWalking && lookAroundTimer < 1f);
-        idle.SetActive(IsEvolved && !isWalking && !lookAround.activeInHierarchy);
+        lookAround.SetActive(!scared.activeInHierarchy && IsEvolved && !isWalking && lookAroundTimer < 1f);
+        idle.SetActive(!scared.activeInHierarchy && IsEvolved && !isWalking && !lookAround.activeInHierarchy);
     }
 }
