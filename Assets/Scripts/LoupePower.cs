@@ -31,7 +31,7 @@ public class LoupePower : PowerBase {
     override public void StartPlacing()
     {
         inLoupe = true;
-        RenderTarget.SetActive(true);
+        RenderTarget.SetActive(true); 
     }
 
     void Update()

@@ -71,6 +71,13 @@ public class WindPower : PowerBase {
 
     void Update()
     {
+        if(Input.GetMouseButtonUp(0))
+        {
+            StopCoroutine("WindPreviewAnimate");
+            windPreview.gameObject.SetActive(false);
+            inPreview = false;
+        }
+
         if (inPreview)
         {
             Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
