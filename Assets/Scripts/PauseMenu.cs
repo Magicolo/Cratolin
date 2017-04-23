@@ -21,10 +21,12 @@ public class PauseMenu : MonoBehaviour {
         }
 
         CanvasGroup group = GetComponent<CanvasGroup>();
-        content.gameObject.SetActive(group.alpha > 0);
 
         float dest = IsShown ? 1 : 0;
         group.alpha = Mathf.Lerp(group.alpha, dest, Time.unscaledDeltaTime * 8);
+
+        
+        content.gameObject.SetActive(group.alpha > 0.05f);
     }
 
     public void GoMainMenu()
