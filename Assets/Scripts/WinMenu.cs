@@ -42,12 +42,14 @@ public class WinMenu : MonoBehaviour {
 
     public void Restart()
     {
+        SoundManager.Instance.PlayGeneralClick();
         Score.Instance.Reset();
         Game.Instance.Reload();
     }
 
     public void ExitGame()
     {
+        SoundManager.Instance.PlayGeneralClick();
         Application.Quit();
     }
 }

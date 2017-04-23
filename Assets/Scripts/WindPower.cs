@@ -6,8 +6,9 @@ public class WindPower : PowerBase
 	public WindSource Prefab;
 	public LayerMask Mask;
 	public SpriteRenderer windPreview;
+    public AudioClip audioWind;
 
-	private bool inPreview;
+    private bool inPreview;
 
 	public override int RemainingUses { get { return -1; } }
 	public override PowerManager.Powers Power { get { return PowerManager.Powers.Wind; } }
@@ -42,6 +43,7 @@ public class WindPower : PowerBase
 
 	private IEnumerator WindPreviewAnimate()
 	{
+        SoundManager.Instance.PlaySound(audioWind);
 		yield return new WaitForSeconds(2);
 
 		while (windPreview.color.a > 0)

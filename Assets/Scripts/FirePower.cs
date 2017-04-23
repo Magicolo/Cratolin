@@ -4,8 +4,10 @@ public class FirePower : PowerBase
 {
 	public float Cooldown;
 	public SpriteRenderer firePreview;
+    public AudioClip audioFire;
+    public ParticleSystem particles;
 
-	public override bool CanUse { get { return base.CanUse && Chronos.Instance.Time - lastUse >= Cooldown; } }
+    public override bool CanUse { get { return base.CanUse && Chronos.Instance.Time - lastUse >= Cooldown; } }
 	public override int RemainingUses { get { return -1; } }
 	public override PowerManager.Powers Power { get { return PowerManager.Powers.Fire; } }
 
@@ -18,7 +20,11 @@ public class FirePower : PowerBase
 
 		RaycastHit2D hit = Physics2D.Raycast(position, -position.normalized);
 
-		FireAbleObject[] fireObjects = GameObject.FindObjectsOfType<FireAbleObject>();
+        SoundManager.Instance.PlaySound(audioFire);
+        
+        particles.Play();
+
+        FireAbleObject[] fireObjects = GameObject.FindObjectsOfType<FireAbleObject>();
 		foreach (FireAbleObject fire in fireObjects)
 		{
 			if (Vector2.Distance(fire.transform.position, hit.point) < 100)
@@ -62,7 +68,9 @@ public class FirePower : PowerBase
 
     void Update()
 	{
-		if (firePreview.gameObject.activeInHierarchy)
+        particles.transform.position = firePreview.transform.position;
+
+        if (firePreview.gameObject.activeInHierarchy)
 		{
 			Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			firePreview.transform.position = pos.normalized * 365;

@@ -5,6 +5,7 @@ public class WheelPowerItem : MonoBehaviour
 {
 	public SpriteRenderer auraRenderer;
 	public Sprite spriteToUseAsBeam;
+    
 
 	private float currentAlpha = 1;
 	private float destAlpha = 1;
