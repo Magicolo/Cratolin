@@ -22,6 +22,9 @@ public class RainDrop : MonoBehaviour {
         if (collision.gameObject.GetComponent<Sea>() != null)
             collision.gameObject.GetComponent<Sea>().IncreaseWater();
 
+        if (collision.gameObject.GetComponent<Walker>() != null)
+            collision.gameObject.GetComponent<Walker>().ClearFire();
+
         if (collision.gameObject.GetComponentInParent<FireAbleObject>() != null)
             collision.gameObject.GetComponentInParent<FireAbleObject>().StopFire();
   

@@ -33,13 +33,18 @@ public class MeteorParticle : ParticleBase
 	{
 		Despawn();
 
+        //if(collision.gameObject.GetComponent<Walker>() != null)
+        //{
+        //    collision.gameObject.GetComponent<Walker>().CatchFire();
+        //}
+
         Walker[] walkers = FindObjectsOfType<Walker>();
-        foreach(Walker walker in walkers)
+        foreach (Walker walker in walkers)
         {
             if (Vector2.Distance(walker.transform.position, transform.position) < 15)
             {
                 walker.CatchFire();
             }
         }
-	}
+    }
 }

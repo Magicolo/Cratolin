@@ -12,6 +12,7 @@ public class Walker : MonoBehaviour {
     public GameObject scared;
     public GameObject idle;
     public GameObject lookAround;
+    public GameObject fireAnim;
 
     private bool isGoingRight = true;
     private float timeSinceLastFear = float.MinValue;
@@ -19,8 +20,10 @@ public class Walker : MonoBehaviour {
     private bool isWalking = true;
 
     private float lookAroundTimer = 1000;
+    private bool inFire;
+    private float lastTimeInFire;
 
-    public bool IsEvolved { get { return Time.time - timeSpawn > 2; } }
+    public bool IsEvolved { get { return Time.time - timeSpawn > 20; } }
     public bool ReachedGoal { get; set; }
 
     // Use this for initialization
@@ -47,6 +50,20 @@ public class Walker : MonoBehaviour {
         }
     }
 
+    public void CatchFire()
+    {
+        timeSinceLastFear = Time.time;
+        fireAnim.gameObject.SetActive(true);
+        lastTimeInFire = Time.time;
+        inFire = true;
+    }
+
+    public void ClearFire()
+    {
+        inFire = false;
+        fireAnim.gameObject.SetActive(false);
+    }
+
     public float CurrentSpeed
     {
         get
@@ -57,7 +74,7 @@ public class Walker : MonoBehaviour {
             if (isGoingRight)
                 speed *= 2;
 
-            if (Time.time - timeSinceLastFear < 3)
+            if (Time.time - timeSinceLastFear < 3 || inFire)
                 speed *= 3;
 
             return speed;
@@ -69,6 +86,12 @@ public class Walker : MonoBehaviour {
     {
         isWalking = !ReachedGoal && (!IsEvolved || Time.time - timeSinceLastFear > 1f) ;
 
+
+        if(inFire && Time.time - lastTimeInFire > 10)
+        {
+            Destroy(gameObject);
+            return;
+        }
         
 
         // stick to ground
@@ -138,8 +161,5 @@ public class Walker : MonoBehaviour {
         idle.SetActive(!scared.activeInHierarchy && IsEvolved && !isWalking && !lookAround.activeInHierarchy);
     }
 
-    public void CatchFire()
-    {
-
-    }
+    
 }
