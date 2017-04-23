@@ -62,7 +62,7 @@ public class Invader : MonoBehaviour
 		if (stateTime > duration)
 		{
 			ChargedRenderer.color = new Color(ChargedRenderer.color.r, ChargedRenderer.color.g, ChargedRenderer.color.b, 1f);
-			BeamRenderer.transform.localScale = new Vector3(BeamRenderer.transform.localScale.x, StopDistance - 65f, BeamRenderer.transform.localScale.z);
+			//BeamRenderer.transform.localScale = new Vector3(BeamRenderer.transform.localScale.x, StopDistance - 65f, BeamRenderer.transform.localScale.z);
             if (Monolith.Instance.IsCompleted)
             {
                 BeamRenderer.sortingOrder = -4;
