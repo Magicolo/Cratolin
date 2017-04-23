@@ -12,6 +12,7 @@ public class UIRetry : MonoBehaviour
 
 	public void OnClick()
 	{
+        SoundManager.Instance.PlayGeneralClick();
         Score.Instance.nbCycle++;
 		Game.Instance.Reload();
 	}

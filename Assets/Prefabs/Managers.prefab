@@ -292,7 +292,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 822f564efb77cf942b48d2c321f81e7b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4c29e70a0a4723f41972e47f5fed077c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -489,6 +489,7 @@ MonoBehaviour:
   generalErrorAudio: {fileID: 0}
   generalKeypadAudio: {fileID: 0}
   generalDoorOpeningAudio: {fileID: 0}
+  generalClick: {fileID: 8300000, guid: 41edd698f323da846b6fd13f832eda2d, type: 3}
 --- !u!114 &114986598282032574
 MonoBehaviour:
   m_ObjectHideFlags: 1
