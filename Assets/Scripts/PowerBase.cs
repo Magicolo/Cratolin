@@ -8,7 +8,7 @@ public abstract class PowerBase : MonoBehaviour
 	public virtual bool CanPlace(Vector2 position) { return CanUse; }
 
     public virtual void StartPlacing() { }
-
+    public virtual void Cancel() { }
 
     public abstract GameObject Create(Vector2 position);
 }

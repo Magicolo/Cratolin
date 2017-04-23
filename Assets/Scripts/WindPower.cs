@@ -40,6 +40,13 @@ public class WindPower : PowerBase {
 
     }
 
+    override public void Cancel()
+    {
+        StopCoroutine("WindPreviewAnimate");
+        windPreview.gameObject.SetActive(false);
+        inPreview = false;
+    }
+
     private IEnumerator WindPreviewAnimate()
     {
         yield return new WaitForSeconds(2);
@@ -71,12 +78,7 @@ public class WindPower : PowerBase {
 
     void Update()
     {
-        if(Input.GetMouseButtonUp(0) && inPreview)
-        {
-            StopCoroutine("WindPreviewAnimate");
-            windPreview.gameObject.SetActive(false);
-            inPreview = false;
-        }
+        
 
         if (inPreview)
         {

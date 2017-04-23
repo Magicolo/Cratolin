@@ -71,6 +71,10 @@ public class WheelPower : MonoBehaviour {
                 //TODO do power item effect if far away from center
                 currentItem.Spawn((worldPos - Vector3.zero) * 10);
             }
+            else
+            {
+                currentItem.Cancel();
+            }
 
             Stop();
         }

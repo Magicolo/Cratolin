@@ -48,6 +48,14 @@ public class WheelPowerItem : MonoBehaviour {
             basePower.Create(pPosition);
     }
 
+    public void Cancel()
+    {
+        PowerBase basePower = GetComponent<PowerBase>();
+
+        if (basePower != null)
+            basePower.Cancel();
+    }
+
     public void SetDestinationAlpha(int value)
     {
         if(value == 1)
