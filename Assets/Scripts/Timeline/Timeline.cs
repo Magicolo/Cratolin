@@ -28,7 +28,7 @@ public class Timeline : UIBehaviour
 			GhostSlider.value = Slider.value;
 
 		float distance = Mathf.Max(GhostSlider.value - Slider.value, 0f);
-		Chronos.Instance.TimeScale = Mathf.Min(1f + distance * 50f, 100f);
+		Chronos.Instance.TimeScale = Mathf.Min(1f + distance * 50f, 25f);
 
 		if (events.Count > 0 && Slider.value >= events.Peek().Time)
 			events.Dequeue().Trigger();
