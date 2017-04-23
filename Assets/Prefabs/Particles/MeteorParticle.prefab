@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114031493516604606}
   - component: {fileID: 50660819967075996}
   - component: {fileID: 114112329238598604}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MeteorParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4824501654832248}
   - component: {fileID: 212173466459145140}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4694869446235918}
   - component: {fileID: 58843439280635762}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
