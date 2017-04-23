@@ -2570,7 +2570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cooldown: 0
   firePreview: {fileID: 212402131838695554}
-  audioFire: {fileID: 8300000, guid: 9424a1bed82939e409658653e333fe8c, type: 3}
+  audioFire: {fileID: 8300000, guid: 378b3b64cda3a3948a29f2af9c954800, type: 3}
   particles: {fileID: 198591385471584592}
 --- !u!114 &114150150370226404
 MonoBehaviour:
@@ -2931,7 +2931,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   windPreview: {fileID: 212504557796232646}
-  audioWind: {fileID: 8300000, guid: 99efc309e08d6154c87f34965c6f1263, type: 3}
+  audioWind: {fileID: 8300000, guid: 2cab7bdd665d2764b9d4d7f46d3ed158, type: 3}
 --- !u!114 &114682165389259434
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3261,7 +3261,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1961479534
+  randomSeed: -1286661488
   InitialModule:
     serializedVersion: 3
     enabled: 1
