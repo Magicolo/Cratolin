@@ -67,7 +67,7 @@ public class Sea : MonoBehaviour {
 
                 if (hit)
                 {
-                    Tree newTree = Instantiate(treePrefab[Random.Range(0, treePrefab.Length)], hit.point, Quaternion.FromToRotation(Vector2.up, direction), Planet.Instance.transform);
+                    Tree newTree = Instantiate(treePrefab[Random.Range(0, treePrefab.Length)], hit.point, Quaternion.FromToRotation(Vector2.up, direction), Planet.Instance.Root);
                     lstListToSpawnIn.Add(newTree);
                 }
             }

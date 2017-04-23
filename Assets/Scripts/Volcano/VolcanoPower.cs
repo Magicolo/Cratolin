@@ -31,7 +31,7 @@ public class VolcanoPower : PowerBase
 		{
 			uses++;
 			lastUse = Chronos.Instance.Time;
-			var instance = Instantiate(Prefab, hit.point, Quaternion.FromToRotation(Vector2.up, direction), Planet.Instance.transform);
+			var instance = Instantiate(Prefab, hit.point, Quaternion.FromToRotation(Vector2.up, direction), Planet.Instance.Root);
 			return instance.gameObject;
 		}
 		else

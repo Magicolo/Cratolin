@@ -45,12 +45,12 @@ public class FirePower : PowerBase {
         firePreview.gameObject.SetActive(true);
     }
 
-    private void Update()
+    void Update()
     {
         if(firePreview.gameObject.activeInHierarchy)
         {
-            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            firePreview.transform.position = pos.normalized * 375;
+            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            firePreview.transform.position = pos.normalized * 365;
         }
         
     }

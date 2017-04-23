@@ -19,7 +19,7 @@ public class SmokeCloudParticle : ParticleBase
 		base.FixedUpdate();
 
 		if (hasFaded)
-			transform.RotateAround(Planet.Instance.transform.position, Vector3.forward, moveSpeed * Chronos.Instance.DeltaTime);
+			transform.RotateAround(Planet.Instance.Root.position, Vector3.forward, moveSpeed * Chronos.Instance.DeltaTime);
 	}
 
 	protected override void Despawn()

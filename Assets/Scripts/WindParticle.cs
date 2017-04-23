@@ -30,6 +30,9 @@ public class WindParticle : MonoBehaviour {
         //// Not all particles have trails
         //if (Random.Range(0, 5) > 0)
         //    Destroy(GetComponent<TrailRenderer>());
+
+        transform.up = transform.position.normalized;
+        transform.position = transform.up * (distanceFormPlanetCenter + Mathf.Sin(lifeTimer * 4) * waveAmplitude);
     }
 	
 	void Update () {
@@ -44,7 +47,7 @@ public class WindParticle : MonoBehaviour {
             // Small chance to spawn tree if polenized
             if(polenized)// && Random.Range(0, 5) == 0)
             {
-                Tree tree = Instantiate(TreePrefab[Random.Range(0, TreePrefab.Length)], transform.position, Quaternion.FromToRotation(Vector2.up, transform.position.normalized), Planet.Instance.transform);
+                Tree tree = Instantiate(TreePrefab[Random.Range(0, TreePrefab.Length)], transform.position, Quaternion.FromToRotation(Vector2.up, transform.position.normalized), Planet.Instance.Root);
             }  
 
             Destroy(gameObject, 5);
