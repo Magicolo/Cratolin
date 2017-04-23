@@ -29,6 +29,7 @@ public class RainCloud : MonoBehaviour {
             obj.transform.up = transform.up;
 
             obj.transform.position += transform.right * Random.Range(-rainZoneWidth * 0.5f, rainZoneWidth * 0.5f);
+            obj.transform.parent = null;
         }
 	}
 }
