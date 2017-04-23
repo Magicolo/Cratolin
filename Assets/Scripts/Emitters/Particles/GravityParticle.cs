@@ -7,9 +7,8 @@ public class GravityParticle : ParticleBase
 
 	public void Initialize(ParticleEmitterBase<GravityParticle> emitter, Vector3 position, Vector2 velocity, float friction = 0.98f, float lifeTime = 5f, float fadeOut = 1f)
 	{
-		base.Initialize(position, velocity, friction, lifeTime, 0f, fadeOut);
-
 		this.emitter = emitter;
+		base.Initialize(position, velocity, friction, lifeTime, 0f, fadeOut);
 	}
 
 	protected override void FixedUpdate()

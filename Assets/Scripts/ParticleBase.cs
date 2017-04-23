@@ -11,6 +11,7 @@ public abstract class ParticleBase : MonoBehaviour
 	protected float fadeOut;
 	protected float fadeMaxA;
 	protected bool hasFaded;
+	protected bool hasInitialized;
 
 	protected void Initialize(Vector3 position, Vector2 velocity, float friction, float lifeTime, float fadeIn, float fadeOut, float fadeMaxA = 1)
 	{
@@ -30,10 +31,12 @@ public abstract class ParticleBase : MonoBehaviour
 			color.a = 0f;
 			Renderer.color = color;
 		}
+		hasInitialized = true;
 	}
 
 	protected virtual void FixedUpdate()
 	{
+		if(!hasInitialized) return;
 		lifeTime -= Chronos.Instance.DeltaTime;
 
 		if (!hasFaded && fadeIn > 0f)
