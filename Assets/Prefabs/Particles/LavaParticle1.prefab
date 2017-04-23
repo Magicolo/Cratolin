@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4124052515370780}
   - component: {fileID: 58081945931072388}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 114537073347499870}
   - component: {fileID: 114994306756868972}
   - component: {fileID: 50438491555433840}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: LavaParticle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4868535008367840}
   - component: {fileID: 212359220342742306}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

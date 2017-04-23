@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MeteorRockSplosionEmitter : BurstEmitter<GravityParticle> {
-	
+public class MeteorRockSplosionEmitter : BurstEmitter<GravityParticle>
+{
+
 	public override GravityParticle Spawn()
 	{
 		var particle = base.Spawn();
-		particle.Initialize(this, transform.position, new Vector2(Random.Range(-150f, 150f), Random.Range(50f, 150f)));
+		particle.Initialize(this, transform.position, new Vector2(Random.Range(-150f, 150f), Random.Range(50f, 150f)), lifeTime: 3f);
 
 		return particle;
 	}

@@ -21,13 +21,13 @@ public class LavaParticle : ParticleBase
 
 	protected override void Despawn()
 	{
+		lava.Despawn(this);
+
 		if (splater != null)
 		{
 			var splat = Instantiate(splater, transform.position, transform.rotation);
 			splat.transform.parent = Planet.Instance.Root;
 		}
-
-		lava.Despawn(this);
 	}
 
 	void OnTriggerEnter2D(Collider2D collision)

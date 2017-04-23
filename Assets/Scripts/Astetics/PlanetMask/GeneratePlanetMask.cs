@@ -41,8 +41,8 @@ public class GeneratePlanetMask : MonoBehaviour
 
 	void Update()
 	{
-		//if (Chronos.Instance.Time < nextUpdate)
-		return;
+		if (Chronos.Instance.Time < nextUpdate)
+			return;
 
 		nextUpdate = Chronos.Instance.Time + timeBetweenUpdate;
 		MakeItBlack();
