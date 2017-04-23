@@ -2856,6 +2856,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cccd04eec3afc34497247c62dfb9910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RainKillsMe: 0
+  FireKillsMe: 1
   radiusEffect: 0
   TimeToFullGrow: 5
   TimeToDieAfterGrow: -1
@@ -2864,8 +2866,7 @@ MonoBehaviour:
   maxGrow: 1
   SplattersRandom:
   - {fileID: 11400000, guid: d0d61a847d0868146bed0e4fc93b6b53, type: 2}
-  RainKillsMe: 0
-  FireKillsMe: 1
+  canDie: 1
 --- !u!114 &114474336643233624
 MonoBehaviour:
   m_ObjectHideFlags: 1

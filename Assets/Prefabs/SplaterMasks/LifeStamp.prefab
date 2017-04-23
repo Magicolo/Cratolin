@@ -61,3 +61,4 @@ MonoBehaviour:
   maxGrow: 1
   SplattersRandom:
   - {fileID: 11400000, guid: fefb8312497a48b4e91909f02a83ad77, type: 2}
+  canDie: 0
