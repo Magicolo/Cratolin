@@ -47,4 +47,19 @@ public class MeteorParticle : ParticleBase
             }
         }
     }
+
+    void Update()
+    {
+        if(WheelPower.Instance.IsPlacingPower)
+        {
+            float angleThis = Mathf.Rad2Deg * Mathf.Atan2(transform.position.y, transform.position.x);
+
+            Vector2 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            float angleMouse = Mathf.Rad2Deg * Mathf.Atan2(worldPos.y, worldPos.x);
+
+            if (Mathf.Abs(angleThis - angleMouse) < 1)
+                Despawn();
+        }
+        
+    }
 }
