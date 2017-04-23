@@ -55,11 +55,8 @@ public abstract class ParticleBase : MonoBehaviour
 
 		if (lifeTime > 0)
 		{
-			if (velocity.x > 0f || velocity.y > 0)
-			{
-				transform.localPosition += (Vector3)velocity * Chronos.Instance.DeltaTime;
-				velocity *= friction;
-			}
+			transform.localPosition += (Vector3)velocity * Chronos.Instance.DeltaTime;
+			velocity *= friction;
 		}
 		else
 			Despawn();
