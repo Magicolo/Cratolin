@@ -71,7 +71,7 @@ public class WindPower : PowerBase {
 
     void Update()
     {
-        if(Input.GetMouseButtonUp(0))
+        if(Input.GetMouseButtonUp(0) && inPreview)
         {
             StopCoroutine("WindPreviewAnimate");
             windPreview.gameObject.SetActive(false);
