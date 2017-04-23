@@ -2,8 +2,6 @@
 
 public class Meteor : MonoBehaviour
 {
-	public Rigidbody2D Body;
-
 	Vector2 direction;
 	float speed;
 
@@ -16,7 +14,7 @@ public class Meteor : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		Body.position += direction * speed;
+		transform.position += (Vector3)direction * speed;
 	}
 
 	void OnTriggerEnter2D(Collider2D collision)

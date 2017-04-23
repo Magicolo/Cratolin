@@ -9,7 +9,7 @@ public class MeteorEvent : TimelineEvent
 
 	public override void Trigger()
 	{
-		var meteor = Instantiate(Prefab, Position, Quaternion.identity);
+		var meteor = Instantiate(Prefab, new Vector3(Position.x, Position.y, Prefab.transform.position.z), Quaternion.identity);
 		meteor.Initialize(Position, Direction, Speed);
 	}
 

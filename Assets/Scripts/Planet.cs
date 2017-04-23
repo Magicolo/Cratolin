@@ -25,4 +25,9 @@ public class Planet : MonoBehaviour
 	{
 		Temperature = Mathf.Max(Temperature - Chronos.Instance.DeltaTime, -100f);
 	}
+
+	public void Destroy()
+	{
+		gameObject.SetActive(false);
+	}
 }
