@@ -2615,7 +2615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   increment: 0.05
   sprite: {fileID: 212793656838512266}
-  Trees: {fileID: 0}
+  Trees: {fileID: 114866545242485120}
   walkerprefab: {fileID: 114040540524320316, guid: 43f5eada46180bc49aa4918abe05607a,
     type: 2}
   timeBetweenTreeSpawn: 1
@@ -2639,7 +2639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   increment: 0.05
   sprite: {fileID: 212355861965379274}
-  Trees: {fileID: 0}
+  Trees: {fileID: 114866545242485120}
   walkerprefab: {fileID: 114040540524320316, guid: 43f5eada46180bc49aa4918abe05607a,
     type: 2}
   timeBetweenTreeSpawn: 1
@@ -2760,7 +2760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   increment: 0.05
   sprite: {fileID: 212989534902896856}
-  Trees: {fileID: 0}
+  Trees: {fileID: 114866545242485120}
   walkerprefab: {fileID: 114040540524320316, guid: 43f5eada46180bc49aa4918abe05607a,
     type: 2}
   timeBetweenTreeSpawn: 1
@@ -3111,7 +3111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   increment: 0.1
   sprite: {fileID: 212548821428150428}
-  Trees: {fileID: 0}
+  Trees: {fileID: 114866545242485120}
   walkerprefab: {fileID: 114040540524320316, guid: 43f5eada46180bc49aa4918abe05607a,
     type: 2}
   timeBetweenTreeSpawn: 1
@@ -3221,7 +3221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   increment: 0.1
   sprite: {fileID: 212942317477276698}
-  Trees: {fileID: 0}
+  Trees: {fileID: 114866545242485120}
   walkerprefab: {fileID: 114040540524320316, guid: 43f5eada46180bc49aa4918abe05607a,
     type: 2}
   timeBetweenTreeSpawn: 1
