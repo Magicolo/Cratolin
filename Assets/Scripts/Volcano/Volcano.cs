@@ -9,12 +9,16 @@ public class Volcano : MonoBehaviour
 	public LavaEmitter Lava;
 	public SmokeEmitter Smoke;
 	public SmokeCloudEmitter Cloud;
+	public SmokeEmitter ExtinguishedEmitterPrefab;
 	public SpriteRenderer Renderer;
 	public Sprite Erupting;
 	public Sprite Extinguished;
+	public Transform VolcanoExit;
 
 	float stateTime;
 	States state;
+
+	public int heat = 10;
 
 	void Awake()
 	{
@@ -24,6 +28,7 @@ public class Volcano : MonoBehaviour
 	void FixedUpdate()
 	{
 		stateTime += Chronos.Instance.DeltaTime;
+		
 
 		switch (state)
 		{
@@ -53,10 +58,16 @@ public class Volcano : MonoBehaviour
 	void UpdateIdle()
 	{
 		SwitchState(States.Erupting);
+		if(heat <= 0){
+			SwitchState(States.Extinguished);
+		}
 	}
 
 	void UpdateErupting()
 	{
+		if(heat <= 0){
+			SwitchState(States.Extinguished);
+		}
 	}
 
 	void UpdateExtinguished()
@@ -70,8 +81,18 @@ public class Volcano : MonoBehaviour
 		this.stateTime = 0f;
 
 		Renderer.sprite = state == States.Extinguished ? Extinguished : Erupting;
-		Lava.gameObject.SetActive(state == States.Erupting);
-		Smoke.gameObject.SetActive(state == States.Idle || state == States.Erupting);
-		Cloud.gameObject.SetActive(state == States.Idle || state == States.Erupting);
+		Lava.enabled = (state == States.Erupting);
+		Smoke.enabled = (state == States.Idle || state == States.Erupting);
+		Cloud.enabled = (state == States.Idle || state == States.Erupting);
+
+		if(state.Equals(States.Extinguished)){
+			if (ExtinguishedEmitterPrefab != null)
+			{
+				var newGameObject = Instantiate(ExtinguishedEmitterPrefab, VolcanoExit.position, transform.rotation);
+				newGameObject.transform.parent = Planet.Instance.Root;
+				
+			}
+
+		}
 	}
 }
