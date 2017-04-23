@@ -584,7 +584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fcdfe5052bff66469f4c309023c47a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Time: 0.01
+  Time: 1
   Timeline: {fileID: 114564538082054298}
   Slider: {fileID: 114806165417604364}
   Prefab: {fileID: 114240944560336744, guid: 718505fec79734c488e18cf09ae6bc80, type: 2}
@@ -777,7 +777,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.01
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
