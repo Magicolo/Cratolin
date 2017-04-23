@@ -25,16 +25,17 @@ public class SmokeEmitter : ParticleEmitterBase<SmokeParticle>
 
 	void FixedUpdate()
 	{
-		
-		while (Chronos.Instance.Time >= nextParticle)
+		if (Chronos.Instance.Time >= nextParticle)
 		{
-			if(MaxSpawn != -1 && spawned++ > MaxSpawn){
-				nextParticle+= 1000;
-				return;		
+			if (MaxSpawn != -1 && spawned++ > MaxSpawn)
+			{
+				nextParticle += 1000;
+				return;
 			}
+
 			nextParticle += Random.Range(SpawnDelay.x, SpawnDelay.y);
 			Spawn();
-			
+
 		}
 	}
 

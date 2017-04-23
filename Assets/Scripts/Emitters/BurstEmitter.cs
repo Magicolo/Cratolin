@@ -30,7 +30,7 @@ public abstract class BurstEmitter<T> : ParticleEmitterBase<T> where T : Particl
 		}
 
 
-		while (Chronos.Instance.Time >= nextParticle)
+		if (Chronos.Instance.Time >= nextParticle)
 		{
 			var burst = (int)Random.Range(Burst.x, Burst.y);
 
@@ -41,8 +41,6 @@ public abstract class BurstEmitter<T> : ParticleEmitterBase<T> where T : Particl
 			}
 
 			doneOnce = true;
-
-			if (Once) break;
 		}
 	}
 }

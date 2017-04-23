@@ -15,7 +15,6 @@ public class SmokeCloudParticle : ParticleBase
 		this.emitter = emitter;
 		this.fadeIn = fadeIn;
 		this.moveSpeed = moveSpeed;
-		Clouds.Add(this);
 	}
 
 	protected override void FixedUpdate()
@@ -28,7 +27,16 @@ public class SmokeCloudParticle : ParticleBase
 
 	protected override void Despawn()
 	{
-		Clouds.Remove(this);
 		emitter.Despawn(this);
+	}
+
+	void OnEnable()
+	{
+		Clouds.Add(this);
+	}
+
+	void OnDisable()
+	{
+		Clouds.Remove(this);
 	}
 }

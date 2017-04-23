@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 public class IceMeteor : MonoBehaviour
@@ -29,6 +30,7 @@ public class IceMeteor : MonoBehaviour
 	void FixedUpdate()
 	{
 		stateTime += Chronos.Instance.DeltaTime;
+		cloudCollisionCount = SmokeCloudParticle.Clouds.Count(c => Vector2.Distance(c.transform.position, transform.position) < 40f);
 
 		var color = BurningRenderer.color;
 		color.a = BurnRatio;
@@ -101,15 +103,7 @@ public class IceMeteor : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.GetComponentInParent<SmokeCloudParticle>() != null)
-			cloudCollisionCount++;
-		else if (collision.GetComponentInParent<Planet>() != null)
+		if (collision.GetComponentInParent<Planet>() != null)
 			StartCoroutine(Break());
-	}
-
-	void OnTriggerExit2D(Collider2D collision)
-	{
-		if (collision.GetComponentInParent<SmokeCloudParticle>() != null)
-			cloudCollisionCount--;
 	}
 }

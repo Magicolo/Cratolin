@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4311367466446092}
   - component: {fileID: 114567798090970034}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Volcano
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4797639410637614}
   - component: {fileID: 114552874372740532}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4359614432413014}
   - component: {fileID: 114827596113131400}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Lava
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4253952998322362}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: VolcanoExit
   m_TagString: Untagged
   m_Icon: {fileID: -1577725955494882426, guid: 0000000000000000d000000000000000, type: 0}
@@ -83,7 +83,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4915395522605788}
   - component: {fileID: 212722801031386966}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4159862160202894}
   - component: {fileID: 114285402465779558}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4763650717593598}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4274287759797116}
   - component: {fileID: 60084866426912346}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShakeAmplitude: 2
-  SpawnSpeed: 5
+  SpawnSpeed: 8
   Lava: {fileID: 114827596113131400}
   Smoke: {fileID: 114552874372740532}
   Cloud: {fileID: 114285402465779558}
@@ -353,7 +353,7 @@ MonoBehaviour:
   - {fileID: 114537073347499870, guid: b896dc4dffb8f06469286aebe117fa85, type: 2}
   - {fileID: 114537073347499870, guid: dd61942ee0ad15b48b76e40525bcc2c5, type: 2}
   - {fileID: 114537073347499870, guid: c55ee98d0e3f1e047a8418d214f4ca5e, type: 2}
-  SpawnDelay: {x: 0.5, y: 1.5}
+  SpawnDelay: {x: 2, y: 5}
   Burst: {x: 4, y: 10}
 --- !u!212 &212722801031386966
 SpriteRenderer:
