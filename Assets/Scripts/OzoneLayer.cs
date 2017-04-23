@@ -17,6 +17,9 @@ public class OzoneLayer : MonoBehaviour {
 		float a = Planet.Instance.PlanetPressure;
 		var c = Color.Lerp(FullCO2,FullOzone,t);
 		sr.color = new Color(c.r, c.g, c.b, a);
+
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "MainMenu")
+            sr.color = FullOzone;
 	}
 
 }

@@ -31,6 +31,10 @@ public class Sea : MonoBehaviour {
     // Use this for initialization
     void Start () {
         ratio = 0;
+
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "MainMenu")
+            ratio = 1;
+
         RefreshRatio();
 
     }
@@ -44,6 +48,12 @@ public class Sea : MonoBehaviour {
             lastTimeSpawnedWalker = Time.time;
             Walker walker = Instantiate(walkerprefab);
             walker.transform.position = transform.position * 1.05f;
+        }
+
+        if(EvaporationParticle.enabled && !PowerManager.Instance.HasPower(PowerManager.Powers.Wind))
+        {
+            PowerManager.Instance.UnlockPower(PowerManager.Powers.Wind);
+            PowerManager.Instance.TrySpawnPower(PowerManager.Powers.Wind, transform.position * 1.2f);
         }
 
 

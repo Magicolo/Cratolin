@@ -14,11 +14,11 @@ public class WheelPowerItem : MonoBehaviour
 		StartCoroutine(GrowRoutine(0.25f));
 	}
 
-	IEnumerator GrowRoutine(float shrinkDuration)
+	IEnumerator GrowRoutine(float duration)
 	{
-		for (float i = 0; i < shrinkDuration; i += Chronos.Instance.DeltaTime)
+		for (float i = 0; i < duration; i += Chronos.Instance.DeltaTime)
 		{
-			transform.localScale = Vector3.one * (i / shrinkDuration);
+			transform.localScale = Vector3.one * (i / duration);
 			yield return null;
 		}
 	}
