@@ -23,7 +23,17 @@ public class Game : MonoBehaviour
 		StartCoroutine(LoadRoutine(SceneManager.GetActiveScene().name));
 	}
 
-	IEnumerator LoadRoutine(string name)
+    public void GoInGame()
+    {
+        StartCoroutine(LoadRoutine("Kevin"));
+    }
+
+    public void GoMainMenu()
+    {
+        StartCoroutine(LoadRoutine("MainMenu"));
+    }
+
+    IEnumerator LoadRoutine(string name)
 	{
 		const float fadeIn = 0.25f;
 		const float fadeOut = 0.25f;

@@ -42,11 +42,15 @@ public class Invader : MonoBehaviour
 		var distance = difference.magnitude;
 
 		if (distance <= StopDistance)
-			SwitchState(States.Charging);
+        {
+            Planet.Instance.Root.GetComponent<Rotator>().enabled = false;
+            SwitchState(States.Charging);
+        }
+			
 		else
 		{
 			transform.position += (difference / distance) * MoveSpeed * Chronos.Instance.DeltaTime;
-			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(Vector3.right, difference), Chronos.Instance.DeltaTime);
+			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(-Vector3.right, difference), Chronos.Instance.DeltaTime);
 		}
 	}
 
@@ -59,7 +63,13 @@ public class Invader : MonoBehaviour
 		{
 			ChargedRenderer.color = new Color(ChargedRenderer.color.r, ChargedRenderer.color.g, ChargedRenderer.color.b, 1f);
 			BeamRenderer.transform.localScale = new Vector3(BeamRenderer.transform.localScale.x, StopDistance - 65f, BeamRenderer.transform.localScale.z);
-			SwitchState(States.Beaming);
+            if (Monolith.Instance.IsCompleted)
+            {
+                BeamRenderer.sortingOrder = -4;
+                BeamRenderer.gameObject.SetActive(true);
+            }
+            else
+                SwitchState(States.Beaming);
 		}
 		else
 			ChargedRenderer.color = new Color(ChargedRenderer.color.r, ChargedRenderer.color.g, ChargedRenderer.color.b, stateTime / duration);

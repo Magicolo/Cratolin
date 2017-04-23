@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour {
 
+    bool loading = false;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -18,9 +20,11 @@ public class MainMenuController : MonoBehaviour {
             Application.Quit();
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && loading == false)
         {
-            SceneManager.LoadScene(1);
+            loading = true;
+            Game.Instance.GoInGame();
+            //SceneManager.LoadScene(1);
         }
 	}
 }
