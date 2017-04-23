@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class Invader : MonoBehaviour
 {
@@ -9,11 +10,14 @@ public class Invader : MonoBehaviour
 	public SpriteRenderer NormalRenderer;
 	public SpriteRenderer ChargedRenderer;
 	public SpriteRenderer BeamRenderer;
+    public GameObject MonolothMagicParticlesPrefab;
 
 	States state;
 	float stateTime;
 	Vector3 startPosition;
 	Vector3 cameraPosition;
+
+    private float lastTimeSpawnMagic;
 
 	void Awake()
 	{
@@ -125,12 +129,40 @@ public class Invader : MonoBehaviour
 		Camera.main.transform.position = cameraPosition + new Vector3(Random.Range(-amplitude, amplitude), Random.Range(-amplitude, amplitude));
 	}
 
+    int countParticles = 0;
     void UpdateWinning()
     {
         Monolith.Instance.magic.gameObject.SetActive(true);
         Monolith.Instance.magic.position = Vector3.MoveTowards(Monolith.Instance.magic.position, transform.position, Time.deltaTime * 40);
 
+        float RandomAmp = Random.Range(7f, 12f);
+        if(Time.time - lastTimeSpawnMagic > 0.3f)
+        {
+            countParticles++;
+            lastTimeSpawnMagic = Time.time;
+            GameObject obj = Instantiate(MonolothMagicParticlesPrefab);
+            obj.transform.position = Monolith.Instance.magic.position;
+            obj.gameObject.SetActive(true);
+
+            List<Vector3> lstPoints = new List<Vector3>();
+            Vector3 source = Monolith.Instance.magic.position;
+            Vector3 dest = transform.position;
+            for(int i = 1; i < 6; i++)
+            {
+                Vector3 basePos = source + i * ((dest - source) / 7);
+                lstPoints.Add(basePos + Monolith.Instance.transform.right * ((i % 2) * 2 - 1) * ((countParticles % 2) * 2 - 1) * RandomAmp);
+            }
+            lstPoints.Add(dest);
+
+            iTween.MoveTo(obj, iTween.Hash("path", lstPoints.ToArray(), "time", 3f));
+        }
+
         if (stateTime > 4)
+        {
+            // explose boss
+        }
+
+        if (stateTime > 8)
         {
             WinMenu.Instance.IsShown = true;
         }
