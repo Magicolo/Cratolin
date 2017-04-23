@@ -17,8 +17,6 @@ public class SplatterElementComponent : SplatterComponent
 	private Sprite CurrentSplatter;
 
 
-	public bool RainKillsMe;
-	public bool FireKillsMe;
 
 	public override Sprite Splatter
 	{
