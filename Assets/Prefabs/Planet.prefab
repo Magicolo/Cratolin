@@ -109,9 +109,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4361542592884722}
   - component: {fileID: 114715797239526130}
-  - component: {fileID: 114568628251784980}
   m_Layer: 8
-  m_Name: Planet
+  m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -344,6 +343,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4802106775480546}
+  - component: {fileID: 114632134802072896}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Untagged
@@ -1780,12 +1780,12 @@ MonoBehaviour:
     m_Bits: 256
   lstTreesSpawnedLeft: []
   lstTreesSpawnedRight: []
---- !u!114 &114568628251784980
+--- !u!114 &114632134802072896
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1083056749765038}
+  m_GameObject: {fileID: 1416061291022276}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a072d126ece8d964b84980b69ffd543d, type: 3}
