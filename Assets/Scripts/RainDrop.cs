@@ -19,11 +19,11 @@ public class RainDrop : MonoBehaviour
 		if (collision.gameObject.GetComponent<Walker>() != null)
 			collision.gameObject.GetComponent<Walker>().ClearFire();
 
-		if (collision.gameObject.GetComponentInParent<FireAbleObject>() != null){
+		if (collision.gameObject.GetComponentInParent<FireAbleObject>() != null)
+		{
 			collision.gameObject.GetComponentInParent<FireAbleObject>().StopFire();
 			Planet.Instance.Cooldown(1f);
 		}
-			
 
 		if (collision.gameObject.GetComponentInParent<Volcano>() != null)
 			collision.gameObject.GetComponentInParent<Volcano>().heat--;
@@ -42,7 +42,7 @@ public class RainDrop : MonoBehaviour
 
 	private void RemoveLava()
 	{
-		List<SplatterComponent> Todie = new List<SplatterComponent>();
+		var Todie = new List<SplatterComponent>();
 		foreach (var lava in SplatterComponent.Splatters["Lava"])
 		{
 			var distance = Mathf.Abs((lava.transform.position - transform.position).magnitude);

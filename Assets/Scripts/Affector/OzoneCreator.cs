@@ -1,19 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class OzoneCreator : MonoBehaviour {
+public class OzoneCreator : MonoBehaviour
+{
 
-	void Start () {
+	void Start()
+	{
 
 	}
 
-	void Update () {
-		if(Planet.Instance.CO2 > GameConstants.Instance.TreeCO2ConsumationRate){
-			Planet.Instance.Ozone += GameConstants.Instance.TreeOzoneCreationRate;
-			Planet.Instance.CO2 -= GameConstants.Instance.TreeCO2ConsumationRate;
+	void FixedUpdate()
+	{
+		if (Planet.Instance.CO2 > GameConstants.Instance.TreeCO2ConsumationRate)
+		{
+			Planet.Instance.Ozone += Chronos.Instance.DeltaTime * GameConstants.Instance.TreeOzoneCreationRate;
+			Planet.Instance.CO2 -= Chronos.Instance.DeltaTime * GameConstants.Instance.TreeCO2ConsumationRate;
 		}
-		
+
 	}
 
 }

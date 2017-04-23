@@ -62,7 +62,7 @@ MonoBehaviour:
   - {fileID: 114015849928273098, guid: ecf61769d51ca154eae934369d8f1a00, type: 2}
   - {fileID: 114572930620887492, guid: f18553954b8e0d1498920f6c2704ae6e, type: 2}
   Burst: {x: 10, y: 10}
-  StartDelay: {x: 1.5, y: 1.5}
+  StartDelay: {x: 0.5, y: 0.5}
   Once: 1
   DestroyWhenDone: 1
   Cooldown: {x: 0.25, y: 1}
