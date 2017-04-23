@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 4584841469347760}
   - component: {fileID: 212293581714984120}
   m_Layer: 0
-  m_Name: PLanet_Barren_01
+  m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -173,8 +173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6ce09390d40bc41a918981b2074d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FullCO2: {r: 0.3602941, g: 0.29115856, b: 0.24637759, a: 1}
-  FullOzone: {r: 0.18431373, g: 0.7490196, b: 0.77254903, a: 1}
+  FullCO2: {r: 0.6313726, g: 0.5019608, b: 0.41960785, a: 1}
+  FullOzone: {r: 0, g: 0.7137255, b: 0.654902, a: 1}
 --- !u!114 &114702673165464152
 MonoBehaviour:
   m_ObjectHideFlags: 1
