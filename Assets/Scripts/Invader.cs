@@ -14,8 +14,9 @@ public class Invader : MonoBehaviour
     public GameObject chunksParent;
     public ParticleSystem particleSystemBossDies;
     public AudioClip exploseAudio;
+    public AudioClip laserAudio;
 
-	States state;
+    States state;
 	float stateTime;
 	Vector3 startPosition;
 	Vector3 cameraPosition;
@@ -80,7 +81,11 @@ public class Invader : MonoBehaviour
                 SwitchState(States.Winning);
             }
             else
+            {
                 SwitchState(States.Beaming);
+                SoundManager.Instance.PlaySound(laserAudio);
+            }
+                
 		}
 		else
 			ChargedRenderer.color = new Color(ChargedRenderer.color.r, ChargedRenderer.color.g, ChargedRenderer.color.b, stateTime / duration);

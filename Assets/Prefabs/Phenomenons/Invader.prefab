@@ -932,7 +932,8 @@ MonoBehaviour:
     type: 2}
   chunksParent: {fileID: 1645597036694000}
   particleSystemBossDies: {fileID: 198978098323395152}
-  exploseAudio: {fileID: 8300000, guid: 525766623f70acf419b823a539a0eae3, type: 3}
+  exploseAudio: {fileID: 8300000, guid: 859b6cf7d7a2274419d421d438a72e04, type: 3}
+  laserAudio: {fileID: 8300000, guid: 8218a467734cd35439772f96b1914c5b, type: 3}
 --- !u!114 &114404437793005554
 MonoBehaviour:
   m_ObjectHideFlags: 1
