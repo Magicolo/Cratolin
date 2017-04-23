@@ -37,7 +37,16 @@ public class SplatterManager : MonoBehaviour {
 				if(distance < 1.2 * lava.radiusEffect){
 					fireable.internalTemperature += Chronos.Instance.DeltaTime * 100;
 				}
-			}	
+			}
+
+			foreach (var item in Walker.Walkers)
+			{
+				var distance = Mathf.Abs((lava.transform.position - item.transform.position).magnitude);
+				
+				if(distance < 1.2 * lava.radiusEffect){
+					item.CatchFire();
+				}
+			}
 		}
 		while(Todie.Count != 0){
 			var removeMe = Todie[0];
