@@ -15,9 +15,11 @@ public class GameConstants : MonoBehaviour {
 
 	public float PlanetSerreEffectHeatRate = 2;
 	public float PlanetPressureCooldownFactor = 0.25f;
+
 	
-	
-	public float TreeBurnTemperaturThreshold = 70f;
+	public float TreeBurnTemperatureThreshold = 70f;
+	public float SeaDryoffTemperatureThreshold = 80f;
+	public float SeaDryoffRate = 1f;
 
 
 	void Awake()

@@ -22,7 +22,7 @@ public class FireAbleObject : MonoBehaviour {
 	void Update () {
 
         internalTemperature = Mathf.Lerp(internalTemperature, Planet.Instance.Temperature,Chronos.Instance.DeltaTime);
-        if(internalTemperature >= GameConstants.Instance.TreeBurnTemperaturThreshold){
+        if(internalTemperature >= GameConstants.Instance.TreeBurnTemperatureThreshold){
             StartFire();
         }
 
