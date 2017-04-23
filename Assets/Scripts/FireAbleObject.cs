@@ -14,11 +14,18 @@ public class FireAbleObject : MonoBehaviour {
     public bool IsOnFire { get { return inFire; } }
 
 
+    private float internalTemperature;
     void Start () {
-		
+		internalTemperature = 0;
 	}
 	
 	void Update () {
+
+        internalTemperature = Mathf.Lerp(internalTemperature, Planet.Instance.Temperature,Chronos.Instance.DeltaTime);
+        if(internalTemperature >= GameConstants.Instance.TreeBurnTemperaturThreshold){
+            StartFire();
+        }
+
 		if(inFire)
         {
             timeInFire += Time.deltaTime;

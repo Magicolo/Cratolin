@@ -3,19 +3,27 @@
 public class Planet : MonoBehaviour
 {
 	public static Planet Instance { get; private set; }
-
-	public float Temperature { get; set; }
-	private float co2;
+	public float temperature;
+	public float Temperature
+	{
+		get { return temperature; }
+		set { temperature = Mathf.Clamp(value, -100f, 100); }
+	}
+	public float co2;
 	public float CO2
 	{
 		get { return co2; }
 		set { co2 = Mathf.Clamp(value, 0, 100); }
 	}
-	private float ozone;
+	public float ozone;
 	public float Ozone
 	{
 		get { return ozone; }
 		set { ozone = Mathf.Clamp(value, 0, 100); }
+	}
+
+	public float PlanetPressure{
+		get{return Mathf.Min((CO2 + Ozone)/76.852f, 1); }
 	}
 
 	void Awake()
@@ -25,7 +33,13 @@ public class Planet : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		Temperature = Mathf.Max(Temperature - Chronos.Instance.DeltaTime, -100f);
+		Temperature += Chronos.Instance.DeltaTime 
+			* GameConstants.Instance.PlanetCooldownRate 
+			* (GameConstants.Instance.PlanetPressureCooldownFactor * (1-PlanetPressure));
+
+		if(CO2 >= 50){
+			Temperature += Chronos.Instance.DeltaTime * GameConstants.Instance.PlanetSerreEffectHeatRate;
+		}
 	}
 
 	public void Destroy()
