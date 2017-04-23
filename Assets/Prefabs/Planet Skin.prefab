@@ -173,8 +173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6ce09390d40bc41a918981b2074d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FullCO2: {r: 0.6313726, g: 0.5019608, b: 0.41960785, a: 1}
-  FullOzone: {r: 0, g: 0.7137255, b: 0.654902, a: 1}
+  FullCO2: {r: 0.41960785, g: 0.35686275, b: 0.32156864, a: 1}
+  FullOzone: {r: 0, g: 0.6117647, b: 0.85490197, a: 1}
 --- !u!114 &114702673165464152
 MonoBehaviour:
   m_ObjectHideFlags: 1
