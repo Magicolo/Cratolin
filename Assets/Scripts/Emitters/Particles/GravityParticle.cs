@@ -4,6 +4,7 @@ public class GravityParticle : ParticleBase
 {
 	ParticleEmitterBase<GravityParticle> emitter;
 	public SplatterComponent splater;
+	public float GravityFactor = 1;
 
 	public void Initialize(ParticleEmitterBase<GravityParticle> emitter, Vector3 position, Vector2 velocity, float friction = 0.98f, float lifeTime = 5f, float fadeOut = 1f)
 	{
@@ -15,7 +16,7 @@ public class GravityParticle : ParticleBase
 	{
 		base.FixedUpdate();
 
-		velocity += Graviton.Instance.Gravity;
+		velocity += Graviton.Instance.Gravity * GravityFactor;
 	}
 
 	protected override void Despawn()

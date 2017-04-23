@@ -16,7 +16,7 @@ public class SplatterElementComponent : SplatterComponent
 	private SplattersGroup splatterGroup;
 	private Sprite CurrentSplatter;
 
-	private BoxCollider2D triggerCollider;
+	private BoxCollider2D triggerCollider = null;
 
 	public bool RainKillsMe;
 	public bool FireKillsMe;
