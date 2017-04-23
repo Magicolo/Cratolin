@@ -7,6 +7,8 @@ public class Monolith : MonoBehaviour {
     public SpriteRenderer spriteRenderer;
     public Sprite[] spriteSteps;
     public Sprite completed;
+    public Sprite win;
+    public Transform magic;
 
     public static Monolith Instance { get; private set; }
 
