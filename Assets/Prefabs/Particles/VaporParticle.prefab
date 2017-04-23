@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rotations: 10
-  Transform: {fileID: 4412400897194560}
+  Transform: {fileID: 4322429740731976}
 --- !u!212 &212148057379532040
 SpriteRenderer:
   m_ObjectHideFlags: 1
