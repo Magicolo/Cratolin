@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4083603221072714}
   - component: {fileID: 114586020833897292}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SmokeCloud1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4278626930203982}
   - component: {fileID: 212561457613401588}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4402122513909256}
   - component: {fileID: 58071143861009880}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

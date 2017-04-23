@@ -16,7 +16,7 @@ public class MeteorParticle : ParticleBase
 	protected override void Despawn()
 	{
 		if (Splater != null)
-		{	
+		{
 			var splat = Instantiate(Splater, transform.position, transform.rotation);
 			splat.transform.parent = Planet.Instance.Root;
 		}
@@ -26,12 +26,6 @@ public class MeteorParticle : ParticleBase
 
 	void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (Splater != null)
-		{	
-			var splat = Instantiate(Splater, transform.position, transform.rotation);
-			splat.transform.parent = Planet.Instance.Root;
-		}
-
-		Destroy(gameObject);
+		Despawn();
 	}
 }
