@@ -234,7 +234,7 @@ MonoBehaviour:
   Chunks: {fileID: 114107550857441066}
   NormalRenderer: {fileID: 212032637084675246}
   BurningRenderer: {fileID: 212941212100305368}
-  Splatter: {fileID: 114264957773374776, guid: b3a7fd14852c6384493f23d20fbdfb0d, type: 2}
+  Splatter: {fileID: 114257195255336370, guid: deedd64c8da4e264299c65c402b8dd0c, type: 2}
 --- !u!114 &114528608681635364
 MonoBehaviour:
   m_ObjectHideFlags: 1
