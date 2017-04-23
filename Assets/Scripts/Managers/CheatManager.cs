@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using UnityEngine;
 
 public class CheatManager : MonoBehaviour
@@ -20,6 +22,16 @@ public class CheatManager : MonoBehaviour
 			Planet.Instance.Temperature += Time.deltaTime * 50;
 		if (Input.GetKey(KeyCode.Y))
 			Planet.Instance.Temperature -= Time.deltaTime * 50;
+		if (Input.GetKey(KeyCode.U))
+		{
+			foreach (var power in Enum.GetValues(typeof(PowerManager.Powers)).Cast<PowerManager.Powers>())
+				PowerManager.Instance.UnlockPower(power);
+		}
+		if (Input.GetKey(KeyCode.L))
+		{
+			foreach (var power in Enum.GetValues(typeof(PowerManager.Powers)).Cast<PowerManager.Powers>())
+				PowerManager.Instance.LockPower(power);
+		}
 
 		if (Input.GetKey(KeyCode.Alpha1))
 			Chronos.Instance.TimeScale = 1;
