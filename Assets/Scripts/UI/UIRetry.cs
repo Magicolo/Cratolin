@@ -12,6 +12,7 @@ public class UIRetry : MonoBehaviour
 
 	public void OnClick()
 	{
+        Score.Instance.nbCycle++;
 		Game.Instance.Reload();
 	}
 }

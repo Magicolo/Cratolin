@@ -12,6 +12,7 @@ public class Invader : MonoBehaviour
 	public SpriteRenderer BeamRenderer;
     public GameObject MonolothMagicParticlesPrefab;
     public GameObject chunksParent;
+    public ParticleSystem particleSystemBossDies;
 
 	States state;
 	float stateTime;
@@ -74,6 +75,7 @@ public class Invader : MonoBehaviour
             if (Monolith.Instance.IsCompleted)
             {
                 Monolith.Instance.spriteRenderer.sprite = Monolith.Instance.win;
+                
                 SwitchState(States.Winning);
             }
             else
@@ -163,6 +165,7 @@ public class Invader : MonoBehaviour
         {
             // explose boss
             explosed = true;
+            particleSystemBossDies.Play();
             NormalRenderer.gameObject.SetActive(false);
             ChargedRenderer.gameObject.SetActive(false);
             chunksParent.SetActive(true);
