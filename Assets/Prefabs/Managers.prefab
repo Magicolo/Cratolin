@@ -51,6 +51,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4360629977408858}
+  - component: {fileID: 114456117981347718}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -190,7 +191,9 @@ MonoBehaviour:
   PlanetCooldownRate: -1
   PlanetSerreEffectHeatRate: 2
   PlanetPressureCooldownFactor: 0.25
-  TreeBurnTemperaturThreshold: 70
+  TreeBurnTemperatureThreshold: 70
+  SeaDryoffTemperatureThreshold: 80
+  SeaDryoffRate: -0.2
 --- !u!114 &114426515515147834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -203,6 +206,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LifeTime: 180
+--- !u!114 &114456117981347718
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1400545356345240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 249861e79adce7d42b495ea479828e28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 0
 --- !u!114 &114690020313583772
 MonoBehaviour:
   m_ObjectHideFlags: 1
