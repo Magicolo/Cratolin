@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class SmokeCloudParticle : ParticleBase
 {
+	public static List<SmokeCloudParticle> Clouds = new List<SmokeCloudParticle>();
+
 	SmokeCloudEmitter emitter;
 	float moveSpeed;
 
@@ -12,6 +15,7 @@ public class SmokeCloudParticle : ParticleBase
 		this.emitter = emitter;
 		this.fadeIn = fadeIn;
 		this.moveSpeed = moveSpeed;
+		Clouds.Add(this);
 	}
 
 	protected override void FixedUpdate()
@@ -24,6 +28,7 @@ public class SmokeCloudParticle : ParticleBase
 
 	protected override void Despawn()
 	{
+		Clouds.Remove(this);
 		emitter.Despawn(this);
 	}
 }

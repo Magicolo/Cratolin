@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class IceMeteor : MonoBehaviour
 {
-	public enum States { Falling, Melting }
+	public enum States { Falling, Melting, Disapearing }
 
 	public float Speed = 50f;
 	public float MeltTime = 4f;
@@ -61,10 +61,21 @@ public class IceMeteor : MonoBehaviour
 		transform.position += direction * Speed * SlowDownRatio;
 		transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(Vector3.down, direction), Chronos.Instance.DeltaTime);
 
-		if (cloudCollisionCount <= 0)
-			SwitchState(States.Falling);
-
 		if (meltTime >= MeltTime)
+			SwitchState(States.Disapearing);
+		else if (cloudCollisionCount <= 0)
+			SwitchState(States.Falling);
+	}
+
+	void UpdateDisapearing()
+	{
+		const float duration = 0.5f;
+
+		var color = BurningRenderer.color;
+		color.a = 1f - (stateTime / duration);
+		BurningRenderer.color = color;
+
+		if (stateTime > duration)
 		{
 			PowerManager.Instance.TrySpawnPower(PowerManager.Powers.Rain, transform.position);
 			Destroy(gameObject);

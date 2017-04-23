@@ -1,22 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlanetSplosionEmitter : BurstEmitter<GravityParticle> {
-	
+public class PlanetSplosionEmitter : BurstEmitter<GravityParticle>
+{
 	public override GravityParticle Spawn()
 	{
 		var particle = base.Spawn();
-		var speed = 250;
+		var speed = 100f;
 		particle.Initialize(this, transform.position, new Vector2(Random.Range(-speed, speed), Random.Range(-speed, speed))
-		,lifeTime:15f, friction:1f);
+		, lifeTime: 15f, friction: 1f);
 
 		return particle;
-	}
-
-	public override void Despawn(GravityParticle particle)
-	{
-		base.Despawn(particle);
-
 	}
 }
