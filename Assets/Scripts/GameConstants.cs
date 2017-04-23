@@ -21,6 +21,8 @@ public class GameConstants : MonoBehaviour
 
 	public int FirePowerNBFirableObjectInFireNeeded = 20;
 
+	public float LavaExtinguish = 1;
+
 
 	void Awake()
 	{
