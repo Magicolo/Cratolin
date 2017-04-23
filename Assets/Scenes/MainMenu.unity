@@ -925,7 +925,7 @@ GameObject:
   - component: {fileID: 1661561633}
   - component: {fileID: 1661561632}
   m_Layer: 0
-  m_Name: New Text (5)
+  m_Name: Credits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -963,7 +963,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1661561630}
-  m_Text: "Sylvain Savard, Richard Rail, Kevin McNelly-Gagnon, Alex Mass\xE9"
+  m_Text: "Sylvain Savard, Richard Rail, Kevin McNally-Gagnon, Alex Mass\xE9"
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1

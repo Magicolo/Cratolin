@@ -2,7 +2,7 @@
 
 public class Invader : MonoBehaviour
 {
-	public enum States { Arriving, Charging, Beaming, Waiting, Leaving }
+	public enum States { Arriving, Charging, Beaming, Waiting, Leaving, Winning }
 
 	public float MoveSpeed = 2f;
 	public float StopDistance = 200f;
@@ -33,7 +33,8 @@ public class Invader : MonoBehaviour
 			case States.Beaming: UpdateBeaming(); break;
 			case States.Waiting: UpdateWaiting(); break;
 			case States.Leaving: UpdateLeaving(); break;
-		}
+            case States.Winning: UpdateWinning(); break;
+        }
 	}
 
 	void UpdateArriving()
@@ -57,16 +58,19 @@ public class Invader : MonoBehaviour
 	void UpdateCharging()
 	{
 		const float duration = 4f;
-		Shake(stateTime);
+
+        if (!Monolith.Instance.IsCompleted)
+            Shake(stateTime);
 
 		if (stateTime > duration)
 		{
 			ChargedRenderer.color = new Color(ChargedRenderer.color.r, ChargedRenderer.color.g, ChargedRenderer.color.b, 1f);
-			BeamRenderer.transform.localScale = new Vector3(BeamRenderer.transform.localScale.x, StopDistance - 65f, BeamRenderer.transform.localScale.z);
+			//BeamRenderer.transform.localScale = new Vector3(BeamRenderer.transform.localScale.x, StopDistance - 65f, BeamRenderer.transform.localScale.z);
             if (Monolith.Instance.IsCompleted)
             {
                 BeamRenderer.sortingOrder = -4;
                 BeamRenderer.gameObject.SetActive(true);
+                SwitchState(States.Winning);
             }
             else
                 SwitchState(States.Beaming);
@@ -122,7 +126,18 @@ public class Invader : MonoBehaviour
 		Camera.main.transform.position = cameraPosition + new Vector3(Random.Range(-amplitude, amplitude), Random.Range(-amplitude, amplitude));
 	}
 
-	void SwitchState(States state)
+    void UpdateWinning()
+    {
+        BeamRenderer.gameObject.SetActive(true);
+
+        if (stateTime > 4)
+        {
+            WinMenu.Instance.IsShown = true;
+        }
+    }
+
+
+    void SwitchState(States state)
 	{
 		this.state = state;
 

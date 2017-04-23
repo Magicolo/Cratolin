@@ -1743,7 +1743,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 100, y: 100}
   m_EdgeRadius: 0
 --- !u!61 &61133974887285300
 BoxCollider2D:
@@ -1768,7 +1768,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 100, y: 100}
   m_EdgeRadius: 0
 --- !u!61 &61176652455211820
 BoxCollider2D:
@@ -1818,7 +1818,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 100, y: 100}
   m_EdgeRadius: 0
 --- !u!61 &61318661727980052
 BoxCollider2D:
@@ -1843,7 +1843,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 100, y: 100}
   m_EdgeRadius: 0
 --- !u!61 &61459612057778800
 BoxCollider2D:
@@ -1868,7 +1868,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 100, y: 100}
   m_EdgeRadius: 0
 --- !u!61 &61478472260272544
 BoxCollider2D:
@@ -2127,6 +2127,8 @@ MonoBehaviour:
   - {fileID: 114046027632892338, guid: 0fa82a2b05cbdaa458a0a238a6e8056f, type: 2}
   - {fileID: 114450053469841580, guid: e496bf0eec776a84d9633b7574652668, type: 2}
   - {fileID: 114636673595509074, guid: 3b62f76df7a68724597ca714d29061ac, type: 2}
+  walkerprefab: {fileID: 114040540524320316, guid: 43f5eada46180bc49aa4918abe05607a,
+    type: 2}
   timeBetweenTreeSpawn: 1
   maxTreeCountEachSide: 3
   planetMask:
@@ -2249,6 +2251,8 @@ MonoBehaviour:
   - {fileID: 114046027632892338, guid: 0fa82a2b05cbdaa458a0a238a6e8056f, type: 2}
   - {fileID: 114450053469841580, guid: e496bf0eec776a84d9633b7574652668, type: 2}
   - {fileID: 114636673595509074, guid: 3b62f76df7a68724597ca714d29061ac, type: 2}
+  walkerprefab: {fileID: 114040540524320316, guid: 43f5eada46180bc49aa4918abe05607a,
+    type: 2}
   timeBetweenTreeSpawn: 1
   maxTreeCountEachSide: 3
   planetMask:
@@ -2647,6 +2651,8 @@ MonoBehaviour:
   - {fileID: 114046027632892338, guid: 0fa82a2b05cbdaa458a0a238a6e8056f, type: 2}
   - {fileID: 114450053469841580, guid: e496bf0eec776a84d9633b7574652668, type: 2}
   - {fileID: 114636673595509074, guid: 3b62f76df7a68724597ca714d29061ac, type: 2}
+  walkerprefab: {fileID: 114040540524320316, guid: 43f5eada46180bc49aa4918abe05607a,
+    type: 2}
   timeBetweenTreeSpawn: 1
   maxTreeCountEachSide: 3
   planetMask:

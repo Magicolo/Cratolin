@@ -1,65 +1,69 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
-public class WheelPowerItem : MonoBehaviour {
+public class WheelPowerItem : MonoBehaviour
+{
+	public SpriteRenderer auraRenderer;
+	public Sprite spriteToUseAsBeam;
 
-    public SpriteRenderer auraRenderer;
-    public Sprite spriteToUseAsBeam;
+	private float currentAlpha = 1;
+	private float destAlpha = 1;
 
-    private float currentAlpha = 1;
-    private float destAlpha = 1;
-
-	// Use this for initialization
-	void Start () {
-		
+	void OnEnable()
+	{
+		StartCoroutine(GrowRoutine(0.25f));
 	}
-	
-	// Update is called once per frame
-	void LateUpdate () {
 
-        
+	IEnumerator GrowRoutine(float shrinkDuration)
+	{
+		for (float i = 0; i < shrinkDuration; i += Chronos.Instance.DeltaTime)
+		{
+			transform.localScale = Vector3.one * (i / shrinkDuration);
+			yield return null;
+		}
+	}
 
-        transform.eulerAngles = Vector3.zero;
+	void LateUpdate()
+	{
+		transform.eulerAngles = Vector3.zero;
 
-        currentAlpha = Mathf.Lerp(currentAlpha, destAlpha, Time.unscaledDeltaTime * 8);
-        Renderer[] sprites = GetComponentsInChildren<Renderer>();
-        foreach (Renderer sprite in sprites)
-        {
-            sprite.material.color = new Color(sprite.material.color.r, sprite.material.color.g, sprite.material.color.b, currentAlpha);
-        }
+		currentAlpha = Mathf.Lerp(currentAlpha, destAlpha, Time.unscaledDeltaTime * 8);
+		Renderer[] sprites = GetComponentsInChildren<Renderer>();
+		foreach (Renderer sprite in sprites)
+		{
+			sprite.material.color = new Color(sprite.material.color.r, sprite.material.color.g, sprite.material.color.b, currentAlpha);
+		}
 
-        int uses = GetComponent<PowerBase>().RemainingUses;
-        GetComponentInChildren<TextMesh>().text = uses == -1 ? "" : uses.ToString();
+		int uses = GetComponent<PowerBase>().RemainingUses;
+		GetComponentInChildren<TextMesh>().text = uses == -1 ? "" : uses.ToString();
 
-        bool disabled = !GetComponent<PowerBase>().CanUse;
-        if (disabled)
-            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.3f);
-        else
-            GetComponent<SpriteRenderer>().color = Color.white;
-    }
+		bool disabled = !GetComponent<PowerBase>().CanUse;
+		if (disabled)
+			GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.3f);
+		else
+			GetComponent<SpriteRenderer>().color = Color.white;
+	}
 
-    public void Spawn(Vector3 pPosition)
-    {
-        PowerBase basePower = GetComponent<PowerBase>();
+	public void Spawn(Vector3 pPosition)
+	{
+		PowerBase basePower = GetComponent<PowerBase>();
 
-        if (basePower != null)
-            basePower.Create(pPosition);
-    }
+		if (basePower != null)
+			basePower.Create(pPosition);
+	}
 
-    public void Cancel()
-    {
-        PowerBase basePower = GetComponent<PowerBase>();
+	public void Cancel()
+	{
+		PowerBase basePower = GetComponent<PowerBase>();
 
-        if (basePower != null)
-            basePower.Cancel();
-    }
+		if (basePower != null)
+			basePower.Cancel();
+	}
 
-    public void SetDestinationAlpha(int value)
-    {
-        if(value == 1)
-            auraRenderer.sprite = spriteToUseAsBeam;
-        destAlpha = value;
-    }
+	public void SetDestinationAlpha(int value)
+	{
+		if (value == 1)
+			auraRenderer.sprite = spriteToUseAsBeam;
+		destAlpha = value;
+	}
 }
