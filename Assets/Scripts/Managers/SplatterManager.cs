@@ -24,6 +24,8 @@ public class SplatterManager : MonoBehaviour {
 		{
 			foreach (var grass in SplatterComponent.Splatters["Grass"])
 			{
+				if(!grass.FireKillsMe)
+					continue;
 				var distance = Mathf.Abs((lava.transform.position - grass.transform.position).magnitude);
 				
 				if(distance < 0.4 * (grass.radiusEffect + lava.radiusEffect)){

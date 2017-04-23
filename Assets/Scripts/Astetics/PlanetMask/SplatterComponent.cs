@@ -9,6 +9,9 @@ public abstract class SplatterComponent : MonoBehaviour
 		{ "Grass", new List<SplatterComponent>() },
 	};
 
+	public bool RainKillsMe;
+	public bool FireKillsMe;
+	
 	public abstract Sprite Splatter { get; }
 	public float radiusEffect;
 	public Color[] Pixels
