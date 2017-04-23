@@ -391,13 +391,14 @@ MonoBehaviour:
   SmokeParticleCO2Emission: 1
   LavaEmitterTemperature: 1
   MeteorEmitterTemperature: 1
-  PlanetCooldownRate: -1
+  PlanetCooldownRate: -5
   PlanetSerreEffectHeatRate: 2
-  PlanetPressureCooldownFactor: 0.25
+  PlanetPressureCooldownFactor: 5
   TreeBurnTemperatureThreshold: 70
   SeaDryoffTemperatureThreshold: 80
   SeaDryoffRate: -0.2
   FirePowerNBFirableObjectInFireNeeded: 20
+  LavaExtinguish: 1
 --- !u!114 &114426515515147834
 MonoBehaviour:
   m_ObjectHideFlags: 1
