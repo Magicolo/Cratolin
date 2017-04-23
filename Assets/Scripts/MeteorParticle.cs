@@ -3,6 +3,7 @@
 public class MeteorParticle : ParticleBase
 {
 	public SplatterComponent Splater;
+    public AudioClip destroyAudio;
 
 	MeteorEmitter emitter;
 	public GameObject SubEmitterPrefab;
@@ -16,6 +17,8 @@ public class MeteorParticle : ParticleBase
 
 	protected override void Despawn()
 	{
+        SoundManager.Instance.PlaySound(destroyAudio);
+
 		if (Splater != null)
 		{
 			var splat = Instantiate(Splater, transform.position, transform.rotation);
@@ -46,5 +49,20 @@ public class MeteorParticle : ParticleBase
                 walker.CatchFire();
             }
         }
+    }
+
+    void Update()
+    {
+        if(WheelPower.Instance.IsPlacingPower)
+        {
+            float angleThis = Mathf.Rad2Deg * Mathf.Atan2(transform.position.y, transform.position.x);
+
+            Vector2 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            float angleMouse = Mathf.Rad2Deg * Mathf.Atan2(worldPos.y, worldPos.x);
+
+            if (Mathf.Abs(angleThis - angleMouse) < 1)
+                Despawn();
+        }
+        
     }
 }

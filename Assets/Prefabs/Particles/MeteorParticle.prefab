@@ -150,6 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Renderer: {fileID: 212173466459145140}
   Splater: {fileID: 114844483880499626, guid: b58cb837acfb38a43bc77503a6a04c12, type: 2}
+  destroyAudio: {fileID: 8300000, guid: 18ceb46cfa5108847b468e59fc02aa2a, type: 3}
   SubEmitterPrefab: {fileID: 1028438777987896, guid: 19b490df2dd83d94982833251dc56763,
     type: 2}
 --- !u!114 &114112329238598604

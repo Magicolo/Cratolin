@@ -4,7 +4,9 @@ using UnityEngine.EventSystems;
 
 public class WheelPower : MonoBehaviour
 {
-	public Transform aimTransform;
+    public static WheelPower Instance { get; private set; }
+
+    public Transform aimTransform;
 	public PowerBase[] Powers;
 
 	private WheelPowerItem[] items;
@@ -14,9 +16,12 @@ public class WheelPower : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		items = GetComponentsInChildren<WheelPowerItem>();
+        Instance = this;
+        items = GetComponentsInChildren<WheelPowerItem>();
 		aimTransform.gameObject.SetActive(false);
 	}
+
+    public bool IsPlacingPower { get { return currentItem != null; } }
 
 	// Update is called once per frame
 	void Update()

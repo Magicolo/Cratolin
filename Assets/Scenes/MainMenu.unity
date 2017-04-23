@@ -1493,6 +1493,15 @@ Prefab:
       propertyPath: Gravity.y
       value: -3
       objectReference: {fileID: 0}
+    - target: {fileID: 1707918713530792, guid: 7c5ef5d5709aa06448aa4347aef4a01a, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82022729125323964, guid: 7c5ef5d5709aa06448aa4347aef4a01a,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 822f564efb77cf942b48d2c321f81e7b, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7c5ef5d5709aa06448aa4347aef4a01a, type: 2}
   m_IsPrefabParent: 0
