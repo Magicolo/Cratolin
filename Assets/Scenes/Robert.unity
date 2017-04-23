@@ -826,6 +826,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114609245240088282, guid: 1c6c7d7a47d6a0e4da7cc1cc2e696cb4,
+        type: 2}
+      propertyPath: FullOzone.g
+      value: 0.6117647
+      objectReference: {fileID: 0}
+    - target: {fileID: 114609245240088282, guid: 1c6c7d7a47d6a0e4da7cc1cc2e696cb4,
+        type: 2}
+      propertyPath: FullOzone.b
+      value: 0.85490197
+      objectReference: {fileID: 0}
+    - target: {fileID: 114609245240088282, guid: 1c6c7d7a47d6a0e4da7cc1cc2e696cb4,
+        type: 2}
+      propertyPath: FullCO2.r
+      value: 0.41960785
+      objectReference: {fileID: 0}
+    - target: {fileID: 114609245240088282, guid: 1c6c7d7a47d6a0e4da7cc1cc2e696cb4,
+        type: 2}
+      propertyPath: FullCO2.g
+      value: 0.35686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 114609245240088282, guid: 1c6c7d7a47d6a0e4da7cc1cc2e696cb4,
+        type: 2}
+      propertyPath: FullCO2.b
+      value: 0.32156864
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1c6c7d7a47d6a0e4da7cc1cc2e696cb4, type: 2}
   m_IsPrefabParent: 0
