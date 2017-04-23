@@ -305,7 +305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefabs:
   - {fileID: 114788366557875622, guid: c9dec94f207094f4d8a30b00000918e6, type: 2}
-  SpawnDelay: {x: 0.5, y: 2}
+  SpawnDelay: {x: 0.25, y: 1}
   LifeTime: 10
   FadeIn: 1
   FadeOut: 3
@@ -353,8 +353,8 @@ MonoBehaviour:
   - {fileID: 114537073347499870, guid: b896dc4dffb8f06469286aebe117fa85, type: 2}
   - {fileID: 114537073347499870, guid: dd61942ee0ad15b48b76e40525bcc2c5, type: 2}
   - {fileID: 114537073347499870, guid: c55ee98d0e3f1e047a8418d214f4ca5e, type: 2}
-  SpawnDelay: {x: 2, y: 5}
-  Burst: {x: 4, y: 10}
+  SpawnDelay: {x: 3, y: 7}
+  Burst: {x: 3, y: 7}
 --- !u!212 &212722801031386966
 SpriteRenderer:
   m_ObjectHideFlags: 1
