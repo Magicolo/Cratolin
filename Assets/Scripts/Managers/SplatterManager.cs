@@ -26,7 +26,7 @@ public class SplatterManager : MonoBehaviour {
 			{
 				var distance = Mathf.Abs((lava.transform.position - grass.transform.position).magnitude);
 				
-				if(distance < 1.2 * (grass.radiusEffect + lava.radiusEffect)){
+				if(distance < 0.4 * (grass.radiusEffect + lava.radiusEffect)){
 					Todie.Add(grass);
 				}
 			}
@@ -34,7 +34,7 @@ public class SplatterManager : MonoBehaviour {
 			{
 				var distance = Mathf.Abs((lava.transform.position - fireable.transform.position).magnitude);
 				
-				if(distance < 1.2 * lava.radiusEffect){
+				if(distance < 0.4 * lava.radiusEffect){
 					fireable.internalTemperature += Chronos.Instance.DeltaTime * 100;
 				}
 			}
@@ -43,7 +43,7 @@ public class SplatterManager : MonoBehaviour {
 			{
 				var distance = Mathf.Abs((lava.transform.position - item.transform.position).magnitude);
 				
-				if(distance < 1.2 * lava.radiusEffect){
+				if(distance < 0.4 * lava.radiusEffect){
 					item.CatchFire();
 				}
 			}
