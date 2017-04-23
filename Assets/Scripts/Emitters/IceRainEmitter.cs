@@ -23,7 +23,7 @@ public class IceRainEmitter : ParticleEmitterBase<IceRainParticle>
 	public override IceRainParticle Spawn()
 	{
 		var particle = base.Spawn();
-		particle.Initialize(this, transform.position + Vector3.right * Random.Range(-25f, 25f), new Vector2(0f, -50f));
+		particle.Initialize(this, transform.position + Vector3.right * Random.Range(-30f, 30f), new Vector2(0f, -75f));
 
 		return particle;
 	}

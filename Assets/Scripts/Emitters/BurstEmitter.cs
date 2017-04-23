@@ -21,13 +21,15 @@ public abstract class BurstEmitter<T> : ParticleEmitterBase<T> where T : Particl
 
 	void FixedUpdate()
 	{
-		if(Once && doneOnce){
-			if(ParticleCount == 0)
+		if (Once && doneOnce)
+		{
+			if (ParticleCount == 0 && DestroyWhenDone)
 				Destroy(gameObject);
+
 			return;
 		}
-		
-		
+
+
 		while (Chronos.Instance.Time >= nextParticle)
 		{
 			var burst = (int)Random.Range(Burst.x, Burst.y);
@@ -36,8 +38,11 @@ public abstract class BurstEmitter<T> : ParticleEmitterBase<T> where T : Particl
 			{
 				nextParticle += RandomUtils.RangeFloat(Cooldown);
 				Spawn();
-				doneOnce = true;
 			}
+
+			doneOnce = true;
+
+			if (Once) break;
 		}
 	}
 }
