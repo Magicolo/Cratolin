@@ -1,23 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class RainDrop : MonoBehaviour {
+public class RainDrop : MonoBehaviour
+{
+	public LayerMask PlanetLayer;
+	public float speed;
 
-    public LayerMask PlanetLayer;
-    public float speed;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        transform.position -= transform.up * Time.deltaTime * speed;
+	void FixedUpdate()
+	{
+		transform.position -= transform.up * Chronos.Instance.DeltaTime * speed;
 	}
 
-    private void OnTriggerEnter2D(Collider2D collision)
+	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.gameObject.GetComponent<Sea>() != null)
 			collision.gameObject.GetComponent<Sea>().IncreaseWater();
@@ -34,8 +28,8 @@ public class RainDrop : MonoBehaviour {
 		var splatterC = collision.gameObject.GetComponentInParent<SplatterElementComponent>();
 		if (splatterC != null && splatterC.RainKillsMe)
 			splatterC.DIE();
-		
-        RemoveLava();
+
+		RemoveLava();
 
 		if (PlanetLayer == (PlanetLayer | (1 << collision.gameObject.layer)))
 		{
@@ -50,7 +44,7 @@ public class RainDrop : MonoBehaviour {
 		{
 			var distance = Mathf.Abs((lava.transform.position - transform.position).magnitude);
 			if (distance < 0.4 * lava.radiusEffect)
-                Todie.Add(lava);
+				Todie.Add(lava);
 		}
 
 		while (Todie.Count != 0)
