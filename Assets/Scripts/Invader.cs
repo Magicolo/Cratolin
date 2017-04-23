@@ -55,7 +55,7 @@ public class Invader : MonoBehaviour
 		else
 		{
 			transform.position += (difference / distance) * MoveSpeed * Chronos.Instance.DeltaTime;
-			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(-Vector3.right, difference), Chronos.Instance.DeltaTime);
+			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(Vector3.left, difference), Chronos.Instance.DeltaTime);
 		}
 	}
 
@@ -121,7 +121,7 @@ public class Invader : MonoBehaviour
 	{
 		var direction = (startPosition - transform.position).normalized;
 		transform.position += direction * MoveSpeed * Chronos.Instance.DeltaTime;
-		transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(Vector3.right, direction), Chronos.Instance.DeltaTime);
+		transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(Vector3.left, direction), Chronos.Instance.DeltaTime);
 	}
 
 	void Shake(float amplitude)

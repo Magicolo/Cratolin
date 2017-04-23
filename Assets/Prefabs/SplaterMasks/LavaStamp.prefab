@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeToFullGrow: 5
-  TimeToDieAfterGrow: 10
+  TimeToDieAfterGrow: 2
   TimeToDecay: 1
   minGrow: 0
   maxGrow: 1

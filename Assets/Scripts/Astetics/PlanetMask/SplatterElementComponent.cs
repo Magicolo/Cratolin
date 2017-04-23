@@ -27,10 +27,10 @@ public class SplatterElementComponent : SplatterComponent
 	}
 
 	void Awake(){
-		triggerCollider = gameObject.GetComponent<BoxCollider2D>();
+		/*triggerCollider = gameObject.GetComponent<BoxCollider2D>();
 		if(triggerCollider == null)
 			triggerCollider = gameObject.AddComponent<BoxCollider2D>();
-			triggerCollider.isTrigger = true;
+			triggerCollider.isTrigger = true;*/
 	}
 
 	void Start()
@@ -52,7 +52,7 @@ public class SplatterElementComponent : SplatterComponent
 			CurrentSplatter = splatterGroup.getSpatter(t);
 		}
 
-		if (CurrentSplatter != lastSplatterUpdate && CurrentSplatter != null)
+		if (triggerCollider != null && CurrentSplatter != lastSplatterUpdate && CurrentSplatter != null)
 			triggerCollider.size = CurrentSplatter.bounds.size;
 
 		lastSplatterUpdate = CurrentSplatter;

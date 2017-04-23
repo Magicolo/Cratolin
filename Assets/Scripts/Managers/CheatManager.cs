@@ -38,7 +38,7 @@ public class CheatManager : MonoBehaviour
 		if (Input.GetKey(KeyCode.Alpha2))
 			Chronos.Instance.TimeScale = 16;
 		if (Input.GetKey(KeyCode.Alpha3))
-			Chronos.Instance.TimeScale = 100;
+			Chronos.Instance.TimeScale = 50;
 
 		if (Input.GetKey(KeyCode.O))
 			foreach (var item in FindObjectsOfType<Sea>())
