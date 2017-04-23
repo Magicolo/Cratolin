@@ -5,6 +5,7 @@ using UnityEngine;
 public class AnimatedSprite : MonoBehaviour {
 
     public Sprite[] sprites;
+    public float frameTimeInterval = 0.1f;
 
     private int index;
     private float timer;
@@ -19,7 +20,7 @@ public class AnimatedSprite : MonoBehaviour {
 	void Update () {
         timer += Time.deltaTime;
 
-        if(timer > 0.1f)
+        if(timer > frameTimeInterval)
         {
             timer = 0;
             index++;

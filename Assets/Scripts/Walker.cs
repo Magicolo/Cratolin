@@ -20,7 +20,7 @@ public class Walker : MonoBehaviour {
 
     private float lookAroundTimer = 1000;
 
-    public bool IsEvolved { get { return Time.time - timeSpawn > 20; } }
+    public bool IsEvolved { get { return Time.time - timeSpawn > 2; } }
     public bool ReachedGoal { get; set; }
 
     // Use this for initialization
@@ -131,7 +131,8 @@ public class Walker : MonoBehaviour {
 
         walkBase.SetActive(!IsEvolved);
         walkEvolved.SetActive(IsEvolved && isWalking);
-        idle.SetActive(IsEvolved && !isWalking && (!ReachedGoal || lookAroundTimer > 0.3f));
-        lookAround.SetActive(IsEvolved && !isWalking && (ReachedGoal && lookAroundTimer < 0.3f));
+        
+        lookAround.SetActive(IsEvolved && !isWalking && lookAroundTimer < 1f);
+        idle.SetActive(IsEvolved && !isWalking && !lookAround.activeInHierarchy);
     }
 }

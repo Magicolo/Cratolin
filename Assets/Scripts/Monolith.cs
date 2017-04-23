@@ -59,6 +59,6 @@ public class Monolith : MonoBehaviour {
 
     public float AttrackDistance
     {
-        get { return (registeredWalker.Count + 1) * 25; }
+        get { return (registeredWalker.Count + 1) * 15; }
     }
 }
