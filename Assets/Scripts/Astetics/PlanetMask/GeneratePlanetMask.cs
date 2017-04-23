@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -46,11 +47,15 @@ public class GeneratePlanetMask : MonoBehaviour
 		nextUpdate = Chronos.Instance.Time + timeBetweenUpdate;
 		MakeItBlack();
 
-		foreach (var splatter in SplatterComponent.Splatters)
+		List<SplatterComponent> splatters;
+		if (SplatterComponent.Splatters.TryGetValue(SplatterTag, out splatters))
 		{
-			var x = (int)(splatter.transform.localPosition.x + width / 2);
-			var y = (int)(splatter.transform.localPosition.y + height / 2);
-			DrawFrom(x, y, splatter);
+			foreach (var splatter in splatters)
+			{
+				var x = (int)(splatter.transform.localPosition.x + width / 2);
+				var y = (int)(splatter.transform.localPosition.y + height / 2);
+				DrawFrom(x, y, splatter);
+			}
 		}
 
 		mask.SetPixels(map);

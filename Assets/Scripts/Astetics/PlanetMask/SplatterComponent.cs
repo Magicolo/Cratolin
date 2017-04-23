@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class SplatterComponent : MonoBehaviour
 {
-	public readonly static List<SplatterComponent> Splatters = new List<SplatterComponent>();
+	public readonly static Dictionary<string, List<SplatterComponent>> Splatters = new Dictionary<string, List<SplatterComponent>>();
 
 	public abstract Sprite Splatter { get; }
 	public Color[] Pixels
@@ -27,11 +27,19 @@ public abstract class SplatterComponent : MonoBehaviour
 
 	void OnEnable()
 	{
-		Splatters.Add(this);
+		List<SplatterComponent> splatters;
+		if (!Splatters.TryGetValue(transform.tag, out splatters))
+		{
+			splatters = new List<SplatterComponent>();
+			Splatters[transform.tag] = splatters;
+		}
+
+		splatters.Add(this);
 	}
 
 	void OnDisable()
 	{
-		Splatters.Remove(this);
+		Splatters[transform.tag].Remove(this);
 	}
+
 }
