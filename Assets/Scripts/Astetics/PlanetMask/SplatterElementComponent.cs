@@ -13,38 +13,54 @@ public class SplatterElementComponent : SplatterComponent
 	public float minGrow = 0;
 	public float maxGrow = 1;
 	public SplattersGroup[] SplattersRandom;
-	private SplattersGroup CurrentSplatter;
+	private SplattersGroup splatterGroup;
+	private Sprite CurrentSplatter;
+
+	private BoxCollider2D triggerCollider;
 
 	public override Sprite Splatter
 	{
-		get
-		{
-			if (CurrentSplatter == null)
-				return null;
+		get{ return CurrentSplatter; }
+	}
 
-			var t = (Chronos.Instance.Time - startT) / TimeToFullGrow;
-			t = t * (maxGrow - minGrow) + minGrow;
-			t = Mathf.Clamp(t, minGrow, maxGrow);
-
-			return CurrentSplatter.getSpatter(t);
-		}
+	void Awake(){
+		triggerCollider = gameObject.GetComponent<BoxCollider2D>();
+		if(triggerCollider == null)
+			triggerCollider = gameObject.AddComponent<BoxCollider2D>();
+			triggerCollider.isTrigger = true;
 	}
 
 	void Start()
 	{
 		startT = Chronos.Instance.Time;
-		CurrentSplatter = SplattersRandom[Random.Range(0, SplattersRandom.Length - 1)];
+		splatterGroup = SplattersRandom[Random.Range(0, SplattersRandom.Length - 1)];
 	}
+
+	Sprite lastSplatterUpdate;
 
 	void Update()
 	{
+
+		if (splatterGroup != null){
+			var t = (Chronos.Instance.Time - startT) / TimeToFullGrow;
+			t = t * (maxGrow - minGrow) + minGrow;
+			t = Mathf.Clamp(t, minGrow, maxGrow);
+
+			CurrentSplatter = splatterGroup.getSpatter(t);
+		}
+
+		if (CurrentSplatter != lastSplatterUpdate && CurrentSplatter != null)
+			triggerCollider.size = CurrentSplatter.bounds.size;
+			
+		lastSplatterUpdate = CurrentSplatter;
+
 		if (TimeToDieAfterGrow != -1 && Chronos.Instance.Time > TimeToDieAfterGrow + startT + TimeToFullGrow)
 		{
 			DIE();
 		}
 	}
 
-	void DIE()
+	public void DIE()
 	{
 		GameObject go = new GameObject("Dying Splater");
 		go.transform.parent = this.transform.parent;
@@ -52,7 +68,7 @@ public class SplatterElementComponent : SplatterComponent
 		go.tag = tag;
 
 		var sed = go.AddComponent<SplatterElementDying>();
-		sed.CurrentSplatter = CurrentSplatter;
+		sed.CurrentSplatter = splatterGroup;
 		sed.TimeToDie = TimeToDecay;
 
 		Destroy(gameObject);
