@@ -51,7 +51,7 @@ public class Invader : MonoBehaviour
 		else
 		{
 			transform.position += (difference / distance) * MoveSpeed * Chronos.Instance.DeltaTime;
-			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(-Vector3.right, difference), Chronos.Instance.DeltaTime);
+			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(Vector3.left, difference), Chronos.Instance.DeltaTime);
 		}
 	}
 
@@ -68,8 +68,7 @@ public class Invader : MonoBehaviour
 			//BeamRenderer.transform.localScale = new Vector3(BeamRenderer.transform.localScale.x, StopDistance - 65f, BeamRenderer.transform.localScale.z);
             if (Monolith.Instance.IsCompleted)
             {
-                BeamRenderer.sortingOrder = -4;
-                BeamRenderer.gameObject.SetActive(true);
+                Monolith.Instance.spriteRenderer.sprite = Monolith.Instance.win;
                 SwitchState(States.Winning);
             }
             else
@@ -118,7 +117,7 @@ public class Invader : MonoBehaviour
 	{
 		var direction = (startPosition - transform.position).normalized;
 		transform.position += direction * MoveSpeed * Chronos.Instance.DeltaTime;
-		transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(Vector3.right, direction), Chronos.Instance.DeltaTime);
+		transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(Vector3.left, direction), Chronos.Instance.DeltaTime);
 	}
 
 	void Shake(float amplitude)
@@ -128,7 +127,8 @@ public class Invader : MonoBehaviour
 
     void UpdateWinning()
     {
-        BeamRenderer.gameObject.SetActive(true);
+        Monolith.Instance.magic.gameObject.SetActive(true);
+        Monolith.Instance.magic.position = Vector3.MoveTowards(Monolith.Instance.magic.position, transform.position, Time.deltaTime * 40);
 
         if (stateTime > 4)
         {
