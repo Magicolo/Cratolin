@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class WheelPowerItem : MonoBehaviour {
 
-    public GameObject grayedOutSprite;
-
     private float currentAlpha = 1;
     private float destAlpha = 1;
 
@@ -29,7 +27,11 @@ public class WheelPowerItem : MonoBehaviour {
         int uses = GetComponent<PowerBase>().RemainingUses;
         GetComponentInChildren<TextMesh>().text = uses == -1 ? "" : uses.ToString();
 
-        grayedOutSprite.SetActive(!GetComponent<PowerBase>().CanUse);
+        bool disabled = !GetComponent<PowerBase>().CanUse;
+        if (disabled)
+            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.3f);
+        else
+            GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     public void Spawn(Vector3 pPosition)
