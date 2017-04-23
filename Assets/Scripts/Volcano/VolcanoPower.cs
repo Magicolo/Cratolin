@@ -7,14 +7,9 @@ public class VolcanoPower : PowerBase
 	public LayerMask Mask;
 	public Volcano Prefab;
 
-	public override bool CanUse
-	{
-		get { return base.CanUse && Chronos.Instance.Time - lastUse >= Cooldown; }
-	}
-	public override int RemainingUses
-	{
-		get { return Uses - uses; }
-	}
+	public override bool CanUse { get { return base.CanUse && Chronos.Instance.Time - lastUse >= Cooldown; } }
+	public override int RemainingUses { get { return Uses - uses; } }
+	public override PowerManager.Powers Power { get { return PowerManager.Powers.Volcano; } }
 
 	int uses;
 	float lastUse = float.MinValue;

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Grass
   - Lava
+  - Root
   layers:
   - Default
   - TransparentFX

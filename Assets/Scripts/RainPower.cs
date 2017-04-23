@@ -6,14 +6,9 @@ public class RainPower : PowerBase
 	public LayerMask Mask;
 	public RainCloud Prefab;
 
-	public override bool CanUse
-	{
-		get { return base.CanUse && Chronos.Instance.Time - lastUse >= Cooldown; }
-	}
-	public override int RemainingUses
-	{
-		get { return -1; }
-	}
+	public override bool CanUse { get { return base.CanUse && Chronos.Instance.Time - lastUse >= Cooldown; } }
+	public override int RemainingUses { get { return -1; } }
+	public override PowerManager.Powers Power { get { return PowerManager.Powers.Rain; } }
 
 	float lastUse = float.MinValue;
 

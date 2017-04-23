@@ -280,8 +280,11 @@ MonoBehaviour:
   LifeTime: 10
   FadeIn: 1
   FadeOut: 3
+  FadeMaxA: 1
   XOffsetRange: {x: -4, y: 4}
   YOffsetRange: {x: 0, y: 0}
+  VelocityX: {x: -15, y: 15}
+  VelocityY: {x: 15, y: 25}
 --- !u!114 &114567798090970034
 MonoBehaviour:
   m_ObjectHideFlags: 1

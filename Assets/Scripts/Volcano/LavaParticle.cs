@@ -3,6 +3,7 @@
 public class LavaParticle : ParticleBase
 {
 	LavaEmitter lava;
+	public SplatterComponent splater;
 
 	public void Initialize(LavaEmitter lava, Vector3 position, Vector2 velocity, float friction = 0.98f, float lifeTime = 5f, float fadeOut = 1f)
 	{
@@ -21,6 +22,12 @@ public class LavaParticle : ParticleBase
 	protected override void Despawn()
 	{
 		lava.Despawn(this);
+
+		if (splater != null)
+		{
+			var splat = Instantiate(splater, transform.position, transform.rotation);
+			splat.transform.parent = Planet.Instance.Root;
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D collision)
