@@ -13,6 +13,7 @@ public class Invader : MonoBehaviour
     public GameObject MonolothMagicParticlesPrefab;
     public GameObject chunksParent;
     public ParticleSystem particleSystemBossDies;
+    public AudioClip exploseAudio;
 
 	States state;
 	float stateTime;
@@ -165,6 +166,7 @@ public class Invader : MonoBehaviour
         {
             // explose boss
             explosed = true;
+            SoundManager.Instance.PlaySound(exploseAudio);
             particleSystemBossDies.Play();
             NormalRenderer.gameObject.SetActive(false);
             ChargedRenderer.gameObject.SetActive(false);
