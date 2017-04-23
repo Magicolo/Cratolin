@@ -1,93 +1,101 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
-public class GeneratePlanetMask : MonoBehaviour {
+public class GeneratePlanetMask : MonoBehaviour
+{
+	const float timeBetweenUpdate = 0.1f;
+
 	public String SplatterTag;
 	Texture2D mask;
 	int width;
 	int height;
 
 	float nextUpdate;
-	public float timeBetweenUpdate = 1;
 
 	private Color[] allBlack;
+	Color[] map;
 
-	void Start () {
-		var sr = GetComponent<SpriteRenderer>();
-		var ssize = sr.bounds.size;
-		mask = new Texture2D((int)ssize.x, (int)ssize.y,TextureFormat.ARGB32,false);
-		mask.filterMode = FilterMode.Point;
-		sr.material.SetTexture("_MaskTex",mask);
-		width = (int)ssize.x;
-		height = (int)ssize.y;
+	void Start()
+	{
+		var sprite = GetComponent<SpriteRenderer>();
+		var size = sprite.bounds.size;
+		width = (int)size.x;
+		height = (int)size.y;
+		mask = new Texture2D(width, height, TextureFormat.ARGB32, false) { filterMode = FilterMode.Point };
+		sprite.material.SetTexture("_MaskTex", mask);
+		map = new Color[width * height];
+		nextUpdate = 0;
 
-		nextUpdate =  0;
-		CrateBlack();
+		CreateBlack();
 	}
-	
-	Color fillColor = new Color(0,0,0,0);
-    private void CrateBlack()
-    {
+
+	Color fillColor = new Color(0, 0, 0, 0);
+	private void CreateBlack()
+	{
 		allBlack = new Color[width * height];
-        for (int i = 0; i < allBlack.Length; i++)
-            allBlack[i] = fillColor;
-    }
-	
-	void Update ()
-    {
-		if(Time.time > nextUpdate){	
-			nextUpdate =  Chronos.Instance.Time + timeBetweenUpdate;
-		}else{
+		for (int i = 0; i < allBlack.Length; i++)
+			allBlack[i] = fillColor;
+	}
+
+	void Update()
+	{
+		if (Chronos.Instance.Time < nextUpdate)
 			return;
+
+		nextUpdate = Chronos.Instance.Time + timeBetweenUpdate;
+		MakeItBlack();
+
+		foreach (var splatter in SplatterComponent.Splatters)
+		{
+			var x = (int)(splatter.transform.localPosition.x + width / 2);
+			var y = (int)(splatter.transform.localPosition.y + height / 2);
+			DrawFrom(x, y, splatter);
 		}
 
-        MakeItBlack();
+		mask.SetPixels(map);
+		mask.Apply();
+	}
 
-        var spaters = GameObject.FindGameObjectsWithTag(SplatterTag);
+	private void MakeItBlack()
+	{
+		Array.Clear(map, 0, map.Length);
+		//mask.SetPixels(allBlack);
+	}
 
-        foreach (var spater in spaters)
-        {
-			
-            var x = (int)(spater.transform.localPosition.x - width/2);
-            var y = (int)(spater.transform.localPosition.y - height/2);
-			var splatterElement = spater.GetComponent<SplatterComponent>();
-			var splater = splatterElement.getSplatter();
-			//Debug.Log("PStare" + splater);
-            DrawFrom(x, y, splater);
-        }
+	private void DrawFrom(int sourceX, int sourceY, SplatterComponent splatter)
+	{
+		if (splatter == null) return;
 
-        mask.Apply();
-    }
+		var sprite = splatter.Splatter;
+		var splatterWidth = (int)sprite.bounds.size.x;
+		var splatterHeight = (int)sprite.bounds.size.y;
 
-    private void MakeItBlack()
-    {
-        mask.SetPixels(allBlack);
-    }
-
-    private void DrawFrom(int xc, int yc, Sprite splater)
-    {
-		if(splater == null) return;
-		var sw = (int)splater.bounds.size.x;
-		var sh = (int)splater.bounds.size.y;
 		// TODO si on veux separer le texture en plusieurs sprites, on doit 
 		// seulement prend la zone du sprite
-		var colors = splater.texture.GetPixels();
-		int x0 = xc - sw/2;
-		int y0 = yc - sh/2;
-		for (int x = 0; x < sw; x++)
+		var colors = splatter.Pixels;
+		int centerX = sourceX - splatterWidth / 2;
+		int centerY = sourceY - splatterHeight / 2;
+
+		for (int x = 0; x < splatterWidth; x++)
 		{
-			for (int y = 0; y < sh; y++)
+			for (int y = 0; y < splatterHeight; y++)
 			{
-				var c = mask.GetPixel(x0 + x, y0 + y);
-				var c2 = colors[y*sw + x];
-				mask.SetPixel(x0 + x, y0 + y,c + c2);
+				var index = (centerY + y) * width + centerX + x;
+				if (index < 0 || index >= map.Length) continue;
+
+				var pixel = map[index];
+				var splatterPixel = colors[y * splatterWidth + x];
+
+				//var c = mask.GetPixel(centerX + x, centerY + y);
+				//var c2 = ;
+				//mask.SetPixel(centerX + x, centerY + y, c + c2);
+
+				map[index] = pixel + splatterPixel;
 			}
 		}
-       /* for (int x = xc - sw/2; x < xc + sw/2; x++)	
-			for (int y = yc - sh/2; y < yc + sh/2; y++)
-				mask.SetPixel(x,y,colors[y*sw + sh]);*/
-    }
+		/* for (int x = xc - sw/2; x < xc + sw/2; x++)	
+			 for (int y = yc - sh/2; y < yc + sh/2; y++)
+				 mask.SetPixel(x,y,colors[y*sw + sh]);*/
+	}
 }
