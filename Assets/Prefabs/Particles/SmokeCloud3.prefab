@@ -51,7 +51,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4547755138794572}
-  - component: {fileID: 58617977096745714}
+  - component: {fileID: 61931954464119378}
   m_Layer: 9
   m_Name: Trigger
   m_TagString: Untagged
@@ -100,8 +100,8 @@ Transform:
   m_Father: {fileID: 4083603221072714}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58617977096745714
-CircleCollider2D:
+--- !u!61 &61931954464119378
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -112,9 +112,19 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 4}
+  m_Offset: {x: 0, y: 8}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 20
+  m_Size: {x: 115, y: 40}
+  m_EdgeRadius: 0
 --- !u!114 &114586020833897292
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -262,7 +262,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1486596044
+--- !u!1001 &1403029974
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -301,30 +301,45 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 224896956912074966, guid: 08fe87fd89a5c5d4a9bb63e9ce2af418,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 224129096007935352, guid: 08fe87fd89a5c5d4a9bb63e9ce2af418,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224896956912074966, guid: 08fe87fd89a5c5d4a9bb63e9ce2af418,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224603091558458926, guid: 08fe87fd89a5c5d4a9bb63e9ce2af418,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224603091558458926, guid: 08fe87fd89a5c5d4a9bb63e9ce2af418,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224603091558458926, guid: 08fe87fd89a5c5d4a9bb63e9ce2af418,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224213435585627600, guid: 08fe87fd89a5c5d4a9bb63e9ce2af418,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224213435585627600, guid: 08fe87fd89a5c5d4a9bb63e9ce2af418,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224213435585627600, guid: 08fe87fd89a5c5d4a9bb63e9ce2af418,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08fe87fd89a5c5d4a9bb63e9ce2af418, type: 2}

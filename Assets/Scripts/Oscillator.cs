@@ -11,8 +11,12 @@ public class Oscillator : MonoBehaviour
 	void Update()
 	{
 		var position = Transform.localPosition;
-		position.x = Mathf.Sin(Frequency.x * Chronos.Instance.Time + Offset.x) * Amplitude.x + Center.x;
-		position.y = Mathf.Sin(Frequency.y * Chronos.Instance.Time + Offset.y) * Amplitude.y + Center.y;
+
+		if (Amplitude.x != 0f && Frequency.x != 0f)
+			position.x = Mathf.Sin(Frequency.x * Chronos.Instance.Time + Offset.x) * Amplitude.x + Center.x;
+		if (Amplitude.y != 0f && Frequency.y != 0f)
+			position.y = Mathf.Sin(Frequency.y * Chronos.Instance.Time + Offset.y) * Amplitude.y + Center.y;
+
 		Transform.localPosition = position;
 	}
 }
