@@ -563,6 +563,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1736703228252352
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4833319690605738}
+  - component: {fileID: 114466055044142882}
+  m_Layer: 0
+  m_Name: GrassStamp
+  m_TagString: Grass
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1768374285851580
 GameObject:
   m_ObjectHideFlags: 1
@@ -595,7 +611,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1828939596221918
 GameObject:
   m_ObjectHideFlags: 1
@@ -900,7 +916,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1828939596221918}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5, y: -2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 4296488019831306}
@@ -1004,6 +1020,7 @@ Transform:
   - {fileID: 4008778078794674}
   - {fileID: 4061920797267938}
   - {fileID: 4754350818259898}
+  - {fileID: 4833319690605738}
   m_Father: {fileID: 4802106775480546}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1287,6 +1304,19 @@ Transform:
   - {fileID: 4903743632076546}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4833319690605738
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1736703228252352}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -185.9136, y: -266.71918, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4361542592884722}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4837979809793246
 Transform:
@@ -2269,6 +2299,26 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114466055044142882
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1736703228252352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cccd04eec3afc34497247c62dfb9910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeToFullGrow: 5
+  TimeToDieAfterGrow: -1
+  TimeToDecay: 1
+  minGrow: 0
+  maxGrow: 1
+  SplattersRandom:
+  - {fileID: 11400000, guid: d0d61a847d0868146bed0e4fc93b6b53, type: 2}
+  RainKillsMe: 0
+  FireKillsMe: 1
 --- !u!114 &114474336643233624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2400,7 +2450,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SplatterTag: Lava
-  timeBetweenUpdate: 1
 --- !u!114 &114710600650520686
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2451,7 +2500,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SplatterTag: Grass
-  timeBetweenUpdate: 1
 --- !u!114 &114809054260770726
 MonoBehaviour:
   m_ObjectHideFlags: 1
