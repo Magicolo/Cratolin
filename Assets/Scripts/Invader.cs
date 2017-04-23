@@ -11,6 +11,7 @@ public class Invader : MonoBehaviour
 	public SpriteRenderer ChargedRenderer;
 	public SpriteRenderer BeamRenderer;
     public GameObject MonolothMagicParticlesPrefab;
+    public GameObject chunksParent;
 
 	States state;
 	float stateTime;
@@ -130,6 +131,7 @@ public class Invader : MonoBehaviour
 	}
 
     int countParticles = 0;
+    bool explosed = false;
     void UpdateWinning()
     {
         Monolith.Instance.magic.gameObject.SetActive(true);
@@ -157,9 +159,19 @@ public class Invader : MonoBehaviour
             iTween.MoveTo(obj, iTween.Hash("path", lstPoints.ToArray(), "time", 3f));
         }
 
-        if (stateTime > 4)
+        if (stateTime > 4 && !explosed)
         {
             // explose boss
+            explosed = true;
+            NormalRenderer.gameObject.SetActive(false);
+            ChargedRenderer.gameObject.SetActive(false);
+            chunksParent.SetActive(true);
+            for (int i = 0; i < chunksParent.transform.childCount; i++)
+            {
+                Transform tr = chunksParent.transform.GetChild(i);
+                Vector3 pos = tr.position - (transform.position + new Vector3(-80, -80));
+                iTween.MoveTo(tr.gameObject, iTween.Hash("time", 10, "position", pos * 4));
+            }
         }
 
         if (stateTime > 8)
