@@ -6,6 +6,9 @@ public class Invader : MonoBehaviour
 
 	public float MoveSpeed = 2f;
 	public float StopDistance = 200f;
+	public Sprite Normal;
+	public Sprite Charged;
+	public SpriteRenderer Renderer;
 	public LineRenderer Beam;
 
 	States state;

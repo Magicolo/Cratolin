@@ -79,7 +79,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1487233656368562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1000, y: 600, z: -25}
+  m_LocalPosition: {x: 1100, y: 650, z: -25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4631350465453398}
@@ -95,7 +95,7 @@ Transform:
   m_GameObject: {fileID: 1166452741286660}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4514447718937002}
   m_RootOrder: 0
@@ -113,6 +113,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 100
   StopDistance: 550
+  Normal: {fileID: 21300000, guid: f147c0c0d9608e243b26fee56a8f3e78, type: 3}
+  Charged: {fileID: 21300000, guid: b8f63f5573e671745a3e3542db0fcbb2, type: 3}
+  Renderer: {fileID: 212879670776478140}
   Beam: {fileID: 120797698731474624}
 --- !u!120 &120797698731474624
 LineRenderer:
@@ -230,9 +233,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3af4f73c9f150f74b8913a8824d58447, type: 3}
-  m_Color: {r: 0.26932043, g: 0, b: 0.3455882, a: 1}
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 21300000, guid: f147c0c0d9608e243b26fee56a8f3e78, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
