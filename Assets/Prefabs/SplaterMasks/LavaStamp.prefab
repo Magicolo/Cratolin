@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4852669702387254}
   - component: {fileID: 114748115325839696}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LavaStamp
   m_TagString: Lava
   m_Icon: {fileID: 0}

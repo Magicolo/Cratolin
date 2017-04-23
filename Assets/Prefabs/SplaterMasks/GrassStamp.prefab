@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4456865961440154}
   - component: {fileID: 114264957773374776}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GrassStamp
   m_TagString: Grass
   m_Icon: {fileID: 0}

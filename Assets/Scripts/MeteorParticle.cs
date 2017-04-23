@@ -5,6 +5,7 @@ public class MeteorParticle : ParticleBase
 	public SplatterComponent Splater;
 
 	MeteorEmitter emitter;
+	public GameObject SubEmitterPrefab;
 
 	public void Initialize(MeteorEmitter emitter, Vector3 position, Vector2 velocity)
 	{
@@ -18,6 +19,10 @@ public class MeteorParticle : ParticleBase
 		if (Splater != null)
 		{
 			var splat = Instantiate(Splater, transform.position, transform.rotation);
+			splat.transform.parent = Planet.Instance.Root;
+		}
+		if(SubEmitterPrefab != null){
+			var splat = Instantiate(SubEmitterPrefab, transform.position, transform.rotation);
 			splat.transform.parent = Planet.Instance.Root;
 		}
 
