@@ -27,22 +27,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1242832710491240
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4872622208484246}
-  - component: {fileID: 114153284904544666}
-  m_Layer: 0
-  m_Name: Meteorator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1285123792371064
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +104,6 @@ Transform:
   - {fileID: 4419707976385724}
   - {fileID: 4494349935610200}
   - {fileID: 4995329907122464}
-  - {fileID: 4872622208484246}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -163,19 +146,6 @@ Transform:
   m_Father: {fileID: 4360629977408858}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4872622208484246
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1242832710491240}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4360629977408858}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4995329907122464
 Transform:
   m_ObjectHideFlags: 1
@@ -189,17 +159,6 @@ Transform:
   m_Father: {fileID: 4360629977408858}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114153284904544666
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1242832710491240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0c2e349e4f1ded4ea012a74e1c1f7be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114192163333584352
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,6 +186,7 @@ MonoBehaviour:
   TreeCO2ConsumationRate: 0.1
   SmokeParticleCO2Emission: 1
   LavaEmitterTemperature: 1
+  MeteorEmitterTemperature: 1
   PlanetCooldownRate: -1
   PlanetSerreEffectHeatRate: 2
   PlanetPressureCooldownFactor: 0.25

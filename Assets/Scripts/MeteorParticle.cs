@@ -6,7 +6,7 @@ public class MeteorParticle : ParticleBase
 
 	public void Initialize(MeteorEmitter emitter, Vector3 position, Vector2 velocity)
 	{
-		base.Initialize(position, velocity, 1f, 30f, 1f, 1f);
+		base.Initialize(position, velocity, 1f, 30f, 0.1f, 1f);
 
 		this.emitter = emitter;
 	}
