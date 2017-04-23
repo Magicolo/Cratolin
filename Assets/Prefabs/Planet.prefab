@@ -2575,6 +2575,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a072d126ece8d964b84980b69ffd543d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EmitterWhenDestroyed: {fileID: 114888577808731270, guid: e851477168bb8b94db938c436772bb2d,
+    type: 2}
   Root: {fileID: 4361542592884722}
   temperature: 0
   ozone: 0
