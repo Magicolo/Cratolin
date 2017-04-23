@@ -52,13 +52,6 @@ public class Sea : MonoBehaviour {
             walker.transform.position = transform.position * 1.05f;
         }
 
-        if(EvaporationParticle.enabled && !PowerManager.Instance.HasPower(PowerManager.Powers.Wind))
-        {
-            PowerManager.Instance.UnlockPower(PowerManager.Powers.Wind);
-            PowerManager.Instance.TrySpawnPower(PowerManager.Powers.Wind, transform.position * 1.2f);
-        }
-
-
         if (Planet.Instance.Temperature > GameConstants.Instance.SeaDryoffTemperatureThreshold){
             Ratio += GameConstants.Instance.SeaDryoffRate * Chronos.Instance.DeltaTime;
             EvaporationParticle.enabled = ratio > 0;
