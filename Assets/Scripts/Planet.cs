@@ -3,6 +3,7 @@
 public class Planet : MonoBehaviour
 {
 	public static Planet Instance { get; private set; }
+<<<<<<< 59f6acd47b9f12801809b0ebe07a1fd918da6cf1
 	public float temperature;
 	public float Temperature
 	{
@@ -10,6 +11,13 @@ public class Planet : MonoBehaviour
 		set { temperature = Mathf.Clamp(value, -100f, 100); }
 	}
 	public float co2;
+=======
+
+	public Transform Root;
+
+	public float Temperature { get; set; }
+	private float co2;
+>>>>>>> 00540da8672160875794c087341af6797b614a90
 	public float CO2
 	{
 		get { return co2; }

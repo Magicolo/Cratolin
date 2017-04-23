@@ -36,7 +36,7 @@ public class Invader : MonoBehaviour
 
 	void UpdateArriving()
 	{
-		var difference = Planet.Instance.transform.position - transform.position;
+		var difference = Planet.Instance.Root.position - transform.position;
 		var distance = difference.magnitude;
 
 		if (distance <= StopDistance)
@@ -50,7 +50,10 @@ public class Invader : MonoBehaviour
 		Shake(stateTime);
 
 		if (stateTime > 4f)
+		{
+			Beam.SetPositions(new Vector3[] { (Vector2)transform.position, (Vector2)Planet.Instance.Root.position });
 			SwitchState(States.Beaming);
+		}
 	}
 
 	void UpdateBeaming()
@@ -99,12 +102,5 @@ public class Invader : MonoBehaviour
 		stateTime = 0f;
 		Camera.main.transform.position = cameraPosition;
 		Beam.enabled = state == States.Beaming;
-
-		switch (state)
-		{
-			case States.Beaming:
-				Beam.SetPositions(new Vector3[] { transform.position, Planet.Instance.transform.position });
-				break;
-		}
 	}
 }
