@@ -48,12 +48,13 @@ public class Volcano : MonoBehaviour
 		position.x = Random.Range(-ShakeAmplitude, ShakeAmplitude);
 		position.y += SpawnSpeed * Chronos.Instance.DeltaTime;
 
-		if (position.y >= 0f)
-			position = Vector2.zero;
+		var y = -35;
+		if (position.y >= y)
+			position = new Vector2(0,y);
 
 		Renderer.transform.localPosition = position;
 
-		if (position.y >= 0f)
+		if (position.y >= y)
 			SwitchState(States.Idle);
 
 	}

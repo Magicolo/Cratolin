@@ -50,7 +50,9 @@ public class CheatManager : MonoBehaviour
 
 				
 		if (Input.GetKey(KeyCode.X)){
-			
+			foreach(var item in GameObject.FindObjectsOfType<Sea>()){
+				item.CanSpawnLifeAround = true;
+			}
 		}
 			
 	}
