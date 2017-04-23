@@ -331,7 +331,7 @@ MonoBehaviour:
   Lava: {fileID: 114827596113131400}
   Smoke: {fileID: 114552874372740532}
   Cloud: {fileID: 114285402465779558}
-  ExtinguishedEmitterPrefab: {fileID: 114569947353035172, guid: 39965f0a760c24242befec2528d07166,
+  ExtinguishedEmitterPrefab: {fileID: 114200411403515608, guid: 39965f0a760c24242befec2528d07166,
     type: 2}
   Renderer: {fileID: 212722801031386966}
   Erupting: {fileID: 21300000, guid: 4d617417c3e15454899b8c07917d0f4e, type: 3}

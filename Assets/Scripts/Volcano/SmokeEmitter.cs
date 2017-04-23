@@ -28,7 +28,7 @@ public class SmokeEmitter : ParticleEmitterBase<SmokeParticle>
 		
 		while (Chronos.Instance.Time >= nextParticle)
 		{
-			if(MaxSpawn!= -1 &&spawned++ > MaxSpawn){
+			if(MaxSpawn != -1 && spawned++ > MaxSpawn){
 				nextParticle+= 1000;
 				return;		
 			}
