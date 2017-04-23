@@ -7,6 +7,8 @@ public abstract class BurstEmitter<T> : ParticleEmitterBase<T> where T : Particl
 
 	public Vector2 StartDelay = new Vector2(0.25f, 1f);
 	public bool Once;
+	public bool DestroyWhenDone;
+	private bool doneOnce;
 	public Vector2 Cooldown = new Vector2(0.25f, 1f);
 
 	float nextParticle;
@@ -14,11 +16,18 @@ public abstract class BurstEmitter<T> : ParticleEmitterBase<T> where T : Particl
 	void OnEnable()
 	{
 		nextParticle = Chronos.Instance.Time + RandomUtils.RangeFloat(StartDelay);
+		doneOnce = false;
 	}
 
 	void FixedUpdate()
 	{
-		if(!enabled) return;
+		if(Once && doneOnce){
+			if(ParticleCount == 0)
+				Destroy(gameObject);
+			return;
+		}
+		
+		
 		while (Chronos.Instance.Time >= nextParticle)
 		{
 			var burst = (int)Random.Range(Burst.x, Burst.y);
@@ -27,7 +36,7 @@ public abstract class BurstEmitter<T> : ParticleEmitterBase<T> where T : Particl
 			{
 				nextParticle += RandomUtils.RangeFloat(Cooldown);
 				Spawn();
-				enabled = !Once;
+				doneOnce = true;
 			}
 		}
 	}
