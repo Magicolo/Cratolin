@@ -23,6 +23,7 @@ public class MainMenuController : MonoBehaviour {
         if (Input.GetMouseButtonDown(0) && loading == false)
         {
             loading = true;
+            Score.Instance.Reset();
             Game.Instance.GoInGame();
             //SceneManager.LoadScene(1);
         }

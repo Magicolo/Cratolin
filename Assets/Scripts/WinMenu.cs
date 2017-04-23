@@ -8,16 +8,26 @@ public class WinMenu : MonoBehaviour {
     public static WinMenu Instance { get; private set; }
 
     public Image content;
+    public Text LabelScore;
+    public Text LabelNbCycle;
 
     public bool IsShown { get; set; }
+
+    private bool wasShown = false;
 
     void Start()
     {
         Instance = this;
+        int t = Score.Instance.nbCycle;
     }
 
     void Update()
     {
+        if(!wasShown && IsShown)
+        {
+            LabelScore.text = "Time: " + Score.Instance.FormattedTime();
+            LabelNbCycle.text = "Cycles: " + Score.Instance.nbCycle;
+        }
 
         CanvasGroup group = GetComponent<CanvasGroup>();
 
@@ -26,10 +36,13 @@ public class WinMenu : MonoBehaviour {
 
 
         content.gameObject.SetActive(group.alpha > 0.05f);
+
+        wasShown = IsShown;
     }
 
     public void Restart()
     {
+        Score.Instance.Reset();
         Game.Instance.Reload();
     }
 
