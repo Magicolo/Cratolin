@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class WheelPower : MonoBehaviour {
 
@@ -21,7 +22,7 @@ public class WheelPower : MonoBehaviour {
     {
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !IsPointerOverUIObject())
         {
             RaycastHit2D[] hits = Physics2D.RaycastAll(worldPos, Vector2.zero);
             foreach (RaycastHit2D hit in hits)
@@ -91,5 +92,17 @@ public class WheelPower : MonoBehaviour {
         {
             powerItem.SetDestinationAlpha(1);
         }
+    }
+
+    public static bool IsPointerOverUIObject()
+    {
+        // Referencing this code for GraphicRaycaster https://gist.github.com/stramit/ead7ca1f432f3c0f181f
+        // the ray cast appears to require only eventData.position.
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
     }
 }

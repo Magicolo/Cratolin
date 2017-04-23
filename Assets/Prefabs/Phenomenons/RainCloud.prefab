@@ -85,7 +85,7 @@ MonoBehaviour:
   distanceToGround: 80
   rainDropPrefab: {fileID: 1010989291602152, guid: 6ec409f01c4f6c449958fb90b957bd2e,
     type: 2}
-  rainZoneWidth: 65
+  rainZoneWidth: 60
   timeBetweenRainDrop: 0.1
   lifeTime: 10
 --- !u!114 &114917812166383154

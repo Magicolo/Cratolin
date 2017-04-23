@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class WheelPowerItem : MonoBehaviour {
 
+    public SpriteRenderer auraRenderer;
+    public Sprite spriteToUseAsBeam;
+
     private float currentAlpha = 1;
     private float destAlpha = 1;
 
@@ -15,6 +18,9 @@ public class WheelPowerItem : MonoBehaviour {
 	
 	// Update is called once per frame
 	void LateUpdate () {
+
+        
+
         transform.eulerAngles = Vector3.zero;
 
         currentAlpha = Mathf.Lerp(currentAlpha, destAlpha, Time.unscaledDeltaTime * 8);
@@ -38,12 +44,14 @@ public class WheelPowerItem : MonoBehaviour {
     {
         PowerBase basePower = GetComponent<PowerBase>();
 
-        if(basePower != null)
+        if (basePower != null)
             basePower.Create(pPosition);
     }
 
     public void SetDestinationAlpha(int value)
     {
+        if(value == 1)
+            auraRenderer.sprite = spriteToUseAsBeam;
         destAlpha = value;
     }
 }

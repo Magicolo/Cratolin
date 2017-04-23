@@ -47,6 +47,11 @@ public class FirePower : PowerBase {
 
     void Update()
     {
+        if(Input.GetMouseButtonUp(0))
+        {
+            firePreview.gameObject.SetActive(false);
+        }
+
         if(firePreview.gameObject.activeInHierarchy)
         {
             Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

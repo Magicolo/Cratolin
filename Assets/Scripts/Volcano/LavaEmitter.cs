@@ -39,6 +39,6 @@ public class LavaEmitter : ParticleEmitterBase<LavaParticle>
 	{
 		base.Despawn(particle);
 
-		Planet.Instance.Temperature += Chronos.Instance.DeltaTime * GameConstants.Instance.LavaEmitterTemperature;
+		Planet.Instance.Temperature += GameConstants.Instance.LavaEmitterTemperature;
 	}
 }
