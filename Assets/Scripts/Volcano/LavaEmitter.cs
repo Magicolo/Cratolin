@@ -15,15 +15,14 @@ public class LavaEmitter : ParticleEmitterBase<LavaParticle>
 
 	void FixedUpdate()
 	{
-		while (Chronos.Instance.Time >= nextParticle)
+		if (Chronos.Instance.Time >= nextParticle)
 		{
 			var burst = (int)Random.Range(Burst.x, Burst.y);
 
 			for (int i = 0; i < burst; i++)
-			{
-				nextParticle += Random.Range(SpawnDelay.x, SpawnDelay.y);
 				Spawn();
-			}
+
+			nextParticle += Random.Range(SpawnDelay.x, SpawnDelay.y);
 		}
 	}
 

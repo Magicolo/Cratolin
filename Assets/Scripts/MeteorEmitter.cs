@@ -18,10 +18,9 @@ public class MeteorEmitter : ParticleEmitterBase<MeteorParticle>
 			var burst = (int)Random.Range(Burst.x, Burst.y);
 
 			for (int i = 0; i < burst; i++)
-			{
-				nextParticle += Random.Range(SpawnDelay.x, SpawnDelay.y);
 				Spawn();
-			}
+
+			nextParticle += Random.Range(SpawnDelay.x, SpawnDelay.y);
 		}
 	}
 
