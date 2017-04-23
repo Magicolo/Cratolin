@@ -32,7 +32,6 @@ public class SplatterElementComponent : SplatterComponent
 		splatterGroup = SplattersRandom[Random.Range(0, SplattersRandom.Length - 1)];
 	}
 
-	Sprite lastSplatterUpdate;
 
 	void Update()
 	{
@@ -45,7 +44,6 @@ public class SplatterElementComponent : SplatterComponent
 			CurrentSplatter = splatterGroup.getSpatter(t);
 		}
 
-		lastSplatterUpdate = CurrentSplatter;
 
 		if (TimeToDieAfterGrow != -1 && Chronos.Instance.Time > TimeToDieAfterGrow + startT + TimeToFullGrow)
 		{
