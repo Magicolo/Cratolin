@@ -41,6 +41,7 @@ public class IceMeteor : MonoBehaviour
 		{
 			case States.Falling: UpdateFalling(); break;
 			case States.Melting: UpdateMelting(); break;
+			case States.Disapearing: UpdateDisapearing(); break;
 		}
 	}
 
