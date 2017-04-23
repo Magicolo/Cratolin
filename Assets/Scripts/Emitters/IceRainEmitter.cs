@@ -13,7 +13,7 @@ public class IceRainEmitter : ParticleEmitterBase<IceRainParticle>
 
 	void FixedUpdate()
 	{
-		while (Chronos.Instance.Time >= nextParticle)
+		if (Chronos.Instance.Time >= nextParticle)
 		{
 			nextParticle += Random.Range(SpawnDelay.x, SpawnDelay.y);
 			Spawn();

@@ -13,7 +13,7 @@ public class MeteorEmitter : ParticleEmitterBase<MeteorParticle>
 	{
 		nextParticle = nextParticle == 0f ? Chronos.Instance.Time : nextParticle;
 
-		while (Chronos.Instance.Time >= nextParticle)
+		if (Chronos.Instance.Time >= nextParticle)
 		{
 			var burst = (int)Random.Range(Burst.x, Burst.y);
 
