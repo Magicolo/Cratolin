@@ -18,6 +18,11 @@ public class PowerManager : MonoBehaviour
 		return power == Powers.Loupe || PlayerPrefs.GetInt(data + power, 0) > 0;
 	}
 
+	public void LockPower(Powers power)
+	{
+		PlayerPrefs.DeleteKey(data + power);
+	}
+
 	public void UnlockPower(Powers power)
 	{
 		PlayerPrefs.SetInt(data + power, 1);
