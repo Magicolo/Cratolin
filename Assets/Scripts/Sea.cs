@@ -35,10 +35,7 @@ public class Sea : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.O))
-            IncreaseWater();
-        if (Input.GetKeyDown(KeyCode.P))
-            ReduceWater();
+        
         if(Planet.Instance.Temperature > GameConstants.Instance.SeaDryoffTemperatureThreshold){
             Ratio += GameConstants.Instance.SeaDryoffRate * Chronos.Instance.DeltaTime;
             EvaporationParticle.enabled = ratio > 0;

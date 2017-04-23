@@ -36,7 +36,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4080877238525958}
   - component: {fileID: 114046027632892338}
-  - component: {fileID: 114898915886461088}
   - component: {fileID: 114029306292032542}
   - component: {fileID: 114863014402209802}
   m_Layer: 0
@@ -442,6 +441,8 @@ MonoBehaviour:
   - {fileID: 212075519655922832}
   SpawnSpeed: 3
   spawnDuration: 10
+  SplatterPrefab: {fileID: 114264957773374776, guid: b3a7fd14852c6384493f23d20fbdfb0d,
+    type: 2}
 --- !u!114 &114136210679924864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -458,6 +459,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c2c30e13ebddd424fb95763189a936c6, type: 3}
   - {fileID: 21300000, guid: d5e27433d8b847d40a3f33efcafb5768, type: 3}
   - {fileID: 21300000, guid: 288f87a8ab2b4674cbd93ded8ef72903, type: 3}
+  frameTimeInterval: 0.1
 --- !u!114 &114431965819049438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -474,6 +476,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5482947908a76054fb3ef0cb45ac8221, type: 3}
   - {fileID: 21300000, guid: c99f2e110aa91664a850f57148487e68, type: 3}
   - {fileID: 21300000, guid: daacb4ac9676a5f4a8c323d0861312f2, type: 3}
+  frameTimeInterval: 0.1
 --- !u!114 &114440267266281040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -490,6 +493,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c2c30e13ebddd424fb95763189a936c6, type: 3}
   - {fileID: 21300000, guid: d5e27433d8b847d40a3f33efcafb5768, type: 3}
   - {fileID: 21300000, guid: 288f87a8ab2b4674cbd93ded8ef72903, type: 3}
+  frameTimeInterval: 0.1
 --- !u!114 &114529311011915640
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -506,6 +510,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c2c30e13ebddd424fb95763189a936c6, type: 3}
   - {fileID: 21300000, guid: d5e27433d8b847d40a3f33efcafb5768, type: 3}
   - {fileID: 21300000, guid: 288f87a8ab2b4674cbd93ded8ef72903, type: 3}
+  frameTimeInterval: 0.1
 --- !u!114 &114819355631285604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -522,6 +527,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5482947908a76054fb3ef0cb45ac8221, type: 3}
   - {fileID: 21300000, guid: c99f2e110aa91664a850f57148487e68, type: 3}
   - {fileID: 21300000, guid: daacb4ac9676a5f4a8c323d0861312f2, type: 3}
+  frameTimeInterval: 0.1
 --- !u!114 &114863014402209802
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -533,24 +539,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6b6882d54a9c74cb79fc137984ad29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114898915886461088
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1181787128617670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cccd04eec3afc34497247c62dfb9910, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TimeToFullGrow: 5
-  TimeToDieAfterGrow: -1
-  TimeToDecay: 1
-  minGrow: 0
-  maxGrow: 1
-  SplattersRandom:
-  - {fileID: 11400000, guid: d0d61a847d0868146bed0e4fc93b6b53, type: 2}
 --- !u!114 &114975702144779054
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -567,6 +555,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5482947908a76054fb3ef0cb45ac8221, type: 3}
   - {fileID: 21300000, guid: c99f2e110aa91664a850f57148487e68, type: 3}
   - {fileID: 21300000, guid: daacb4ac9676a5f4a8c323d0861312f2, type: 3}
+  frameTimeInterval: 0.1
 --- !u!198 &198620254177261244
 ParticleSystem:
   m_ObjectHideFlags: 1

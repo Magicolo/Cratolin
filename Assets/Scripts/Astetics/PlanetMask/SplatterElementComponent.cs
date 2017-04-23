@@ -63,7 +63,7 @@ public class SplatterElementComponent : SplatterComponent
 		}
 	}
 
-	public void DIE()
+	public void DIE(float timeToDecayFactor = 1)
 	{
 		GameObject go = new GameObject("Dying Splater");
 		go.transform.parent = this.transform.parent;
@@ -72,7 +72,7 @@ public class SplatterElementComponent : SplatterComponent
 
 		var sed = go.AddComponent<SplatterElementDying>();
 		sed.CurrentSplatter = splatterGroup;
-		sed.TimeToDie = TimeToDecay;
+		sed.TimeToDie = TimeToDecay * timeToDecayFactor;
 
 		Destroy(gameObject);
 	}

@@ -25,6 +25,13 @@ public class FirePower : PowerBase
 				fire.StartFire();
 		}
 
+		var splatterObjects = GameObject.FindObjectsOfType<SplatterElementComponent>();
+		foreach (SplatterElementComponent splatter in splatterObjects)
+		{
+			if (splatter.FireKillsMe && Vector2.Distance(splatter.transform.position, hit.point) < 100)
+				splatter.DIE(0.2f);
+		}
+
         Walker[] walkers = GameObject.FindObjectsOfType<Walker>();
         foreach (Walker walker in walkers)
         {

@@ -9,6 +9,7 @@ public class Tree : MonoBehaviour {
     public SpriteRenderer[] Sprites;
     public float SpawnSpeed = 3f;
     public float spawnDuration = 10f;
+    public SplatterElementComponent SplatterPrefab;
 
     private float fadeTimer = 0;
 
@@ -66,5 +67,12 @@ public class Tree : MonoBehaviour {
     void SwitchState(States state)
     {
         this.state = state;
+        if(state.Equals(States.Idle)){
+            if (SplatterPrefab != null)
+			{
+				var splat = Instantiate(SplatterPrefab, transform.position, transform.rotation);
+				splat.transform.parent = Planet.Instance.Root;
+			}
+        }
     }
 }

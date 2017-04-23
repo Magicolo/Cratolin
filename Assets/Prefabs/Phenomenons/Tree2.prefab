@@ -135,8 +135,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4265316271570042}
   - component: {fileID: 114450053469841580}
-  - component: {fileID: 114085545240807942}
   - component: {fileID: 114327390050037558}
+  - component: {fileID: 114490863376299586}
   m_Layer: 0
   m_Name: Tree2
   m_TagString: Grass
@@ -358,24 +358,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5482947908a76054fb3ef0cb45ac8221, type: 3}
   - {fileID: 21300000, guid: c99f2e110aa91664a850f57148487e68, type: 3}
   - {fileID: 21300000, guid: daacb4ac9676a5f4a8c323d0861312f2, type: 3}
---- !u!114 &114085545240807942
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1690262542023060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cccd04eec3afc34497247c62dfb9910, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TimeToFullGrow: 5
-  TimeToDieAfterGrow: -1
-  TimeToDecay: 1
-  minGrow: 0
-  maxGrow: 1
-  SplattersRandom:
-  - {fileID: 11400000, guid: d0d61a847d0868146bed0e4fc93b6b53, type: 2}
+  frameTimeInterval: 0.1
 --- !u!114 &114327390050037558
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -411,6 +394,19 @@ MonoBehaviour:
   - {fileID: 212936510965157430}
   SpawnSpeed: 3
   spawnDuration: 10
+  SplatterPrefab: {fileID: 114264957773374776, guid: b3a7fd14852c6384493f23d20fbdfb0d,
+    type: 2}
+--- !u!114 &114490863376299586
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1690262542023060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e6b6882d54a9c74cb79fc137984ad29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114597166824695082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -427,6 +423,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c2c30e13ebddd424fb95763189a936c6, type: 3}
   - {fileID: 21300000, guid: d5e27433d8b847d40a3f33efcafb5768, type: 3}
   - {fileID: 21300000, guid: 288f87a8ab2b4674cbd93ded8ef72903, type: 3}
+  frameTimeInterval: 0.1
 --- !u!114 &114804505853559824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -443,6 +440,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5482947908a76054fb3ef0cb45ac8221, type: 3}
   - {fileID: 21300000, guid: c99f2e110aa91664a850f57148487e68, type: 3}
   - {fileID: 21300000, guid: daacb4ac9676a5f4a8c323d0861312f2, type: 3}
+  frameTimeInterval: 0.1
 --- !u!114 &114988278331614424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -459,6 +457,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c2c30e13ebddd424fb95763189a936c6, type: 3}
   - {fileID: 21300000, guid: d5e27433d8b847d40a3f33efcafb5768, type: 3}
   - {fileID: 21300000, guid: 288f87a8ab2b4674cbd93ded8ef72903, type: 3}
+  frameTimeInterval: 0.1
 --- !u!198 &198729153874274392
 ParticleSystem:
   m_ObjectHideFlags: 1
