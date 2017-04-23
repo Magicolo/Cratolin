@@ -19,6 +19,8 @@ public class GameConstants : MonoBehaviour
 	public float SeaDryoffTemperatureThreshold = 80f;
 	public float SeaDryoffRate = -0.2f;
 
+	public int FirePowerNBFirableObjectInFireNeeded = 20;
+
 
 	void Awake()
 	{

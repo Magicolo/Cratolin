@@ -68,6 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4935149299370274}
   - component: {fileID: 114748818955646976}
+  - component: {fileID: 114637057812033946}
   m_Layer: 0
   m_Name: Power
   m_TagString: Untagged
@@ -224,6 +225,7 @@ MonoBehaviour:
   TreeBurnTemperatureThreshold: 70
   SeaDryoffTemperatureThreshold: 80
   SeaDryoffRate: -0.2
+  FirePowerNBFirableObjectInFireNeeded: 20
 --- !u!114 &114426515515147834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -248,6 +250,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 0
+--- !u!114 &114637057812033946
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1520591065708592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa4202727b23cce4ea879a4aca5f6ebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PowerPrefab: {fileID: 1983885636130908, guid: d16b33da764f5ee40bb5a39fbf41a12c,
+    type: 2}
 --- !u!114 &114690020313583772
 MonoBehaviour:
   m_ObjectHideFlags: 1
