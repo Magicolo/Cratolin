@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class Invader : MonoBehaviour
 {
@@ -10,18 +10,18 @@ public class Invader : MonoBehaviour
 	public SpriteRenderer NormalRenderer;
 	public SpriteRenderer ChargedRenderer;
 	public SpriteRenderer BeamRenderer;
-    public GameObject MonolothMagicParticlesPrefab;
-    public GameObject chunksParent;
-    public ParticleSystem particleSystemBossDies;
-    public AudioClip exploseAudio;
-    public AudioClip laserAudio;
+	public GameObject MonolothMagicParticlesPrefab;
+	public GameObject chunksParent;
+	public ParticleSystem particleSystemBossDies;
+	public AudioClip exploseAudio;
+	public AudioClip laserAudio;
 
-    States state;
+	States state;
 	float stateTime;
 	Vector3 startPosition;
 	Vector3 cameraPosition;
 
-    private float lastTimeSpawnMagic;
+	private float lastTimeSpawnMagic;
 
 	void Awake()
 	{
@@ -41,8 +41,8 @@ public class Invader : MonoBehaviour
 			case States.Beaming: UpdateBeaming(); break;
 			case States.Waiting: UpdateWaiting(); break;
 			case States.Leaving: UpdateLeaving(); break;
-            case States.Winning: UpdateWinning(); break;
-        }
+			case States.Winning: UpdateWinning(); break;
+		}
 	}
 
 	void UpdateArriving()
@@ -51,11 +51,11 @@ public class Invader : MonoBehaviour
 		var distance = difference.magnitude;
 
 		if (distance <= StopDistance)
-        {
-            Planet.Instance.Root.GetComponent<Rotator>().enabled = false;
-            SwitchState(States.Charging);
-        }
-			
+		{
+			Planet.Instance.Root.GetComponent<Rotator>().enabled = false;
+			SwitchState(States.Charging);
+		}
+
 		else
 		{
 			transform.position += (difference / distance) * MoveSpeed * Chronos.Instance.DeltaTime;
@@ -65,27 +65,27 @@ public class Invader : MonoBehaviour
 
 	void UpdateCharging()
 	{
-		const float duration = 4f;
+		const float duration = 3f;
 
-        if (!Monolith.Instance.IsCompleted)
-            Shake(stateTime);
+		if (!Monolith.Instance.IsCompleted)
+			Shake(stateTime);
 
 		if (stateTime > duration)
 		{
 			ChargedRenderer.color = new Color(ChargedRenderer.color.r, ChargedRenderer.color.g, ChargedRenderer.color.b, 1f);
 			//BeamRenderer.transform.localScale = new Vector3(BeamRenderer.transform.localScale.x, StopDistance - 65f, BeamRenderer.transform.localScale.z);
-            if (Monolith.Instance.IsCompleted)
-            {
-                Monolith.Instance.spriteRenderer.sprite = Monolith.Instance.win;
-                
-                SwitchState(States.Winning);
-            }
-            else
-            {
-                SwitchState(States.Beaming);
-                SoundManager.Instance.PlaySound(laserAudio);
-            }
-                
+			if (Monolith.Instance.IsCompleted)
+			{
+				Monolith.Instance.spriteRenderer.sprite = Monolith.Instance.win;
+
+				SwitchState(States.Winning);
+			}
+			else
+			{
+				SwitchState(States.Beaming);
+				SoundManager.Instance.PlaySound(laserAudio);
+			}
+
 		}
 		else
 			ChargedRenderer.color = new Color(ChargedRenderer.color.r, ChargedRenderer.color.g, ChargedRenderer.color.b, stateTime / duration);
@@ -93,8 +93,8 @@ public class Invader : MonoBehaviour
 
 	void UpdateBeaming()
 	{
-		const float duration = 6f;
-		Shake(stateTime * duration + 4f);
+		const float duration = 4f;
+		Shake(stateTime * duration + 3f);
 
 		if (stateTime > duration)
 		{
@@ -108,7 +108,7 @@ public class Invader : MonoBehaviour
 
 	void UpdateWaiting()
 	{
-		const float duration = 8f;
+		const float duration = 6f;
 
 		if (stateTime > duration)
 		{
@@ -138,60 +138,60 @@ public class Invader : MonoBehaviour
 		Camera.main.transform.position = cameraPosition + new Vector3(Random.Range(-amplitude, amplitude), Random.Range(-amplitude, amplitude));
 	}
 
-    int countParticles = 0;
-    bool explosed = false;
-    void UpdateWinning()
-    {
-        Monolith.Instance.magic.gameObject.SetActive(true);
-        Monolith.Instance.magic.position = Vector3.MoveTowards(Monolith.Instance.magic.position, transform.position, Time.deltaTime * 40);
+	int countParticles = 0;
+	bool explosed = false;
+	void UpdateWinning()
+	{
+		Monolith.Instance.magic.gameObject.SetActive(true);
+		Monolith.Instance.magic.position = Vector3.MoveTowards(Monolith.Instance.magic.position, transform.position, Time.deltaTime * 40);
 
-        float RandomAmp = Random.Range(7f, 12f);
-        if(Time.time - lastTimeSpawnMagic > 0.3f)
-        {
-            countParticles++;
-            lastTimeSpawnMagic = Time.time;
-            GameObject obj = Instantiate(MonolothMagicParticlesPrefab);
-            obj.transform.position = Monolith.Instance.magic.position;
-            obj.gameObject.SetActive(true);
+		float RandomAmp = Random.Range(7f, 12f);
+		if (Time.time - lastTimeSpawnMagic > 0.3f)
+		{
+			countParticles++;
+			lastTimeSpawnMagic = Time.time;
+			GameObject obj = Instantiate(MonolothMagicParticlesPrefab);
+			obj.transform.position = Monolith.Instance.magic.position;
+			obj.gameObject.SetActive(true);
 
-            List<Vector3> lstPoints = new List<Vector3>();
-            Vector3 source = Monolith.Instance.magic.position;
-            Vector3 dest = transform.position;
-            for(int i = 1; i < 6; i++)
-            {
-                Vector3 basePos = source + i * ((dest - source) / 7);
-                lstPoints.Add(basePos + Monolith.Instance.transform.right * ((i % 2) * 2 - 1) * ((countParticles % 2) * 2 - 1) * RandomAmp);
-            }
-            lstPoints.Add(dest);
+			List<Vector3> lstPoints = new List<Vector3>();
+			Vector3 source = Monolith.Instance.magic.position;
+			Vector3 dest = transform.position;
+			for (int i = 1; i < 6; i++)
+			{
+				Vector3 basePos = source + i * ((dest - source) / 7);
+				lstPoints.Add(basePos + Monolith.Instance.transform.right * ((i % 2) * 2 - 1) * ((countParticles % 2) * 2 - 1) * RandomAmp);
+			}
+			lstPoints.Add(dest);
 
-            iTween.MoveTo(obj, iTween.Hash("path", lstPoints.ToArray(), "time", 3f));
-        }
+			iTween.MoveTo(obj, iTween.Hash("path", lstPoints.ToArray(), "time", 3f));
+		}
 
-        if (stateTime > 4 && !explosed)
-        {
-            // explose boss
-            explosed = true;
-            SoundManager.Instance.PlaySound(exploseAudio);
-            particleSystemBossDies.Play();
-            NormalRenderer.gameObject.SetActive(false);
-            ChargedRenderer.gameObject.SetActive(false);
-            chunksParent.SetActive(true);
-            for (int i = 0; i < chunksParent.transform.childCount; i++)
-            {
-                Transform tr = chunksParent.transform.GetChild(i);
-                Vector3 pos = tr.position - (transform.position + new Vector3(-80, -80));
-                iTween.MoveTo(tr.gameObject, iTween.Hash("time", 10, "position", pos * 4));
-            }
-        }
+		if (stateTime > 4 && !explosed)
+		{
+			// explose boss
+			explosed = true;
+			SoundManager.Instance.PlaySound(exploseAudio);
+			particleSystemBossDies.Play();
+			NormalRenderer.gameObject.SetActive(false);
+			ChargedRenderer.gameObject.SetActive(false);
+			chunksParent.SetActive(true);
+			for (int i = 0; i < chunksParent.transform.childCount; i++)
+			{
+				Transform tr = chunksParent.transform.GetChild(i);
+				Vector3 pos = tr.position - (transform.position + new Vector3(-80, -80));
+				iTween.MoveTo(tr.gameObject, iTween.Hash("time", 10, "position", pos * 4));
+			}
+		}
 
-        if (stateTime > 8)
-        {
-            WinMenu.Instance.IsShown = true;
-        }
-    }
+		if (stateTime > 8)
+		{
+			WinMenu.Instance.IsShown = true;
+		}
+	}
 
 
-    void SwitchState(States state)
+	void SwitchState(States state)
 	{
 		this.state = state;
 

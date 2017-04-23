@@ -30,7 +30,7 @@ public class IceMeteor : MonoBehaviour
 	void FixedUpdate()
 	{
 		stateTime += Chronos.Instance.DeltaTime;
-		cloudCollisionCount = SmokeCloudParticle.Clouds.Count(c => Vector2.Distance(c.transform.position, transform.position) < 40f);
+		cloudCollisionCount = SmokeCloudParticle.Clouds.Count(c => Vector2.Distance(c.transform.position, transform.position) < 75f);
 
 		var color = BurningRenderer.color;
 		color.a = BurnRatio;

@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PowerManager : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class PowerManager : MonoBehaviour
 
 	public bool TrySpawnPower(Powers power, Vector2 position)
 	{
+		if (SceneManager.GetActiveScene().name == "MainMenu") return false;
+
 		var prefab = Prefabs.FirstOrDefault(p => p.Power == power);
 
 		if (prefab == null || HasPower(prefab.Power)) return false;
