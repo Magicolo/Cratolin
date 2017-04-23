@@ -14,6 +14,7 @@ public class Volcano : MonoBehaviour
 	public Sprite Erupting;
 	public Sprite Extinguished;
 	public Transform VolcanoExit;
+    public AudioClip audioSpawn;
 
 	float stateTime;
 	States state;
@@ -23,6 +24,8 @@ public class Volcano : MonoBehaviour
 	void Awake()
 	{
 		SwitchState(States.Spawning);
+
+        SoundManager.Instance.PlaySound(audioSpawn);
 	}
 
 	void FixedUpdate()
