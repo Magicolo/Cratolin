@@ -320,6 +320,52 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08fe87fd89a5c5d4a9bb63e9ce2af418, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &326402481
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4816846559934030, guid: 20699c5daa8810e45b8a835f731c56ee, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 223.65605
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816846559934030, guid: 20699c5daa8810e45b8a835f731c56ee, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 227.05905
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816846559934030, guid: 20699c5daa8810e45b8a835f731c56ee, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816846559934030, guid: 20699c5daa8810e45b8a835f731c56ee, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816846559934030, guid: 20699c5daa8810e45b8a835f731c56ee, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816846559934030, guid: 20699c5daa8810e45b8a835f731c56ee, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.37856779
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816846559934030, guid: 20699c5daa8810e45b8a835f731c56ee, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9255736
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816846559934030, guid: 20699c5daa8810e45b8a835f731c56ee, type: 2}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525633876324698, guid: 20699c5daa8810e45b8a835f731c56ee, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 20699c5daa8810e45b8a835f731c56ee, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &432360840
 Prefab:
   m_ObjectHideFlags: 0

@@ -95,7 +95,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1487233656368562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1100, y: 650, z: 0}
+  m_LocalPosition: {x: 1100, y: 650, z: -25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4832086231576338}
@@ -146,6 +146,8 @@ MonoBehaviour:
   NormalRenderer: {fileID: 212871785401970504}
   ChargedRenderer: {fileID: 212879670776478140}
   BeamRenderer: {fileID: 212266068101429500}
+  MonolothMagicParticlesPrefab: {fileID: 1525633876324698, guid: 20699c5daa8810e45b8a835f731c56ee,
+    type: 2}
 --- !u!212 &212266068101429500
 SpriteRenderer:
   m_ObjectHideFlags: 1
