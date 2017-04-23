@@ -23,13 +23,12 @@ public class LoupePower : PowerBase {
         if (!CanPlace(position))
             return null;
 
-        inLoupe = false;
-        RenderTarget.SetActive(false);
+        
 
         return null;
     }
 
-    public void GoInLoop()
+    override public void StartPlacing()
     {
         inLoupe = true;
         RenderTarget.SetActive(true);
@@ -40,6 +39,12 @@ public class LoupePower : PowerBase {
         if(inLoupe)
         {
             cameraTransform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            if(Input.GetMouseButtonUp(0))
+            {
+                inLoupe = false;
+                RenderTarget.SetActive(false);
+            }
         }
     }
 }

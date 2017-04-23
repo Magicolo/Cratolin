@@ -5,6 +5,7 @@ using UnityEngine;
 public class FirePower : PowerBase {
 
     public float Cooldown;
+    public SpriteRenderer firePreview;
 
     public override bool CanUse
     {
@@ -31,6 +32,26 @@ public class FirePower : PowerBase {
                 fire.StartFire();
         }
 
+        firePreview.gameObject.SetActive(false);
+
         return null;
+    }
+
+    override public void StartPlacing()
+    {
+        base.StartPlacing();
+
+        firePreview.transform.parent = null;
+        firePreview.gameObject.SetActive(true);
+    }
+
+    private void Update()
+    {
+        if(firePreview.gameObject.activeInHierarchy)
+        {
+            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            firePreview.transform.position = pos.normalized * 375;
+        }
+        
     }
 }

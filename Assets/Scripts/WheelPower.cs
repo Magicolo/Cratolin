@@ -31,12 +31,9 @@ public class WheelPower : MonoBehaviour {
                 {
                     currentItem = item;
 
-                    if(currentItem.GetComponent<LoupePower>())
-                    {
-                        currentItem.GetComponent<LoupePower>().GoInLoop();
-                    }
+                    currentItem.GetComponent<PowerBase>().StartPlacing();
 
-                    foreach(WheelPowerItem powerItem in items)
+                    foreach (WheelPowerItem powerItem in items)
                     {
                         powerItem.SetDestinationAlpha(powerItem == currentItem ? 1 : 0);
                     }
