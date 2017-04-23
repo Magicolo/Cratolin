@@ -15,7 +15,7 @@ public class Planet : MonoBehaviour
 		set { temperature = Mathf.Clamp(value, -100f, 100); }
 	}
 
-	private float co2;
+	public float co2;
 	public float CO2
 	{
 		get { return co2; }
