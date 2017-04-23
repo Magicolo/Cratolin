@@ -50,6 +50,7 @@ public class Planet : MonoBehaviour
 
 	public void Destroy()
 	{
+		PowerManager.Instance.TrySpawnPower(PowerManager.Powers.Volcano, transform.position);
 		gameObject.SetActive(false);
 	}
 }

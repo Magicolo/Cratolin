@@ -7,7 +7,7 @@ public class UIRetry : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		Button.gameObject.SetActive(!Planet.Instance.gameObject.activeSelf);
+		Button.gameObject.SetActive(!Planet.Instance.gameObject.activeSelf && FindObjectOfType<PowerCollectable>() == null);
 	}
 
 	public void OnClick()
