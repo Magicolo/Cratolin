@@ -16,7 +16,6 @@ public class SplatterElementComponent : SplatterComponent
 	private SplattersGroup splatterGroup;
 	private Sprite CurrentSplatter;
 
-	private BoxCollider2D triggerCollider = null;
 
 	public bool RainKillsMe;
 	public bool FireKillsMe;
@@ -26,12 +25,6 @@ public class SplatterElementComponent : SplatterComponent
 		get{ return CurrentSplatter; }
 	}
 
-	void Awake(){
-		triggerCollider = gameObject.GetComponent<BoxCollider2D>();
-		if(triggerCollider == null)
-			triggerCollider = gameObject.AddComponent<BoxCollider2D>();
-			triggerCollider.isTrigger = true;
-	}
 
 	void Start()
 	{
@@ -52,9 +45,6 @@ public class SplatterElementComponent : SplatterComponent
 			CurrentSplatter = splatterGroup.getSpatter(t);
 		}
 
-		if (triggerCollider != null && CurrentSplatter != lastSplatterUpdate && CurrentSplatter != null)
-			triggerCollider.size = CurrentSplatter.bounds.size;
-
 		lastSplatterUpdate = CurrentSplatter;
 
 		if (TimeToDieAfterGrow != -1 && Chronos.Instance.Time > TimeToDieAfterGrow + startT + TimeToFullGrow)
@@ -63,7 +53,7 @@ public class SplatterElementComponent : SplatterComponent
 		}
 	}
 
-	public void DIE(float timeToDecayFactor = 1)
+	public override void DIE(float timeToDecayFactor = 1)
 	{
 		GameObject go = new GameObject("Dying Splater");
 		go.transform.parent = this.transform.parent;

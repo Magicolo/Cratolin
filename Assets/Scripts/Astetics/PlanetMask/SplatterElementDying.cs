@@ -36,4 +36,8 @@ public class SplatterElementDying : SplatterComponent
 		}
 	}
 
+	public override void DIE(float timeToDecayFactor = 1)
+	{
+		
+	}
 }
