@@ -9,13 +9,15 @@ public class SmokeEmitter : ParticleEmitterBase<SmokeParticle>
 	public float FadeMaxA = 1f;
 	public Vector2 XOffsetRange = Vector2.zero;
 	public Vector2 YOffsetRange = Vector2.zero;
+	public Vector2 VelocityX = new Vector2(-15f, 15f);
+	public Vector2 VelocityY = new Vector2(10f, 10f);
 
 	float nextParticle;
 
 	void OnEnable()
 	{
 		nextParticle = Chronos.Instance.Time;
-		
+
 	}
 
 	void FixedUpdate()
@@ -32,9 +34,10 @@ public class SmokeEmitter : ParticleEmitterBase<SmokeParticle>
 		var particle = base.Spawn();
 		var xOffset = Random.Range(XOffsetRange.x, XOffsetRange.y);
 		var yOffset = Random.Range(YOffsetRange.x, YOffsetRange.y);
-		var p = transform.position + new Vector3(xOffset,yOffset);
-		particle.Initialize(this, p, new Vector2(Random.Range(-15f, 15f), 10f)
-			, lifeTime: LifeTime, fadeIn:FadeIn, fadeOut:FadeOut, fadeMaxA:FadeMaxA);
+		var position = transform.position + new Vector3(xOffset, yOffset);
+
+		particle.Initialize(this, position,
+			new Vector2(Random.Range(VelocityX.x, VelocityX.y), Random.Range(VelocityY.x, VelocityY.y)), lifeTime: LifeTime, fadeIn: FadeIn, fadeOut: FadeOut, fadeMaxA: FadeMaxA);
 		Planet.Instance.CO2 += GameConstants.Instance.SmokeParticleCO2Emission;
 
 		return particle;
