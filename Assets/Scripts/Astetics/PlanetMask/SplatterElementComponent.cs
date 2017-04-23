@@ -18,6 +18,9 @@ public class SplatterElementComponent : SplatterComponent
 
 	private BoxCollider2D triggerCollider;
 
+	public bool RainKillsMe;
+	public bool FireKillsMe;
+
 	public override Sprite Splatter
 	{
 		get{ return CurrentSplatter; }
@@ -51,7 +54,7 @@ public class SplatterElementComponent : SplatterComponent
 
 		if (CurrentSplatter != lastSplatterUpdate && CurrentSplatter != null)
 			triggerCollider.size = CurrentSplatter.bounds.size;
-			
+
 		lastSplatterUpdate = CurrentSplatter;
 
 		if (TimeToDieAfterGrow != -1 && Chronos.Instance.Time > TimeToDieAfterGrow + startT + TimeToFullGrow)

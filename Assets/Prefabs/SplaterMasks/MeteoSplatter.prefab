@@ -58,3 +58,5 @@ MonoBehaviour:
   maxGrow: 0.75
   SplattersRandom:
   - {fileID: 11400000, guid: d0d61a847d0868146bed0e4fc93b6b53, type: 2}
+  RainKillsMe: 1
+  FireKillsMe: 0

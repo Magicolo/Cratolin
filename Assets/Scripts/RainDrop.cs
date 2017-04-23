@@ -25,8 +25,9 @@ public class RainDrop : MonoBehaviour {
         if (collision.gameObject.GetComponentInParent<FireAbleObject>() != null)
             collision.gameObject.GetComponentInParent<FireAbleObject>().StopFire();
 
-        if (collision.gameObject.GetComponentInParent<SplatterElementComponent>() != null)
-            collision.gameObject.GetComponentInParent<SplatterElementComponent>().DIE();
+        var splatterC = collision.gameObject.GetComponentInParent<SplatterElementComponent>();
+        if (splatterC != null && splatterC.RainKillsMe)
+            splatterC.DIE();
 
         if (PlanetLayer == (PlanetLayer | (1 << collision.gameObject.layer)))
         {
