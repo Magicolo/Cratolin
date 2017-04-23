@@ -137,4 +137,9 @@ public class Walker : MonoBehaviour {
         lookAround.SetActive(!scared.activeInHierarchy && IsEvolved && !isWalking && lookAroundTimer < 1f);
         idle.SetActive(!scared.activeInHierarchy && IsEvolved && !isWalking && !lookAround.activeInHierarchy);
     }
+
+    public void CatchFire()
+    {
+
+    }
 }
