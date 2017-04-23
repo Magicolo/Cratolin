@@ -6,7 +6,9 @@ public class Invader : MonoBehaviour
 
 	public float MoveSpeed = 2f;
 	public float StopDistance = 200f;
-	public LineRenderer Beam;
+	public SpriteRenderer NormalRenderer;
+	public SpriteRenderer ChargedRenderer;
+	public SpriteRenderer BeamRenderer;
 
 	States state;
 	float stateTime;
@@ -42,18 +44,25 @@ public class Invader : MonoBehaviour
 		if (distance <= StopDistance)
 			SwitchState(States.Charging);
 		else
+		{
 			transform.position += (difference / distance) * MoveSpeed * Chronos.Instance.DeltaTime;
+			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(Vector3.right, difference), Chronos.Instance.DeltaTime);
+		}
 	}
 
 	void UpdateCharging()
 	{
+		const float duration = 4f;
 		Shake(stateTime);
 
-		if (stateTime > 4f)
+		if (stateTime > duration)
 		{
-			Beam.SetPositions(new Vector3[] { (Vector2)transform.position, (Vector2)Planet.Instance.Root.position });
+			ChargedRenderer.color = new Color(ChargedRenderer.color.r, ChargedRenderer.color.g, ChargedRenderer.color.b, 1f);
+			BeamRenderer.transform.localScale = new Vector3(BeamRenderer.transform.localScale.x, StopDistance - 65f, BeamRenderer.transform.localScale.z);
 			SwitchState(States.Beaming);
 		}
+		else
+			ChargedRenderer.color = new Color(ChargedRenderer.color.r, ChargedRenderer.color.g, ChargedRenderer.color.b, stateTime / duration);
 	}
 
 	void UpdateBeaming()
@@ -78,16 +87,24 @@ public class Invader : MonoBehaviour
 		if (stateTime > duration)
 		{
 			WhiteScreen.Instance.Fade(0f);
+			ChargedRenderer.color = new Color(ChargedRenderer.color.r, ChargedRenderer.color.g, ChargedRenderer.color.b, 0f);
 			SwitchState(States.Leaving);
 		}
 		else if (stateTime > duration / 2f)
-			WhiteScreen.Instance.Fade(1f - (stateTime - duration / 2f) / (duration / 2f));
+		{
+			float ratio = (stateTime - duration / 2f) / (duration / 2f);
+			WhiteScreen.Instance.Fade(1f - ratio);
+
+			if (ratio > 0.5f)
+				ChargedRenderer.color = new Color(ChargedRenderer.color.r, ChargedRenderer.color.g, ChargedRenderer.color.b, 1f - ((ratio - 0.5f) * 2f));
+		}
 	}
 
 	void UpdateLeaving()
 	{
 		var direction = (startPosition - transform.position).normalized;
 		transform.position += direction * MoveSpeed * Chronos.Instance.DeltaTime;
+		transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(Vector3.right, direction), Chronos.Instance.DeltaTime);
 	}
 
 	void Shake(float amplitude)
@@ -101,6 +118,6 @@ public class Invader : MonoBehaviour
 
 		stateTime = 0f;
 		Camera.main.transform.position = cameraPosition;
-		Beam.enabled = state == States.Beaming;
+		BeamRenderer.gameObject.SetActive(state == States.Beaming);
 	}
 }
