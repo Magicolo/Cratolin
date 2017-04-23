@@ -31,7 +31,7 @@ public class PauseMenu : MonoBehaviour {
 
     public void GoMainMenu()
     {
-
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 
     public void Exit()
