@@ -18,7 +18,7 @@ public class SplatterElementComponent : SplatterComponent
 
 	public bool canDie = true;
 
-
+	public float CooloffPlanetAmount = 0;
 
 	public override Sprite Splatter
 	{
@@ -65,6 +65,7 @@ public class SplatterElementComponent : SplatterComponent
 		sed.CurrentSplatter = splatterGroup;
 		sed.TimeToDie = TimeToDecay * timeToDecayFactor;
 
+		Planet.Instance.Cooldown(CooloffPlanetAmount);
 		Destroy(gameObject);
 	}
 

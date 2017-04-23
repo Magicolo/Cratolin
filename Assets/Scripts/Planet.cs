@@ -40,11 +40,10 @@ public class Planet : MonoBehaviour
 		Instance = this;
 	}
 
-	internal void Cooldown(float v)
+	public void Cooldown(float v)
 	{
 		if(temperature - v > 0)
 			temperature -= v;
-		
 	}
 
 	void FixedUpdate()
