@@ -8,7 +8,7 @@ public class Sea : MonoBehaviour
 
 	public float increment;
 	public SpriteRenderer sprite;
-	//public ListOfPrefab Trees;
+	public ListOfPrefab Trees;
 	public Walker walkerprefab;
 	public float timeBetweenTreeSpawn;
 	public int maxTreeCountEachSide;
@@ -102,9 +102,9 @@ public class Sea : MonoBehaviour
 
 				if (hit)
 				{
-					//var machin = Trees.getRandom<Tree>();
-					//Tree newTree = Instantiate(machin, hit.point, Quaternion.FromToRotation(Vector2.up, direction), Planet.Instance.Root);
-					//lstListToSpawnIn.Add(newTree);
+					var machin = Trees.getRandom<Tree>();
+					Tree newTree = Instantiate(machin, hit.point, Quaternion.FromToRotation(Vector2.up, direction), Planet.Instance.Root);
+					lstListToSpawnIn.Add(newTree);
 				}
 			}
 		}
