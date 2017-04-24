@@ -4,9 +4,9 @@ using UnityEngine.EventSystems;
 
 public class WheelPower : MonoBehaviour
 {
-    public static WheelPower Instance { get; private set; }
+	public static WheelPower Instance { get; private set; }
 
-    public Transform aimTransform;
+	public Transform aimTransform;
 	public PowerBase[] Powers;
 
 	private WheelPowerItem[] items;
@@ -16,12 +16,12 @@ public class WheelPower : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-        Instance = this;
-        items = GetComponentsInChildren<WheelPowerItem>();
+		Instance = this;
+		items = GetComponentsInChildren<WheelPowerItem>();
 		aimTransform.gameObject.SetActive(false);
 	}
 
-    public bool IsPlacingPower { get { return currentItem != null; } }
+	public bool IsPlacingPower { get { return currentItem != null; } }
 
 	// Update is called once per frame
 	void Update()
@@ -75,7 +75,7 @@ public class WheelPower : MonoBehaviour
 
 		if (Input.GetMouseButtonUp(0) && currentItem != null)
 		{
-			if (aimTransform.GetComponentInChildren<SpriteRenderer>().color.a > 0.5f)
+			if (aimTransform.GetComponentInChildren<SpriteRenderer>().color.a > 0.25f)
 			{
 				//TODO do power item effect if far away from center
 				currentItem.Spawn((worldPos - Vector3.zero) * 10);
