@@ -36,6 +36,7 @@ public class RainDrop : MonoBehaviour
 
 		if (PlanetLayer == (PlanetLayer | (1 << collision.gameObject.layer)))
 		{
+			Planet.Instance.Temperature -= GameConstants.Instance.RainDropCoolingFactor;
 			Destroy(gameObject);
 		}
 	}

@@ -12,7 +12,8 @@ public class CheatManager : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			active = !active;
-			FindObjectOfType<CheatModImage>().SetVisibility(active);
+			var mod = FindObjectOfType<CheatModImage>();
+			if (mod != null) mod.SetVisibility(active);
 		}
 
 		if (!active) return;
@@ -48,13 +49,15 @@ public class CheatManager : MonoBehaviour
 				item.ReduceWater();
 
 
-				
-		if (Input.GetKey(KeyCode.X)){
-			foreach(var item in GameObject.FindObjectsOfType<Sea>()){
+
+		if (Input.GetKey(KeyCode.X))
+		{
+			foreach (var item in GameObject.FindObjectsOfType<Sea>())
+			{
 				item.CanSpawnLifeAround = true;
 			}
 		}
-			
+
 	}
 #endif
 }
