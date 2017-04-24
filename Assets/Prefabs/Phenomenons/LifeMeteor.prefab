@@ -231,6 +231,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 1
   MeltTime: 4
+  SplatterRayMask:
+    serializedVersion: 2
+    m_Bits: 256
   Chunks: {fileID: 114107550857441066}
   NormalRenderer: {fileID: 212032637084675246}
   BurningRenderer: {fileID: 212941212100305368}

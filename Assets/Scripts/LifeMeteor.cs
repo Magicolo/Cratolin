@@ -94,9 +94,9 @@ public class LifeMeteor : MonoBehaviour
 		Chunks.transform.parent = null;
 		Chunks.gameObject.SetActive(true);
 
-		var hit = Physics2D.Raycast(transform.position, Planet.Instance.Root.position, 1000f, SplatterRayMask);
+		var hit = Physics2D.Raycast(transform.position, -transform.position, 1000f, SplatterRayMask);
 
-		if (hit)
+		if (hit.collider != null)
 		{
 			var splat = Instantiate(Splatter, hit.point, transform.rotation);
 			splat.transform.parent = Planet.Instance.Root;
