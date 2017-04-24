@@ -19,13 +19,28 @@ public class Volcano : MonoBehaviour
 	float stateTime;
 	States state;
 
-	public int heat = 10;
+	public int Heat
+	{
+		get { return heat; }
+		set { heat = Mathf.Clamp(value, -10, 10); }
+	}
+	int heat = 10;
 
 	void Awake()
 	{
 		SwitchState(States.Spawning);
 
 		SoundManager.Instance.PlaySound(audioSpawn);
+	}
+
+	void OnEnable()
+	{
+		Groups.Add(this);
+	}
+
+	void OnDisable()
+	{
+		Groups.Remove(this);
 	}
 
 	void FixedUpdate()
@@ -62,19 +77,19 @@ public class Volcano : MonoBehaviour
 	{
 		SwitchState(States.Erupting);
 
-		if (heat <= 0)
+		if (Heat <= 0)
 			SwitchState(States.Extinguished);
 	}
 
 	void UpdateErupting()
 	{
-		if (heat <= 0)
+		if (Heat <= 0)
 			SwitchState(States.Extinguished);
 	}
 
 	void UpdateExtinguished()
 	{
-		if (heat > 0)
+		if (Heat > 0)
 			SwitchState(States.Erupting);
 	}
 

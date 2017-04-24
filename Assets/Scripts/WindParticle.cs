@@ -2,7 +2,6 @@
 
 public class WindParticle : MonoBehaviour
 {
-
 	public LayerMask maskPlanet;
 	public float distanceFormPlanetCenter;
 	public float moveSpeed;

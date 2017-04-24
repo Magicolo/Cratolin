@@ -31,10 +31,20 @@ public class Sea : MonoBehaviour
 
 	}
 	private float lastTimeSpawnedTree;
+	bool burning;
 	public List<Tree> lstTreesSpawnedLeft = new List<Tree>();
 	public List<Tree> lstTreesSpawnedRight = new List<Tree>();
 
-	// Use this for initialization
+	void OnEnable()
+	{
+		Groups.Add(this);
+	}
+
+	void OnDisable()
+	{
+		Groups.Remove(this);
+	}
+
 	void Start()
 	{
 		ratio = 0;
@@ -43,10 +53,8 @@ public class Sea : MonoBehaviour
 			ratio = 1;
 
 		RefreshRatio();
-
 	}
 
-	// Update is called once per frame
 	void Update()
 	{
 		// spawn walker
@@ -57,9 +65,10 @@ public class Sea : MonoBehaviour
 			walker.transform.position = transform.position * 1.05f;
 		}
 
-		if (Planet.Instance.Temperature > GameConstants.Instance.SeaDryoffTemperatureThreshold)
+		if (burning || Planet.Instance.Temperature > GameConstants.Instance.SeaDryoffTemperatureThreshold)
 		{
 			Ratio += GameConstants.Instance.SeaDryoffRate * Chronos.Instance.DeltaTime;
+			burning = ratio > 0f;
 
 			if (!EvaporationParticle.enabled && ratio > 0f)
 			{
@@ -67,12 +76,10 @@ public class Sea : MonoBehaviour
 				willSpawnWind = this;
 			}
 			else
-				EvaporationParticle.enabled = false;
+				EvaporationParticle.enabled = burning;
 		}
 		else
-		{
 			EvaporationParticle.enabled = false;
-		}
 
 
 		if (CanSpawnLifeAround && ratio > 0.5f && Chronos.Instance.Time - lastTimeSpawnedTree > timeBetweenTreeSpawn)
@@ -126,6 +133,11 @@ public class Sea : MonoBehaviour
 		Gizmos.color = Color.yellow;
 		Gizmos.DrawSphere(left, 4);
 		Gizmos.DrawSphere(right, 4);
+	}
+
+	public void BurnWater()
+	{
+		burning = true;
 	}
 
 	public void IncreaseWater()

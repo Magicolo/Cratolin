@@ -1,51 +1,61 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class PauseMenu : MonoBehaviour {
+public class PauseMenu : MonoBehaviour
+{
+	public Image content;
+	public Button RestartButton;
+	public Button Escape;
 
-    public Image content;
+	public bool IsShown { get; set; }
 
-    public bool IsShown { get; set; }
+	void Update()
+	{
+		Escape.gameObject.SetActive(!IsShown && PowerManager.Instance.HasPower(PowerManager.Powers.Volcano));
+		RestartButton.gameObject.SetActive(!IsShown && PowerManager.Instance.HasPower(PowerManager.Powers.Volcano));
 
-    void Start () {
-		
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			IsShown = !IsShown;
+			SoundManager.Instance.PlayGeneralClick();
+		}
+
+		CanvasGroup group = GetComponent<CanvasGroup>();
+
+		float dest = IsShown ? 1 : 0;
+		group.alpha = Mathf.Lerp(group.alpha, dest, Time.unscaledDeltaTime * 8);
+
+
+		content.gameObject.SetActive(group.alpha > 0.05f);
 	}
-	
-	void Update () {
 
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            IsShown = !IsShown;
-            SoundManager.Instance.PlayGeneralClick();
-        }
+	public void Show()
+	{
+		IsShown = true;
+		SoundManager.Instance.PlayGeneralClick();
+	}
 
-        CanvasGroup group = GetComponent<CanvasGroup>();
+	public void GoMainMenu()
+	{
+		SoundManager.Instance.PlayGeneralClick();
+		Game.Instance.GoMainMenu();
+	}
 
-        float dest = IsShown ? 1 : 0;
-        group.alpha = Mathf.Lerp(group.alpha, dest, Time.unscaledDeltaTime * 8);
+	public void Restart()
+	{
+		SoundManager.Instance.PlayGeneralClick();
+		Game.Instance.Reload();
+	}
 
-        
-        content.gameObject.SetActive(group.alpha > 0.05f);
-    }
+	public void Exit()
+	{
+		SoundManager.Instance.PlayGeneralClick();
+		Application.Quit();
+	}
 
-    public void GoMainMenu()
-    {
-        SoundManager.Instance.PlayGeneralClick();
-        Game.Instance.GoMainMenu();
-        //UnityEngine.SceneManagement.SceneManager.LoadScene(0);
-    }
-
-    public void Exit()
-    {
-        SoundManager.Instance.PlayGeneralClick();
-        Application.Quit();
-    }
-
-    public void Resume()
-    {
-        IsShown = !IsShown;
-        SoundManager.Instance.PlayGeneralClick();
-    }
+	public void Resume()
+	{
+		IsShown = !IsShown;
+		SoundManager.Instance.PlayGeneralClick();
+	}
 }

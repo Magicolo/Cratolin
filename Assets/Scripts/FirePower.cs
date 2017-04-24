@@ -36,6 +36,18 @@ public class FirePower : PowerBase
 				splatter.DIE(0.2f);
 		}
 
+		foreach (var volcano in Groups.Get<Volcano>())
+		{
+			if (Vector2.Distance(volcano.transform.position, hit.point) < 100)
+				volcano.Heat += 20;
+		}
+
+		foreach (var sea in Groups.Get<Sea>())
+		{
+			if (Vector2.Distance(sea.transform.position, hit.point) < 100)
+				sea.BurnWater();
+		}
+
 		foreach (Walker walker in Walker.Walkers)
 		{
 			if (Vector2.Distance(walker.transform.position, hit.point) < 100)
