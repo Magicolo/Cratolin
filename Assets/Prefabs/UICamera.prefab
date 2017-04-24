@@ -1126,7 +1126,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: RESTART
+  m_Text: BACK IN TIME
 --- !u!114 &114214696479147340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1670,7 +1670,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Drag Me
+  m_Text: Drag Me ->
 --- !u!114 &114536590813091108
 MonoBehaviour:
   m_ObjectHideFlags: 1
