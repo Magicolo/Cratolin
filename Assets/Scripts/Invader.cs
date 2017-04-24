@@ -143,13 +143,13 @@ public class Invader : MonoBehaviour
 	void UpdateWinning()
 	{
 		Monolith.Instance.magic.gameObject.SetActive(true);
-		Monolith.Instance.magic.position = Vector3.MoveTowards(Monolith.Instance.magic.position, transform.position, Time.deltaTime * 40);
+		Monolith.Instance.magic.position = Vector3.MoveTowards(Monolith.Instance.magic.position, transform.position, Chronos.Instance.DeltaTime * 40);
 
 		float RandomAmp = Random.Range(7f, 12f);
-		if (Time.time - lastTimeSpawnMagic > 0.3f)
+		if (Chronos.Instance.Time - lastTimeSpawnMagic > 0.3f)
 		{
 			countParticles++;
-			lastTimeSpawnMagic = Time.time;
+			lastTimeSpawnMagic = Chronos.Instance.Time;
 			GameObject obj = Instantiate(MonolothMagicParticlesPrefab);
 			obj.transform.position = Monolith.Instance.magic.position;
 			obj.gameObject.SetActive(true);

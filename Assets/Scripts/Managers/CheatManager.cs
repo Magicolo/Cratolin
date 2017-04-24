@@ -20,9 +20,9 @@ public class CheatManager : MonoBehaviour
 
 
 		if (Input.GetKey(KeyCode.T))
-			Planet.Instance.Temperature += Time.deltaTime * 50;
+			Planet.Instance.Temperature += Chronos.Instance.DeltaTime * 50;
 		if (Input.GetKey(KeyCode.Y))
-			Planet.Instance.Temperature -= Time.deltaTime * 50;
+			Planet.Instance.Temperature -= Chronos.Instance.DeltaTime * 50;
 		if (Input.GetKey(KeyCode.U))
 		{
 			foreach (var power in Enum.GetValues(typeof(PowerManager.Powers)).Cast<PowerManager.Powers>())

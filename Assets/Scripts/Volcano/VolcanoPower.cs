@@ -32,10 +32,11 @@ public class VolcanoPower : PowerBase
 
 	public override GameObject Create(Vector2 position)
 	{
+		Preview.gameObject.SetActive(false);
+
 		if (!CanPlace(position))
 			return null;
 
-		Preview.gameObject.SetActive(false);
 		var direction = position.normalized;
 		var hit = Physics2D.Raycast(direction * 1000f, -direction, 1000f, Mask);
 

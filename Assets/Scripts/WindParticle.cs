@@ -1,85 +1,86 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class WindParticle : MonoBehaviour {
+public class WindParticle : MonoBehaviour
+{
 
-    public LayerMask maskPlanet;
-    public float distanceFormPlanetCenter;
-    public float moveSpeed;
-    public Tree[] TreePrefab;
+	public LayerMask maskPlanet;
+	public float distanceFormPlanetCenter;
+	public float moveSpeed;
+	public Tree[] TreePrefab;
 
-    private float direction = 1;
-    private float lifeTimer;
-    private float waveAmplitude;
-    private bool polenized = false;
-    private bool inFire = false;
-    private bool disabled = false;
+	private float direction = 1;
+	private float lifeTimer;
+	private float waveAmplitude;
+	private bool polenized = false;
+	private bool inFire = false;
+	private bool disabled = false;
 
-    public float Direction { get { return direction; } set { direction = value; } }
+	public float Direction { get { return direction; } set { direction = value; } }
 
-	void Start () {
-        lifeTimer = Random.Range(0f, 10f);
-        waveAmplitude = Random.Range(0f, 15f);
+	void Start()
+	{
+		lifeTimer = Random.Range(0f, 10f);
+		waveAmplitude = Random.Range(0f, 15f);
 
-        GetComponent<TrailRenderer>().sortingOrder = -5;
-        GetComponent<TrailRenderer>().Clear();
+		GetComponent<TrailRenderer>().sortingOrder = -5;
+		GetComponent<TrailRenderer>().Clear();
 
-        moveSpeed = moveSpeed * Random.Range(0.8f, 1.2f);
+		moveSpeed = moveSpeed * Random.Range(0.8f, 1.2f);
 
-        //// Not all particles have trails
-        //if (Random.Range(0, 5) > 0)
-        //    Destroy(GetComponent<TrailRenderer>());
+		//// Not all particles have trails
+		//if (Random.Range(0, 5) > 0)
+		//    Destroy(GetComponent<TrailRenderer>());
 
-        transform.up = transform.position.normalized;
-        transform.position = transform.up * (distanceFormPlanetCenter + Mathf.Sin(lifeTimer * 4) * waveAmplitude);
-    }
-	
-	void Update () {
+		transform.up = transform.position.normalized;
+		transform.position = transform.up * (distanceFormPlanetCenter + Mathf.Sin(lifeTimer * 4) * waveAmplitude);
+	}
 
-        if (disabled)
-            return;
+	void FixedUpdate()
+	{
 
-        // Destroy on hitting ground
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero, 1000f, maskPlanet);
-        if(hit.collider != null)
-        {
-            // Small chance to spawn tree if polenized
-            if(polenized)// && Random.Range(0, 5) == 0)
-                Instantiate(TreePrefab[Random.Range(0, TreePrefab.Length)], transform.position, Quaternion.FromToRotation(Vector2.up, transform.position.normalized), Planet.Instance.Root);
+		if (disabled)
+			return;
 
-            Destroy(gameObject, 5);
-            disabled = true;
-            return;
-        }
+		// Destroy on hitting ground
+		RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero, 1000f, maskPlanet);
+		if (hit.collider != null)
+		{
+			// Small chance to spawn tree if polenized
+			if (polenized)// && Random.Range(0, 5) == 0)
+				Instantiate(TreePrefab[Random.Range(0, TreePrefab.Length)], transform.position, Quaternion.FromToRotation(Vector2.up, transform.position.normalized), Planet.Instance.Root);
 
-        RaycastHit2D hitTree = Physics2D.Raycast(transform.position, Vector2.zero);
-        if (hitTree.collider != null && hitTree.collider.GetComponentInParent<Tree>() != null)
-        {
-            if (inFire && hitTree.collider.GetComponentInParent<FireAbleObject>() != null && !hitTree.collider.GetComponentInParent<FireAbleObject>().IsOnFire)
-            {
-                // propagate fire particle on other tree;
-                hitTree.collider.GetComponentInParent<FireAbleObject>().StartFire();
+			Destroy(gameObject, 5);
+			disabled = true;
+			return;
+		}
 
-            }
-            else if (hitTree.collider.GetComponentInParent<FireAbleObject>() != null && hitTree.collider.GetComponentInParent<FireAbleObject>().IsOnFire)
-            {
-                inFire = true;
-                polenized = false;
-            }  
-            else if(!inFire)
-                polenized = true;
-        }
+		RaycastHit2D hitTree = Physics2D.Raycast(transform.position, Vector2.zero);
+		if (hitTree.collider != null && hitTree.collider.GetComponentInParent<Tree>() != null)
+		{
+			if (inFire && hitTree.collider.GetComponentInParent<FireAbleObject>() != null && !hitTree.collider.GetComponentInParent<FireAbleObject>().IsOnFire)
+			{
+				// propagate fire particle on other tree;
+				hitTree.collider.GetComponentInParent<FireAbleObject>().StartFire();
 
-        lifeTimer += Time.deltaTime;
+			}
+			else if (hitTree.collider.GetComponentInParent<FireAbleObject>() != null && hitTree.collider.GetComponentInParent<FireAbleObject>().IsOnFire)
+			{
+				inFire = true;
+				polenized = false;
+			}
+			else if (!inFire)
+				polenized = true;
+		}
 
-        transform.up = transform.position.normalized;
-        transform.position = transform.up * (distanceFormPlanetCenter + Mathf.Sin(lifeTimer * 4) * waveAmplitude);
+		lifeTimer += Chronos.Instance.DeltaTime;
 
-        transform.position += transform.right * Time.deltaTime * moveSpeed * Direction;
+		transform.up = transform.position.normalized;
+		transform.position = transform.up * (distanceFormPlanetCenter + Mathf.Sin(lifeTimer * 4) * waveAmplitude);
 
-        // go more and more closer to the planet
-        distanceFormPlanetCenter -= Time.deltaTime * 5;
+		transform.position += transform.right * Chronos.Instance.DeltaTime * moveSpeed * Direction;
 
-    }
+		// go more and more closer to the planet
+		distanceFormPlanetCenter -= Chronos.Instance.DeltaTime * 5;
+
+	}
 }

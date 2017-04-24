@@ -43,6 +43,12 @@ public class MeteorParticle : ParticleBase
 			if (Vector2.Distance(walker.transform.position, transform.position) < 15)
 				walker.CatchFire();
 		}
+
+		foreach (var seedling in Groups.Get<Seedling>())
+		{
+			if (Vector2.Distance(seedling.transform.position, transform.position) < 15)
+				seedling.CatchFire();
+		}
 	}
 
 	protected override void FixedUpdate()
