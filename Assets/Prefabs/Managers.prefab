@@ -386,6 +386,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f57d17a7b5566a84fa09ce9c98ead49f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IceMeteorCoolingAmount: 25
+  RainDropCoolingFactor: 0.01
   TreeOzoneCreationRate: 0.1
   TreeCO2ConsumationRate: 0.05
   SmokeParticleCO2Emission: 1
@@ -445,8 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4202727b23cce4ea879a4aca5f6ebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PowerPrefab: {fileID: 1983885636130908, guid: d16b33da764f5ee40bb5a39fbf41a12c,
-    type: 2}
+  Power: 3
 --- !u!114 &114690020313583772
 MonoBehaviour:
   m_ObjectHideFlags: 1
