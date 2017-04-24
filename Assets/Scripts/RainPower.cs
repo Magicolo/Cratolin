@@ -5,6 +5,7 @@ public class RainPower : PowerBase
 	public float Cooldown = 1f;
 	public LayerMask Mask;
 	public RainCloud Prefab;
+	public Transform Preview;
 
 	public override bool CanUse { get { return base.CanUse && Chronos.Instance.Time - lastUse >= Cooldown; } }
 	public override int RemainingUses { get { return -1; } }
@@ -12,8 +13,25 @@ public class RainPower : PowerBase
 
 	float lastUse = float.MinValue;
 
+	void Update()
+	{
+		if (Preview.gameObject.activeSelf)
+		{
+			var direction = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition).normalized;
+			var hit = Physics2D.Raycast(direction * 1000f, -direction, 1000f, Mask);
+
+			if (hit)
+			{
+				Preview.position = hit.point + direction * 250f;
+				Preview.rotation = Quaternion.FromToRotation(Vector2.up, direction);
+			}
+		}
+	}
+
 	public override GameObject Create(Vector2 position)
 	{
+		Preview.gameObject.SetActive(false);
+
 		if (!CanPlace(position))
 			return null;
 
@@ -46,5 +64,19 @@ public class RainPower : PowerBase
 		//lastUse = Chronos.Instance.Time;
 
 		//return objRainCloud.gameObject;
+	}
+
+	public override void StartPlacing()
+	{
+		base.StartPlacing();
+
+		Preview.gameObject.SetActive(true);
+	}
+
+	public override void Cancel()
+	{
+		base.Cancel();
+
+		Preview.gameObject.SetActive(false);
 	}
 }
