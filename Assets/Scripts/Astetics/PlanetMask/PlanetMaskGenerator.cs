@@ -1,13 +1,15 @@
-﻿using System;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class GeneratePlanetMask : MonoBehaviour
+public class PlanetMaskGenerator : MonoBehaviour 
 {
+	
 	const float timeBetweenUpdate = 0.1f;
 
 	public String SplatterTag;
+	
 	Texture2D mask;
 	int width;
 	int height;
@@ -15,6 +17,8 @@ public class GeneratePlanetMask : MonoBehaviour
 	float nextUpdate;
 
 	Color[] map;
+
+	public Sprite testSplater;
 
 	void Start()
 	{
@@ -26,7 +30,6 @@ public class GeneratePlanetMask : MonoBehaviour
 		sprite.material.SetTexture("_MaskTex", mask);
 		map = new Color[width * height];
 		nextUpdate = 0;
-
 	}
 
 	void Update()
@@ -36,6 +39,15 @@ public class GeneratePlanetMask : MonoBehaviour
 
 		nextUpdate = Chronos.Instance.Time + timeBetweenUpdate;
 
+		foreach (var item in GameObject.FindObjectsOfType<SectionPoint>())
+		{
+			if(item.lavaLevel >= 0.8f){
+				var x = (int)(item.transform.localPosition.x + width / 2);
+				var y = (int)(item.transform.localPosition.y + height / 2);
+				Draw(x, y, testSplater,testSplater.texture.GetPixels());
+			}
+		}
+		/* 
 		List<SplatterComponent> splatters;
 		if (SplatterComponent.Splatters.TryGetValue(SplatterTag, out splatters))
 		{
@@ -43,26 +55,25 @@ public class GeneratePlanetMask : MonoBehaviour
 			{
 				var x = (int)(splatter.transform.localPosition.x + width / 2);
 				var y = (int)(splatter.transform.localPosition.y + height / 2);
-				DrawFrom(x, y, splatter);
+				Draw(x, y, testSplater,testSplater.texture.GetPixels());
 			}
 		}
-
+		*/
 		mask.SetPixels(map);
 		mask.Apply();
 	}
 
-	private void DrawFrom(int sourceX, int sourceY, SplatterComponent splatter)
+	private void Draw(int sourceX, int sourceY, SplatterComponent splatter)
 	{
-		if (splatter == null) return;
+		Draw(sourceX,sourceY,splatter.Splatter, splatter.Pixels);
+	}
 
-		var sprite = splatter.Splatter;
+	private void Draw(int sourceX, int sourceY, Sprite sprite, Color[] colors)
+	{
 		if (sprite == null) return;
 		var splatterWidth = (int)sprite.bounds.size.x;
 		var splatterHeight = (int)sprite.bounds.size.y;
 
-		// TODO si on veux separer le texture en plusieurs sprites, on doit 
-		// seulement prend la zone du sprite
-		var colors = splatter.Pixels;
 		int centerX = sourceX - splatterWidth / 2;
 		int centerY = sourceY - splatterHeight / 2;
 

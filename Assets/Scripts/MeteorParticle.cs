@@ -30,6 +30,8 @@ public class MeteorParticle : ParticleBase
 			splat.transform.parent = Planet.Instance.Root;
 		}
 
+		SplatterManager.Instance.Splater("Lava", transform.position, 1);
+
 		emitter.Despawn(this);
 	}
 

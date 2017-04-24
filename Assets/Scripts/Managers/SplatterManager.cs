@@ -14,6 +14,25 @@ public class SplatterManager : MonoBehaviour {
 			return instance;
 		}  
 	}
+
+	public void Splater(string tag, Vector3 source, int increase)
+	{
+		SectionPoint sp = null;
+		var smallestDistance = float.MaxValue;
+		foreach (var item in GameObject.FindObjectsOfType<SectionPoint>())
+		{
+			var d = Vector2.Distance(item.transform.position,source);
+			if(d < smallestDistance){
+				smallestDistance = d;
+				sp = item;
+			}
+		}
+		
+		if(sp != null){
+			sp.lavaLevel += increase;
+		}
+	}
+	
 	void Start () {
 
 	}
