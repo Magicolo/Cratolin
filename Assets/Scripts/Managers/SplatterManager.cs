@@ -16,7 +16,7 @@ public class SplatterManager : MonoBehaviour
 		}
 	}
 
-public void Splater(string tag, Vector3 source, int increase)
+	public void Splater(string tag, Vector3 source, int increase)
 	{
 		SectionPoint sp = null;
 		var smallestDistance = float.MaxValue;
@@ -55,16 +55,21 @@ public void Splater(string tag, Vector3 source, int increase)
 					Todie.Add(grass);
 			}
 
-			foreach (var fireable in FireAbleObject.FireAbles)
+			foreach (var fireable in Groups.Get<FireAbleObject>())
 			{
 				var distance = Mathf.Abs((lava.transform.position - fireable.transform.position).magnitude);
 
 				if (distance < 0.4 * lava.radiusEffect)
-				{
 					fireable.internalTemperature += Chronos.Instance.DeltaTime * 100;
-				}
 			}
 
+			foreach (var item in Groups.Get<Sea>())
+			{
+				if(item.Ratio <= 0.1f) continue;
+				//var sqrDistance = item.SeaCollider.bounds.SqrDistance(lava.transform.position);
+				if (item.SeaCollider.bounds.Contains(lava.transform.position))
+					Todie.Add(lava);
+			}
 			foreach (var item in Walker.Walkers)
 			{
 				var distance = Mathf.Abs((lava.transform.position - item.transform.position).magnitude);

@@ -7,6 +7,7 @@ public class FireAblePowerGiver : MonoBehaviour {
 	public PowerManager.Powers Power;
 
 	void Update () {
+		//Debug.Log("Nb In Fire : " + FireAbleObject.nbInFire);
 		if(PowerManager.Instance.HasPower(PowerManager.Powers.Fire)){
 			Destroy(this);
 			return;

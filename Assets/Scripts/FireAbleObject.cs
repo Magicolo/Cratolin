@@ -6,8 +6,6 @@ public class FireAbleObject : MonoBehaviour
 
 	public static int nbInFire;
 
-	public static readonly List<FireAbleObject> FireAbles = new List<FireAbleObject>();
-
 
 	public ParticleSystem smokeParticles;
 	public GameObject[] fireAnimatedSprites;
@@ -24,12 +22,17 @@ public class FireAbleObject : MonoBehaviour
 	void Start()
 	{
 		internalTemperature = 0;
-		FireAbles.Add(this);
 	}
 
+	void OnEnable()
+	{
+		Groups.Add(this);
+	}
 	void OnDisable()
 	{
-		FireAbles.Remove(this);
+		Groups.Remove(this);
+		if(inFire)
+			nbInFire--;
 	}
 
 	void FixedUpdate()
@@ -46,7 +49,6 @@ public class FireAbleObject : MonoBehaviour
 			timeInFire += Chronos.Instance.DeltaTime;
 			if (timeInFire > timeToBurn)
 			{
-				nbInFire--;
 				Destroy(gameObject);
 			}
 		}

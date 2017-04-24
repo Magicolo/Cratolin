@@ -24,7 +24,7 @@ public class FirePower : PowerBase
 
 		particles.Play();
 
-		foreach (FireAbleObject fire in FireAbleObject.FireAbles)
+		foreach (FireAbleObject fire in Groups.Get<FireAbleObject>())
 		{
 			if (Vector2.Distance(fire.transform.position, hit.point) < 100)
 				fire.StartFire();

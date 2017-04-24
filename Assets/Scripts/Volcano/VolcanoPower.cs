@@ -45,7 +45,7 @@ public class VolcanoPower : PowerBase
 	bool allowedPosition(Vector2 position){
 
 		foreach (var sea in Groups.Get<Sea>())
-			if(sea.GetComponent<BoxCollider2D>().bounds.Contains(position))
+			if(sea.SeaCollider.bounds.Contains(position))
 				return false;
 
 		foreach (var volcano in Groups.Get<Volcano>()){

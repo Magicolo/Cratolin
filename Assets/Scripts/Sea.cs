@@ -19,6 +19,8 @@ public class Sea : MonoBehaviour
 
 	public bool CanSpawnLifeAround { get; set; }
 
+	public Collider2D SeaCollider;
+
 	private float ratio;
 	public float Ratio
 	{

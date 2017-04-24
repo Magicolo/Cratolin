@@ -16,6 +16,9 @@ public class Volcano : MonoBehaviour
 	public Transform VolcanoExit;
 	public AudioClip audioSpawn;
 
+
+	public Collider2D Collider;
+	
 	float stateTime;
 	States state;
 

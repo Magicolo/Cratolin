@@ -338,7 +338,7 @@ MonoBehaviour:
   Extinguished: {fileID: 21300000, guid: f3a044cb731b728428740e6e38b1da59, type: 3}
   VolcanoExit: {fileID: 4253952998322362}
   audioSpawn: {fileID: 8300000, guid: 1ca24e75bfd8acc42897c81e18a2fcca, type: 3}
-  heat: 10
+  Collider: {fileID: 60084866426912346}
 --- !u!114 &114827596113131400
 MonoBehaviour:
   m_ObjectHideFlags: 1

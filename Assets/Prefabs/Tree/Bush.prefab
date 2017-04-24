@@ -314,8 +314,7 @@ MonoBehaviour:
   - {fileID: 1019782388591724}
   - {fileID: 1534667251796134}
   - {fileID: 1260542393019908}
-  - {fileID: 0}
-  timeToBurn: 20
+  timeToBurn: 10
   internalTemperature: 0
 --- !u!114 &114576628528926726
 MonoBehaviour:
@@ -376,8 +375,8 @@ MonoBehaviour:
   Sprites:
   - {fileID: 212075440636248702}
   - {fileID: 212791238179629196}
-  SpawnSpeed: 3
-  spawnDuration: 10
+  SpawnSpeed: 2
+  spawnDuration: 5
   SplatterPrefab: {fileID: 114264957773374776, guid: b3a7fd14852c6384493f23d20fbdfb0d,
     type: 2}
 --- !u!198 &198972177549417686
