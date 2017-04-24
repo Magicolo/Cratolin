@@ -324,6 +324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4060787822748754}
   - component: {fileID: 60856857127853374}
+  - component: {fileID: 114502135258248264}
   m_Layer: 8
   m_Name: PolygonCollider
   m_TagString: Untagged
@@ -3121,6 +3122,18 @@ MonoBehaviour:
   Distance: 1000
   SpawnDelay: {x: 1, y: 4}
   Burst: {x: 1, y: 6}
+--- !u!114 &114502135258248264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1255876998767546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0375ff339fca9fc479028aedcd40be6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceBetweenPoints: 30
 --- !u!114 &114563571798557130
 MonoBehaviour:
   m_ObjectHideFlags: 1
