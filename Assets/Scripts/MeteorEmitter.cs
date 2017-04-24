@@ -35,11 +35,4 @@ public class MeteorEmitter : ParticleEmitterBase<MeteorParticle>
 
 		return particle;
 	}
-
-	public override void Despawn(MeteorParticle particle)
-	{
-		base.Despawn(particle);
-
-		Planet.Instance.Temperature += GameConstants.Instance.MeteorEmitterTemperature;
-	}
 }

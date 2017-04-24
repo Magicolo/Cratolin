@@ -386,18 +386,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f57d17a7b5566a84fa09ce9c98ead49f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TreeOzoneCreationRate: 0.2
-  TreeCO2ConsumationRate: 0.1
+  TreeOzoneCreationRate: 0.1
+  TreeCO2ConsumationRate: 0.05
   SmokeParticleCO2Emission: 1
   LavaEmitterTemperature: 1
   MeteorEmitterTemperature: 1
-  PlanetCooldownRate: -1
-  PlanetSerreEffectHeatRate: 2
-  PlanetPressureCooldownFactor: 0.25
+  PlanetCooldownRate: -3
+  PlanetSerreEffectHeatRate: 1
+  PlanetPressureCooldownFactor: 2
   TreeBurnTemperatureThreshold: 70
   SeaDryoffTemperatureThreshold: 80
   SeaDryoffRate: -0.2
   FirePowerNBFirableObjectInFireNeeded: 20
+  LavaExtinguish: 1
 --- !u!114 &114426515515147834
 MonoBehaviour:
   m_ObjectHideFlags: 1

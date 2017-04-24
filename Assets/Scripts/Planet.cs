@@ -1,12 +1,11 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Planet : MonoBehaviour
 {
 	public static Planet Instance { get; private set; }
 
 	public PlanetSplosionEmitter EmitterWhenDestroyed;
-    public AudioClip explosionPlanet;
+	public AudioClip explosionPlanet;
 
 	public Transform Root;
 
@@ -42,25 +41,22 @@ public class Planet : MonoBehaviour
 
 	public void Cooldown(float v)
 	{
-		if(temperature - v > 0)
+		if (temperature - v > 0)
 			temperature -= v;
 	}
 
 	void FixedUpdate()
 	{
-		Temperature += Chronos.Instance.DeltaTime
-			* GameConstants.Instance.PlanetCooldownRate
-			* (GameConstants.Instance.PlanetPressureCooldownFactor * (1 - PlanetPressure));
+		Temperature += Chronos.Instance.DeltaTime * GameConstants.Instance.PlanetCooldownRate;
+		Temperature += Chronos.Instance.DeltaTime * GameConstants.Instance.PlanetPressureCooldownFactor * PlanetPressure;
 
-		if (CO2 >= 50)
-		{
+		if (CO2 >= 75f)
 			Temperature += Chronos.Instance.DeltaTime * GameConstants.Instance.PlanetSerreEffectHeatRate;
-		}
 	}
 
 	public void Destroy()
 	{
-        SoundManager.Instance.PlaySound(explosionPlanet);
+		SoundManager.Instance.PlaySound(explosionPlanet);
 
 		PowerManager.Instance.TrySpawnPower(PowerManager.Powers.Volcano, transform.position);
 		gameObject.SetActive(false);

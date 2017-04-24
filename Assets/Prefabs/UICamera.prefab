@@ -1102,7 +1102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fcdfe5052bff66469f4c309023c47a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Time: 0.4
+  Time: 0.7
   Timeline: {fileID: 114564538082054298}
   Slider: {fileID: 114423307908587154}
   Prefab: {fileID: 1369389904180564, guid: 714c57c64e89e4740afb0aff953e4842, type: 2}
@@ -1117,7 +1117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fcdfe5052bff66469f4c309023c47a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Time: 0.6
+  Time: 0.36
   Timeline: {fileID: 114564538082054298}
   Slider: {fileID: 114806165417604364}
   Prefab: {fileID: 1218784371283272, guid: 3f84507671bdf944e822a4d346fda2a2, type: 2}
@@ -1202,7 +1202,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.4
+  m_Value: 0.7
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2108,7 +2108,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.6
+  m_Value: 0.36
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

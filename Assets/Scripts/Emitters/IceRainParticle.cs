@@ -13,6 +13,7 @@ public class IceRainParticle : ParticleBase
 
 	protected override void Despawn()
 	{
+		Planet.Instance.Temperature -= GameConstants.Instance.RainDropCoolingFactor;
 		emitter.Despawn(this);
 	}
 }
