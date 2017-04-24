@@ -3772,7 +3772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db52470896f3f384fac533a5f52e29c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rotations: -6
+  Rotations: -12
   Transform: {fileID: 4131162045932406}
   MinTemperaturSpeedFactor: 0.2
 --- !u!114 &114201949241898774
@@ -4153,7 +4153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db52470896f3f384fac533a5f52e29c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rotations: 6
+  Rotations: 12
   Transform: {fileID: 4142072819574968}
   MinTemperaturSpeedFactor: 0
 --- !u!114 &114625903170081598
@@ -4301,7 +4301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db52470896f3f384fac533a5f52e29c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rotations: 2
+  Rotations: 4
   Transform: {fileID: 4085519983828116}
   MinTemperaturSpeedFactor: 0.4
 --- !u!114 &114797770106916428

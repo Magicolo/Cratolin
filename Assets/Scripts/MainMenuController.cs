@@ -29,6 +29,7 @@ public class MainMenuController : MonoBehaviour {
 	
 	void Update () {
         Planet.Instance.CO2 = 20;
+        Planet.Instance.Temperature = 40;
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {

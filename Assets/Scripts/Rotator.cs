@@ -14,7 +14,7 @@ public class Rotator : MonoBehaviour
 
 	void Update()
 	{
-		var s = Rotations * Mathf.Clamp((Planet.Instance.Temperature / 100),MinTemperaturSpeedFactor,1) ;
+		var s = Rotations * Mathf.Clamp((Planet.Instance.Temperature / 50),MinTemperaturSpeedFactor,1) ;
 
 		Transform.localEulerAngles = new Vector3(
 			Transform.localEulerAngles.x,
