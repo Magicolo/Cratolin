@@ -6,6 +6,7 @@ public class Seedling : MonoBehaviour
 
 	public float ShakeAmplitude = 5f;
 	public float SpawnSpeed = 5f;
+	public float TargetY;
 	public float DistanceToGround;
 	public LayerMask Mask;
 	public Transform Visual;
@@ -78,14 +79,12 @@ public class Seedling : MonoBehaviour
 		position.x = Random.Range(-ShakeAmplitude, ShakeAmplitude);
 		position.y += SpawnSpeed * Chronos.Instance.DeltaTime;
 
-		var y = 0f;
-
-		if (position.y >= y)
-			position = new Vector2(0, y);
+		if (position.y >= TargetY)
+			position = new Vector2(0, TargetY);
 
 		Visual.localPosition = position;
 
-		if (position.y >= y)
+		if (position.y >= TargetY)
 			SwitchState(States.Walking);
 	}
 
