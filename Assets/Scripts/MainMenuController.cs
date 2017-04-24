@@ -27,8 +27,8 @@ public class MainMenuController : MonoBehaviour {
         
     }
 	
-	// Update is called once per frame
 	void Update () {
+        Planet.Instance.CO2 = 20;
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {

@@ -424,7 +424,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4060787822748754}
   - component: {fileID: 60856857127853374}
-  - component: {fileID: 114502135258248264}
   m_Layer: 8
   m_Name: PolygonCollider
   m_TagString: Untagged
@@ -3775,6 +3774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rotations: -6
   Transform: {fileID: 4131162045932406}
+  MinTemperaturSpeedFactor: 0.2
 --- !u!114 &114201949241898774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3988,6 +3988,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rotations: 180
   Transform: {fileID: 4230361581112082}
+  MinTemperaturSpeedFactor: 1
 --- !u!114 &114356373215966472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4093,18 +4094,6 @@ MonoBehaviour:
   Distance: 1000
   SpawnDelay: {x: 1, y: 4}
   Burst: {x: 1, y: 6}
---- !u!114 &114502135258248264
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1255876998767546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0375ff339fca9fc479028aedcd40be6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distanceBetweenPoints: 30
 --- !u!114 &114507529923583616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4166,6 +4155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rotations: 6
   Transform: {fileID: 4142072819574968}
+  MinTemperaturSpeedFactor: 0
 --- !u!114 &114625903170081598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4299,6 +4289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rotations: -1
   Transform: {fileID: 4361542592884722}
+  MinTemperaturSpeedFactor: 1
 --- !u!114 &114778076031243736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4312,6 +4303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rotations: 2
   Transform: {fileID: 4085519983828116}
+  MinTemperaturSpeedFactor: 0.4
 --- !u!114 &114797770106916428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4468,6 +4460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rotations: 180
   Transform: {fileID: 4754565473396424}
+  MinTemperaturSpeedFactor: 1
 --- !u!114 &114876656350633480
 MonoBehaviour:
   m_ObjectHideFlags: 1

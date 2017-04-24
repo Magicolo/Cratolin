@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Invader : MonoBehaviour
 {
-	public enum States { Arriving, Charging, Beaming, Waiting, Leaving, Winning }
+	public enum States { Arriving, Charging, Beaming, Waiting, Leaving, Winning, Idle }
 
 	public float MoveSpeed = 2f;
 	public float StopDistance = 200f;
@@ -41,6 +41,7 @@ public class Invader : MonoBehaviour
 			case States.Beaming: UpdateBeaming(); break;
 			case States.Waiting: UpdateWaiting(); break;
 			case States.Leaving: UpdateLeaving(); break;
+			case States.Idle: UpdatIdle(); break;
 			case States.Winning: UpdateWinning(); break;
 		}
 	}
@@ -114,7 +115,7 @@ public class Invader : MonoBehaviour
 		{
 			WhiteScreen.Instance.Fade(0f);
 			ChargedRenderer.color = new Color(ChargedRenderer.color.r, ChargedRenderer.color.g, ChargedRenderer.color.b, 0f);
-			SwitchState(States.Leaving);
+			SwitchState(States.Idle);
 		}
 		else if (stateTime > duration / 2f)
 		{
@@ -124,6 +125,10 @@ public class Invader : MonoBehaviour
 			if (ratio > 0.5f)
 				ChargedRenderer.color = new Color(ChargedRenderer.color.r, ChargedRenderer.color.g, ChargedRenderer.color.b, 1f - ((ratio - 0.5f) * 2f));
 		}
+	}
+
+	void UpdatIdle(){
+		
 	}
 
 	void UpdateLeaving()
