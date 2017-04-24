@@ -68,7 +68,7 @@ public class Sea : MonoBehaviour
 		if (burning || Planet.Instance.Temperature > GameConstants.Instance.SeaDryoffTemperatureThreshold)
 		{
 			Ratio += GameConstants.Instance.SeaDryoffRate * Chronos.Instance.DeltaTime;
-			burning = ratio <= 0f;
+			burning = ratio > 0f;
 
 			if (!EvaporationParticle.enabled && ratio > 0f)
 			{

@@ -11,8 +11,8 @@ public class PauseMenu : MonoBehaviour
 
 	void Update()
 	{
-		Escape.gameObject.SetActive(!IsShown);
-		RestartButton.gameObject.SetActive(!IsShown);
+		Escape.gameObject.SetActive(!IsShown && PowerManager.Instance.HasPower(PowerManager.Powers.Volcano));
+		RestartButton.gameObject.SetActive(!IsShown && PowerManager.Instance.HasPower(PowerManager.Powers.Volcano));
 
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{

@@ -2744,7 +2744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefabs:
   - {fileID: 114496173873178318, guid: 02dda2df5e09e314da7885ff53829870, type: 2}
-  SpawnDelay: {x: 0.25, y: 0.75}
+  SpawnDelay: {x: 0.2, y: 0.5}
   LifeTime: 3
   FadeIn: 1
   FadeOut: 1
@@ -2767,7 +2767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefabs:
   - {fileID: 114496173873178318, guid: 02dda2df5e09e314da7885ff53829870, type: 2}
-  SpawnDelay: {x: 0.25, y: 0.75}
+  SpawnDelay: {x: 0.2, y: 0.5}
   LifeTime: 3
   FadeIn: 1
   FadeOut: 1
@@ -3066,7 +3066,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefabs:
   - {fileID: 114496173873178318, guid: 02dda2df5e09e314da7885ff53829870, type: 2}
-  SpawnDelay: {x: 0.25, y: 0.75}
+  SpawnDelay: {x: 0.2, y: 0.5}
   LifeTime: 3
   FadeIn: 1
   FadeOut: 1
@@ -3457,7 +3457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefabs:
   - {fileID: 114496173873178318, guid: 02dda2df5e09e314da7885ff53829870, type: 2}
-  SpawnDelay: {x: 0.25, y: 0.75}
+  SpawnDelay: {x: 0.2, y: 0.5}
   LifeTime: 3
   FadeIn: 1
   FadeOut: 1
@@ -3492,7 +3492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefabs:
   - {fileID: 114496173873178318, guid: 02dda2df5e09e314da7885ff53829870, type: 2}
-  SpawnDelay: {x: 0.25, y: 0.75}
+  SpawnDelay: {x: 0.2, y: 0.5}
   LifeTime: 3
   FadeIn: 1
   FadeOut: 1

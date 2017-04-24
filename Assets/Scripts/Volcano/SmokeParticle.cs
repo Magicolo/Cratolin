@@ -15,7 +15,7 @@ public class SmokeParticle : ParticleBase
 
 	protected override void Despawn()
 	{
-		if (Wind != null && Random.value > 0.8f)
+		if (Wind != null)
 		{
 			var particle = Instantiate(Wind);
 			particle.transform.position = transform.position;
