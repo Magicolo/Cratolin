@@ -9,5 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 937274d577e288048afb492cb836d552
   - enabled: 1
-    path: Assets/Scenes/Kevin.unity
+    path: Assets/Scenes/Game.unity
     guid: 1694a47e956496442b9891be98bfc2af
