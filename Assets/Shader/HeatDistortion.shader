@@ -53,18 +53,20 @@ Shader "Orbis/HeatDistortion"
             half4 frag(v2f i) : SV_Target
             {
                 
-                float4 posNormalized = (i.grabPos - float4(0.5,0.5,0,0)) * sin( _Time.g);
-                float4 posCentered = posNormalized * 100;
+                float4 posNormalized = (i.grabPos - float4(0.5,0.5,0,0)) * sin( 10*_Time.g) ;
+                float4 posCentered = posNormalized * 10;
                 float4 offset = float4(posCentered.x/_Width, posCentered.y/_Height, 0, 0);
                 
-                float4 p = i.grabPos + offset;
+                fixed4 heaMapCol = tex2D(_HeatMap, i.grabPos + posNormalized / _WaveForce);
+                half4 c = tex2Dproj(_BackgroundTexture, i.grabPos);
+                //return float4(0,heaMapCol.b,0,1);
+                float4 p = i.grabPos + offset  * heaMapCol.b+ float4(heaMapCol.r, heaMapCol.g,0,0) * 0.005 * (1-heaMapCol.b);
 
-                //fixed4 heaMapCol = tex2D(_HeatMap, i.grabPos + posNormalized / _WaveForce);
                 //return heaMapCol;
 
                 half4 bgcolor = tex2Dproj(_BackgroundTexture, p);
 
-                return half4(bgcolor.r,bgcolor.b,bgcolor.g,1);
+                return (half4(bgcolor.r,bgcolor.g,bgcolor.b,1) + c)/2;
             }
             ENDCG
         }
