@@ -8,12 +8,18 @@ public class PowerCollectable : MonoBehaviour
 	void OnEnable()
 	{
 		StartCoroutine(GrowRoutine(0.25f));
+		Groups.Add(this);
+	}
+
+	void OnDisable()
+	{
+		Groups.Remove(this);
 	}
 
 	void OnMouseDown()
 	{
 		StartCoroutine(ShrinkRoutine(0.25f));
-        SoundManager.Instance.PlaySound("Powerup2");
+		SoundManager.Instance.PlaySound("Powerup2");
 	}
 
 	IEnumerator GrowRoutine(float duration)

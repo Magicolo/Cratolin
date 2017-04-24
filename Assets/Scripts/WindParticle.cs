@@ -17,6 +17,16 @@ public class WindParticle : MonoBehaviour
 
 	public float Direction { get { return direction; } set { direction = value; } }
 
+	void OnEnable()
+	{
+		Groups.Add(this);
+	}
+
+	void OnDisable()
+	{
+		Groups.Remove(this);
+	}
+
 	void Start()
 	{
 		lifeTimer = Random.Range(0f, 10f);

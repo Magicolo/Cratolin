@@ -26,6 +26,8 @@ public class Seedling : MonoBehaviour
 			//to compensate for planet rotation
 			if (isGoingRight)
 				speed *= 2;
+			if (inFire)
+				speed *= 3f;
 
 			return speed;
 		}

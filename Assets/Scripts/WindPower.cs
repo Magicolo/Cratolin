@@ -18,6 +18,7 @@ public class WindPower : PowerBase
 		if (!CanPlace(position))
 			return null;
 
+		windPreview.gameObject.SetActive(false);
 		inPreview = false;
 		StartCoroutine("WindPreviewAnimate");
 
@@ -73,13 +74,10 @@ public class WindPower : PowerBase
 
 	void Update()
 	{
-
-
 		if (inPreview)
 		{
 			Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			windPreview.transform.position = pos.normalized * 370;
 		}
-
 	}
 }

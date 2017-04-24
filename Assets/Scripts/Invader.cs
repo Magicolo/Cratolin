@@ -182,9 +182,11 @@ public class Invader : MonoBehaviour
 				Vector3 pos = tr.position - (transform.position + new Vector3(-80, -80));
 				iTween.MoveTo(tr.gameObject, iTween.Hash("time", 10, "position", pos * 4));
 			}
+
+			PowerManager.Instance.TrySpawnPower(PowerManager.Powers.Seed, transform.position);
 		}
 
-		if (stateTime > 8)
+		if (stateTime > 8 && Groups.Get<PowerCollectable>().Count == 0)
 		{
 			WinMenu.Instance.IsShown = true;
 		}

@@ -111,9 +111,7 @@ public class Sea : MonoBehaviour
 
 		if (!windSpawned && willSpawnWind == this && !PowerManager.Instance.HasPower(PowerManager.Powers.Wind))
 		{
-			var particles = FindObjectsOfType<WindParticle>();
-
-			if (particles.Length > 50f)
+			if (Groups.Get<WindParticle>().Count > 50f)
 			{
 				windSpawned = true;
 				PowerManager.Instance.TrySpawnPower(PowerManager.Powers.Wind, transform.position + transform.position.normalized * 50f);
