@@ -29,7 +29,7 @@ public class RainDrop : MonoBehaviour
 		}
 
 		if (collision.gameObject.GetComponentInParent<Volcano>() != null)
-			collision.gameObject.GetComponentInParent<Volcano>().heat--;
+			collision.gameObject.GetComponentInParent<Volcano>().Heat--;
 
 		var splatterC = collision.gameObject.GetComponentInParent<SplatterElementComponent>();
 		if (splatterC != null && splatterC.RainKillsMe)
