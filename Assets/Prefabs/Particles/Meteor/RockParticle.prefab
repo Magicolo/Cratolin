@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4432543225288626}
   - component: {fileID: 114266260953527440}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RockParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4626850549105716}
   - component: {fileID: 212386299619166522}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,6 +83,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Renderer: {fileID: 212386299619166522}
   splater: {fileID: 0}
+  GravityFactor: 1
 --- !u!212 &212386299619166522
 SpriteRenderer:
   m_ObjectHideFlags: 1

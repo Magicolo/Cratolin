@@ -17,8 +17,12 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _HeatMap:
+        m_Texture: {fileID: 2800000, guid: 87d507d899d816b4ab797b20a002b9c4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 6c6fec9f8df4c9e498d27d9654972f6b, type: 3}
+        m_Texture: {fileID: 2800000, guid: af5bdb51c251ab04585175b52983321e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -28,6 +32,7 @@ Material:
     m_Floats:
     - _Height: 1080
     - _PixelSnap: 0
+    - _WaveForce: 5
     - _Width: 1000
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

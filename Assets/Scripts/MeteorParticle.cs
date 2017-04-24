@@ -57,7 +57,7 @@ public class MeteorParticle : ParticleBase
 	{
 		base.FixedUpdate();
 
-		if (WheelPower.Instance.IsPlacingPower)
+		/*if (WheelPower.Instance.IsPlacingPower)
 		{
 			float angleThis = Mathf.Rad2Deg * Mathf.Atan2(transform.position.y, transform.position.x);
 
@@ -66,7 +66,7 @@ public class MeteorParticle : ParticleBase
 
 			if (Mathf.Abs(angleThis - angleMouse) < 1)
 				Despawn();
-		}
+		}*/
 
 		if (Planet.Instance.PlanetPressure >= 1f && Vector2.Distance(transform.position, Planet.Instance.Root.position) < 430f)
 			Despawn();

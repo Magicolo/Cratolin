@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4226830003066860}
   - component: {fileID: 212339631316033344}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4125502454000794}
   - component: {fileID: 114494072339343430}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: LifeMeteorChunk3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
