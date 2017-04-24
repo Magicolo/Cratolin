@@ -19,6 +19,7 @@ public class PlanetMaskGenerator : MonoBehaviour
 	Color[] map;
 
 	public Sprite testSplater;
+	private Color[] testPixels;
 
 	void Start()
 	{
@@ -30,6 +31,8 @@ public class PlanetMaskGenerator : MonoBehaviour
 		sprite.material.SetTexture("_MaskTex", mask);
 		map = new Color[width * height];
 		nextUpdate = 0;
+
+		testPixels = testSplater.texture.GetPixels();
 	}
 
 	void Update()
@@ -39,26 +42,15 @@ public class PlanetMaskGenerator : MonoBehaviour
 
 		nextUpdate = Chronos.Instance.Time + timeBetweenUpdate;
 
-		foreach (var item in GameObject.FindObjectsOfType<SectionPoint>())
+		foreach (var item in Groups.Get<SectionPoint>())
 		{
 			if(item.lavaLevel >= 0.8f){
 				var x = (int)(item.transform.localPosition.x + width / 2);
 				var y = (int)(item.transform.localPosition.y + height / 2);
-				Draw(x, y, testSplater,testSplater.texture.GetPixels());
+				Draw(x, y, testSplater,testPixels);
 			}
 		}
-		/* 
-		List<SplatterComponent> splatters;
-		if (SplatterComponent.Splatters.TryGetValue(SplatterTag, out splatters))
-		{
-			foreach (var splatter in splatters)
-			{
-				var x = (int)(splatter.transform.localPosition.x + width / 2);
-				var y = (int)(splatter.transform.localPosition.y + height / 2);
-				Draw(x, y, testSplater,testSplater.texture.GetPixels());
-			}
-		}
-		*/
+		
 		mask.SetPixels(map);
 		mask.Apply();
 	}

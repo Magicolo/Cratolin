@@ -27,6 +27,10 @@ public class SectionPoint : MonoBehaviour {
 		*/
 	}
 	
+	void OnEnable()
+	{
+		Groups.Add(this);	
+	}
 	void Start () {
 		//lavaLevel = Random.Range(0,0.9f);
 	}

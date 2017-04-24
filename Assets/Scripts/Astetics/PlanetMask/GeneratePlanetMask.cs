@@ -36,6 +36,8 @@ public class GeneratePlanetMask : MonoBehaviour
 
 		nextUpdate = Chronos.Instance.Time + timeBetweenUpdate;
 
+		Array.Clear(map, 0, map.Length);
+
 		List<SplatterComponent> splatters;
 		if (SplatterComponent.Splatters.TryGetValue(SplatterTag, out splatters))
 		{
