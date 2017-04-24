@@ -143,13 +143,13 @@ public class Invader : MonoBehaviour
 	void UpdateWinning()
 	{
 		Monolith.Instance.magic.gameObject.SetActive(true);
-		Monolith.Instance.magic.position = Vector3.MoveTowards(Monolith.Instance.magic.position, transform.position, Time.deltaTime * 40);
+		Monolith.Instance.magic.position = Vector3.MoveTowards(Monolith.Instance.magic.position, transform.position, Chronos.Instance.DeltaTime * 40);
 
 		float RandomAmp = Random.Range(7f, 12f);
-		if (Time.time - lastTimeSpawnMagic > 0.3f)
+		if (Chronos.Instance.Time - lastTimeSpawnMagic > 0.3f)
 		{
 			countParticles++;
-			lastTimeSpawnMagic = Time.time;
+			lastTimeSpawnMagic = Chronos.Instance.Time;
 			GameObject obj = Instantiate(MonolothMagicParticlesPrefab);
 			obj.transform.position = Monolith.Instance.magic.position;
 			obj.gameObject.SetActive(true);
@@ -182,9 +182,11 @@ public class Invader : MonoBehaviour
 				Vector3 pos = tr.position - (transform.position + new Vector3(-80, -80));
 				iTween.MoveTo(tr.gameObject, iTween.Hash("time", 10, "position", pos * 4));
 			}
+
+			PowerManager.Instance.TrySpawnPower(PowerManager.Powers.Seed, transform.position);
 		}
 
-		if (stateTime > 8)
+		if (stateTime > 8 && Groups.Get<PowerCollectable>().Count == 0)
 		{
 			WinMenu.Instance.IsShown = true;
 		}

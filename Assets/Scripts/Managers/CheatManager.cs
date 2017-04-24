@@ -12,16 +12,17 @@ public class CheatManager : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			active = !active;
-			FindObjectOfType<CheatModImage>().SetVisibility(active);
+			var mod = FindObjectOfType<CheatModImage>();
+			if (mod != null) mod.SetVisibility(active);
 		}
 
 		if (!active) return;
 
 
 		if (Input.GetKey(KeyCode.T))
-			Planet.Instance.Temperature += Time.deltaTime * 50;
+			Planet.Instance.Temperature += Chronos.Instance.DeltaTime * 50;
 		if (Input.GetKey(KeyCode.Y))
-			Planet.Instance.Temperature -= Time.deltaTime * 50;
+			Planet.Instance.Temperature -= Chronos.Instance.DeltaTime * 50;
 		if (Input.GetKey(KeyCode.U))
 		{
 			foreach (var power in Enum.GetValues(typeof(PowerManager.Powers)).Cast<PowerManager.Powers>())
@@ -48,13 +49,15 @@ public class CheatManager : MonoBehaviour
 				item.ReduceWater();
 
 
-				
-		if (Input.GetKey(KeyCode.X)){
-			foreach(var item in GameObject.FindObjectsOfType<Sea>()){
+
+		if (Input.GetKey(KeyCode.X))
+		{
+			foreach (var item in GameObject.FindObjectsOfType<Sea>())
+			{
 				item.CanSpawnLifeAround = true;
 			}
 		}
-			
+
 	}
 #endif
 }

@@ -1,34 +1,33 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class AnimatedSprite : MonoBehaviour {
+public class AnimatedSprite : MonoBehaviour
+{
 
-    public Sprite[] sprites;
-    public float frameTimeInterval = 0.1f;
+	public Sprite[] sprites;
+	public float frameTimeInterval = 0.1f;
 
-    private int index;
-    private float timer;
+	private int index;
+	private float timer;
 
-	// Use this for initialization
-	void Start () {
-        index = Random.Range(0, sprites.Length);
-        timer = 0;
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        timer += Time.deltaTime;
+	void Start()
+	{
+		index = Random.Range(0, sprites.Length);
+		timer = 0;
+	}
 
-        if(timer > frameTimeInterval)
-        {
-            timer = 0;
-            index++;
-            if (index >= sprites.Length)
-                index = 0;
+	void FixedUpdate()
+	{
+		timer += Chronos.Instance.DeltaTime;
 
-            GetComponent<SpriteRenderer>().sprite = sprites[index];
-        }
+		if (timer > frameTimeInterval)
+		{
+			timer = 0;
+			index++;
+			if (index >= sprites.Length)
+				index = 0;
 
-    }
+			GetComponent<SpriteRenderer>().sprite = sprites[index];
+		}
+
+	}
 }

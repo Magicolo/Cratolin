@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Walker : MonoBehaviour
 {
-
 	public static readonly List<Walker> Walkers = new List<Walker>();
 
 	public float distanceToGround;
@@ -25,14 +24,14 @@ public class Walker : MonoBehaviour
 	private bool inFire;
 	private float lastTimeInFire;
 
-	public bool IsEvolved { get { return Time.time - timeSpawn > 20; } }
+	public bool IsEvolved { get { return Chronos.Instance.Time - timeSpawn > 20; } }
 	public bool ReachedGoal { get; set; }
 
 	// Use this for initialization
 	void Start()
 	{
 		transform.parent = Planet.Instance.transform;
-		timeSpawn = Time.time;
+		timeSpawn = Chronos.Instance.Time;
 
 		lookAroundTimer = Random.Range(0f, 5f);
 	}
@@ -51,7 +50,7 @@ public class Walker : MonoBehaviour
 	{
 		if (!ReachedGoal)
 		{
-			timeSinceLastFear = Time.time;
+			timeSinceLastFear = Chronos.Instance.Time;
 
 			bool fearLeftOf = (Vector2.Angle(transform.right, pPosition)) > 90 && (Vector2.Angle(transform.right, pPosition)) < 180;
 
@@ -64,9 +63,9 @@ public class Walker : MonoBehaviour
 
 	public void CatchFire()
 	{
-		timeSinceLastFear = Time.time;
+		timeSinceLastFear = Chronos.Instance.Time;
 		fireAnim.gameObject.SetActive(true);
-		lastTimeInFire = Time.time;
+		lastTimeInFire = Chronos.Instance.Time;
 		inFire = true;
 	}
 
@@ -86,7 +85,7 @@ public class Walker : MonoBehaviour
 			if (isGoingRight)
 				speed *= 2;
 
-			if (Time.time - timeSinceLastFear < 3 || inFire)
+			if (Chronos.Instance.Time - timeSinceLastFear < 3 || inFire)
 				speed *= 3;
 
 			return speed;
@@ -96,10 +95,10 @@ public class Walker : MonoBehaviour
 	// Update is called once per frame
 	void LateUpdate()
 	{
-		isWalking = !ReachedGoal && (!IsEvolved || Time.time - timeSinceLastFear > 1f);
+		isWalking = !ReachedGoal && (!IsEvolved || Chronos.Instance.Time - timeSinceLastFear > 1f);
 
 
-		if (inFire && Time.time - lastTimeInFire > 10)
+		if (inFire && Chronos.Instance.Time - lastTimeInFire > 10)
 		{
 			Destroy(gameObject);
 			return;
@@ -127,11 +126,11 @@ public class Walker : MonoBehaviour
 
 
 			if (isGoingRight && canGoRight)
-				transform.localPosition += transform.right * Time.deltaTime * CurrentSpeed;
+				transform.localPosition += transform.right * Chronos.Instance.DeltaTime * CurrentSpeed;
 			else if (isGoingRight && !canGoRight)
 				isGoingRight = false;
 			else if (!isGoingRight && canGoLeft)
-				transform.localPosition -= transform.right * Time.deltaTime * CurrentSpeed;
+				transform.localPosition -= transform.right * Chronos.Instance.DeltaTime * CurrentSpeed;
 			else if (!isGoingRight && !canGoLeft)
 				isGoingRight = true;
 		}
@@ -158,13 +157,13 @@ public class Walker : MonoBehaviour
 
 		if (ReachedGoal)
 		{
-			lookAroundTimer -= Time.deltaTime;
+			lookAroundTimer -= Chronos.Instance.DeltaTime;
 
 			if (lookAroundTimer < 0)
 				lookAroundTimer = Random.Range(4f, 10f);
 		}
 
-		scared.SetActive(IsEvolved && Time.time - timeSinceLastFear < 1f);
+		scared.SetActive(IsEvolved && Chronos.Instance.Time - timeSinceLastFear < 1f);
 
 		walkBase.SetActive(!IsEvolved);
 		walkEvolved.SetActive(!scared.activeInHierarchy && IsEvolved && isWalking);

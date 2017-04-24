@@ -50,9 +50,9 @@ public class Sea : MonoBehaviour
 	void Update()
 	{
 		// spawn walker
-		if (Time.time - lastTimeSpawnedWalker > 10 && Planet.Instance.Ozone > 75 && ratio > 0.75f)
+		if (Chronos.Instance.Time - lastTimeSpawnedWalker > 10 && Planet.Instance.Ozone > 75 && ratio > 0.75f)
 		{
-			lastTimeSpawnedWalker = Time.time;
+			lastTimeSpawnedWalker = Chronos.Instance.Time;
 			Walker walker = Instantiate(walkerprefab);
 			walker.transform.position = transform.position * 1.05f;
 		}
@@ -75,9 +75,9 @@ public class Sea : MonoBehaviour
 		}
 
 
-		if (CanSpawnLifeAround && ratio > 0.5f && Time.time - lastTimeSpawnedTree > timeBetweenTreeSpawn)
+		if (CanSpawnLifeAround && ratio > 0.5f && Chronos.Instance.Time - lastTimeSpawnedTree > timeBetweenTreeSpawn)
 		{
-			lastTimeSpawnedTree = Time.time;
+			lastTimeSpawnedTree = Chronos.Instance.Time;
 
 			bool spawnLeft = Random.Range(0, 2) == 0;
 			List<Tree> lstListToSpawnIn = null;
@@ -111,9 +111,7 @@ public class Sea : MonoBehaviour
 
 		if (!windSpawned && willSpawnWind == this && !PowerManager.Instance.HasPower(PowerManager.Powers.Wind))
 		{
-			var particles = FindObjectsOfType<WindParticle>();
-
-			if (particles.Length > 50f)
+			if (Groups.Get<WindParticle>().Count > 50f)
 			{
 				windSpawned = true;
 				PowerManager.Instance.TrySpawnPower(PowerManager.Powers.Wind, transform.position + transform.position.normalized * 50f);

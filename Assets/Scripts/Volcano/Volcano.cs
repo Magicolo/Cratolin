@@ -14,7 +14,7 @@ public class Volcano : MonoBehaviour
 	public Sprite Erupting;
 	public Sprite Extinguished;
 	public Transform VolcanoExit;
-    public AudioClip audioSpawn;
+	public AudioClip audioSpawn;
 
 	float stateTime;
 	States state;
@@ -25,13 +25,13 @@ public class Volcano : MonoBehaviour
 	{
 		SwitchState(States.Spawning);
 
-        SoundManager.Instance.PlaySound(audioSpawn);
+		SoundManager.Instance.PlaySound(audioSpawn);
 	}
 
 	void FixedUpdate()
 	{
 		stateTime += Chronos.Instance.DeltaTime;
-		
+
 
 		switch (state)
 		{
@@ -50,33 +50,32 @@ public class Volcano : MonoBehaviour
 
 		var y = -35;
 		if (position.y >= y)
-			position = new Vector2(0,y);
+			position = new Vector2(0, y);
 
 		Renderer.transform.localPosition = position;
 
 		if (position.y >= y)
 			SwitchState(States.Idle);
-
 	}
 
 	void UpdateIdle()
 	{
 		SwitchState(States.Erupting);
-		if(heat <= 0){
+
+		if (heat <= 0)
 			SwitchState(States.Extinguished);
-		}
 	}
 
 	void UpdateErupting()
 	{
-		if(heat <= 0){
+		if (heat <= 0)
 			SwitchState(States.Extinguished);
-		}
 	}
 
 	void UpdateExtinguished()
 	{
-
+		if (heat > 0)
+			SwitchState(States.Erupting);
 	}
 
 	void SwitchState(States state)
@@ -89,12 +88,13 @@ public class Volcano : MonoBehaviour
 		Smoke.enabled = (state == States.Idle || state == States.Erupting);
 		Cloud.enabled = (state == States.Idle || state == States.Erupting);
 
-		if(state.Equals(States.Extinguished)){
+		if (state.Equals(States.Extinguished))
+		{
 			if (ExtinguishedEmitterPrefab != null)
 			{
 				var newGameObject = Instantiate(ExtinguishedEmitterPrefab, VolcanoExit.position, transform.rotation);
 				newGameObject.transform.parent = Planet.Instance.Root;
-				
+
 			}
 
 		}

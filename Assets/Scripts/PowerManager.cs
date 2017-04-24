@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class PowerManager : MonoBehaviour
 {
-	public enum Powers { Volcano, Rain, Wind, Fire, Loupe }
+	public enum Powers { Volcano, Rain, Wind, Fire, Loupe, Seed }
 
 	public static PowerManager Instance { get; private set; }
 

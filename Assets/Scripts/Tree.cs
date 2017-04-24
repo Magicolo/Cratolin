@@ -57,7 +57,8 @@ public class Tree : MonoBehaviour
 
 	void UpdateIdle()
 	{
-		fadeTimer += Time.deltaTime;
+		fadeTimer += Chronos.Instance.DeltaTime;
+
 		if (fadeTimer < spawnDuration)
 		{
 			for (int i = 1; i < Sprites.Length; i++)

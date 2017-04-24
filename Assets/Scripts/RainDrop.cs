@@ -19,6 +19,9 @@ public class RainDrop : MonoBehaviour
 		if (collision.gameObject.GetComponent<Walker>() != null)
 			collision.gameObject.GetComponent<Walker>().ClearFire();
 
+		if (collision.gameObject.GetComponent<Seedling>() != null)
+			collision.gameObject.GetComponent<Seedling>().ClearFire();
+
 		if (collision.gameObject.GetComponentInParent<FireAbleObject>() != null)
 		{
 			collision.gameObject.GetComponentInParent<FireAbleObject>().StopFire();
@@ -36,6 +39,7 @@ public class RainDrop : MonoBehaviour
 
 		if (PlanetLayer == (PlanetLayer | (1 << collision.gameObject.layer)))
 		{
+			Planet.Instance.Temperature -= GameConstants.Instance.RainDropCoolingFactor;
 			Destroy(gameObject);
 		}
 	}

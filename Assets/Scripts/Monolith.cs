@@ -1,66 +1,66 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class Monolith : MonoBehaviour {
+public class Monolith : MonoBehaviour
+{
 
-    public SpriteRenderer spriteRenderer;
-    public Sprite[] spriteSteps;
-    public Sprite completed;
-    public Sprite win;
-    public Transform magic;
+	public SpriteRenderer spriteRenderer;
+	public Sprite[] spriteSteps;
+	public Sprite completed;
+	public Sprite win;
+	public Transform magic;
 
-    public static Monolith Instance { get; private set; }
+	public static Monolith Instance { get; private set; }
 
-    private bool hasEmerged = false;
-    private List<Walker> registeredWalker = new List<Walker>();
+	private bool hasEmerged = false;
+	private List<Walker> registeredWalker = new List<Walker>();
 
-    void Awake()
-    {
-        Instance = this;
-    }
-
-    // Update is called once per frame
-    void Update () {
-		if(hasEmerged && spriteRenderer.transform.localPosition.y < 0)
-        {
-            spriteRenderer.transform.localPosition += new Vector3(0, Time.deltaTime * 4);
-
-            if (spriteRenderer.transform.localPosition.y > 0)
-                spriteRenderer.transform.localPosition = Vector3.zero;
-        }
+	void Awake()
+	{
+		Instance = this;
 	}
 
-    public void Emerge()
-    {
-        if(!hasEmerged)
-        {
-            hasEmerged = true;
-        }
-    }
+	void FixedUpdate()
+	{
+		if (hasEmerged && spriteRenderer.transform.localPosition.y < 0)
+		{
+			spriteRenderer.transform.localPosition += new Vector3(0, Chronos.Instance.DeltaTime * 4);
 
-    public bool HasRegisteredWalker(Walker walker)
-    {
-        return registeredWalker.Contains(walker);
-    }
+			if (spriteRenderer.transform.localPosition.y > 0)
+				spriteRenderer.transform.localPosition = Vector3.zero;
+		}
+	}
 
-    public bool IsCompleted
-    {
-        get { return registeredWalker.Count >= spriteSteps.Length; }
-    }
+	public void Emerge()
+	{
+		if (!hasEmerged)
+		{
+			hasEmerged = true;
+		}
+	}
 
-    public void RegisterWalker(Walker walker)
-    {
-        registeredWalker.Add(walker);
+	public bool HasRegisteredWalker(Walker walker)
+	{
+		return registeredWalker.Contains(walker);
+	}
 
-        if (IsCompleted)
-            spriteRenderer.sprite = completed;
-        else
-            spriteRenderer.sprite = spriteSteps[registeredWalker.Count];
-    }
+	public bool IsCompleted
+	{
+		get { return registeredWalker.Count >= spriteSteps.Length; }
+	}
 
-    public float AttrackDistance
-    {
-        get { return (registeredWalker.Count + 1) * 15; }
-    }
+	public void RegisterWalker(Walker walker)
+	{
+		registeredWalker.Add(walker);
+
+		if (IsCompleted)
+			spriteRenderer.sprite = completed;
+		else
+			spriteRenderer.sprite = spriteSteps[registeredWalker.Count];
+	}
+
+	public float AttrackDistance
+	{
+		get { return (registeredWalker.Count + 1) * 15; }
+	}
 }

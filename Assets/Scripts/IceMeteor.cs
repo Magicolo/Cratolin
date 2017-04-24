@@ -99,7 +99,7 @@ public class IceMeteor : MonoBehaviour
 
 		yield return null;
 
-		Planet.Instance.Temperature -= 25f;
+		Planet.Instance.Temperature -= GameConstants.Instance.IceMeteorCoolingAmount;
 		Destroy(gameObject);
 	}
 
