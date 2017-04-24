@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class FireAblePowerGiver : MonoBehaviour {
 
-	public GameObject PowerPrefab;
+	public PowerManager.Powers Power;
 
 	void Update () {
-		/*if(PowerManager.Instance.HasPower(PowerManager.Powers.Fire)){
+		if(PowerManager.Instance.HasPower(PowerManager.Powers.Fire)){
 			Destroy(this);
 			return;
-		}*/
+		}
 		
 		if(FireAbleObject.nbInFire > GameConstants.Instance.FirePowerNBFirableObjectInFireNeeded){
-			var newPower = Instantiate(PowerPrefab);
+			
 			var p = FindObjectOfType<FireAbleObject>().transform.position;
 			foreach (var item in FindObjectsOfType<FireAbleObject>())
 			{
@@ -23,7 +23,8 @@ public class FireAblePowerGiver : MonoBehaviour {
 				}
 			}
 			
-			newPower.transform.position = p * 1.3f;
+			p = p * 1.3f;
+			PowerManager.Instance.TrySpawnPower(Power,p);
 			Destroy(this);
 		}
 	}
