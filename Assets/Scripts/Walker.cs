@@ -21,7 +21,7 @@ public class Walker : MonoBehaviour
 	private bool isWalking = true;
 
 	private float lookAroundTimer = 1000;
-	private bool inFire;
+	public bool inFire;
 	private float lastTimeInFire;
 
 	public bool IsEvolved { get { return Chronos.Instance.Time - timeSpawn > 20; } }
