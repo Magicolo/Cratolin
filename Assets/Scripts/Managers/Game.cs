@@ -6,6 +6,8 @@ public class Game : MonoBehaviour
 {
 	public static Game Instance { get; private set; }
 
+	public bool IsSandbox { get; set; }
+
 	void Awake()
 	{
 		if (Instance != null)

@@ -127,8 +127,9 @@ public class Invader : MonoBehaviour
 		}
 	}
 
-	void UpdatIdle(){
-		
+	void UpdatIdle()
+	{
+
 	}
 
 	void UpdateLeaving()
@@ -191,10 +192,8 @@ public class Invader : MonoBehaviour
 			PowerManager.Instance.TrySpawnPower(PowerManager.Powers.Seed, transform.position);
 		}
 
-		if (stateTime > 8 && Groups.Get<PowerCollectable>().Count == 0)
-		{
+		if (stateTime > 8 && !Game.Instance.IsSandbox && Groups.Get<PowerCollectable>().Count == 0)
 			WinMenu.Instance.IsShown = true;
-		}
 	}
 
 
