@@ -57,8 +57,7 @@ public class WindParticle : MonoBehaviour
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero, 1000f, maskPlanet);
 		if (hit.collider != null)
 		{
-			// Small chance to spawn tree if polenized
-			if (polenized)// && Random.Range(0, 5) == 0)
+			if (polenized && Groups.Get<Tree>().Count(t => Vector2.Distance(transform.position, t.transform.position) > 50f) < 5f)
 				Instantiate(TreePrefab[Random.Range(0, TreePrefab.Length)], transform.position, Quaternion.FromToRotation(Vector2.up, transform.position.normalized), Planet.Instance.Root);
 
 			Destroy(gameObject, 5);

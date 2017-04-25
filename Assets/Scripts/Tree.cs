@@ -19,8 +19,12 @@ public class Tree : MonoBehaviour
 
 	void Awake()
 	{
-		Trees.Add(this);
 		SwitchState(States.Spawning);
+	}
+
+	void OnEnable()
+	{
+		Trees.Add(this);
 	}
 
 	void OnDisable()

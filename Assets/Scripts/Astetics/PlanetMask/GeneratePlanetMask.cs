@@ -31,10 +31,10 @@ public class GeneratePlanetMask : MonoBehaviour
 
 	void Update()
 	{
-		if (Chronos.Instance.Time < nextUpdate)
+		if (Time.unscaledTime < nextUpdate)
 			return;
 
-		nextUpdate = Chronos.Instance.Time + timeBetweenUpdate;
+		nextUpdate = Time.unscaledTime + timeBetweenUpdate;
 
 		Array.Clear(map, 0, map.Length);
 

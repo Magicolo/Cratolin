@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 public class Seedling : MonoBehaviour
 {
@@ -94,11 +95,14 @@ public class Seedling : MonoBehaviour
 	{
 		const float duration = 6f;
 
-		if (inFire && Chronos.Instance.Time - lastTimeInFire > 10)
+		if (inFire && Chronos.Instance.Time - lastTimeInFire > 7f)
 		{
 			Destroy(gameObject);
 			return;
 		}
+
+		if (inFire && Groups.Get<Sea>().Any(s => s.SeaCollider.bounds.Contains(transform.position)))
+			ClearFire();
 
 		// stick to ground
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, 100000, Mask);

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Walker : MonoBehaviour
@@ -98,11 +99,14 @@ public class Walker : MonoBehaviour
 		isWalking = !ReachedGoal && (!IsEvolved || Chronos.Instance.Time - timeSinceLastFear > 1f);
 
 
-		if (inFire && Chronos.Instance.Time - lastTimeInFire > 10)
+		if (inFire && Chronos.Instance.Time - lastTimeInFire > 7f)
 		{
 			Destroy(gameObject);
 			return;
 		}
+
+		if (inFire && Groups.Get<Sea>().Any(s => s.SeaCollider.bounds.Contains(transform.position)))
+			ClearFire();
 
 
 		// stick to ground
