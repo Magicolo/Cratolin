@@ -72,6 +72,7 @@ public class FirePower : PowerBase
 
 		firePreview.transform.parent = null;
 		firePreview.gameObject.SetActive(true);
+		Update();
 	}
 
 	override public void Cancel()

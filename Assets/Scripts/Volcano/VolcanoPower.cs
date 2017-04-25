@@ -84,6 +84,7 @@ public class VolcanoPower : PowerBase
 		base.StartPlacing();
 
 		Preview.gameObject.SetActive(true);
+		Update();
 	}
 
 	public override void Cancel()

@@ -71,6 +71,7 @@ public class RainPower : PowerBase
 		base.StartPlacing();
 
 		Preview.gameObject.SetActive(true);
+		Update();
 	}
 
 	public override void Cancel()
