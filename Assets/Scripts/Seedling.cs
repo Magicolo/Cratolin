@@ -83,6 +83,8 @@ public class Seedling : MonoBehaviour
 			position = new Vector2(0, TargetY);
 
 		Visual.localPosition = position;
+		
+		Visual.GetComponentInChildren<SpriteRenderer>().flipX = !isGoingRight;
 
 		if (position.y >= TargetY)
 			SwitchState(States.Walking);
@@ -122,6 +124,7 @@ public class Seedling : MonoBehaviour
 		else if (!isGoingRight && !canGoLeft)
 			isGoingRight = true;
 
+		Visual.GetComponentInChildren<SpriteRenderer>().flipX = !isGoingRight;
 
 		Visual.transform.localScale = new Vector3((isGoingRight ? -1 : 1), 1, 1);
 

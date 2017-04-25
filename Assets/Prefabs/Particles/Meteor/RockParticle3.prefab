@@ -83,7 +83,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Renderer: {fileID: 212300293351509530}
   splater: {fileID: 0}
-  GravityFactor: 1
+  GravityFactor: 0
 --- !u!212 &212300293351509530
 SpriteRenderer:
   m_ObjectHideFlags: 1
