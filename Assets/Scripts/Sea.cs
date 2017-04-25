@@ -13,6 +13,7 @@ public class Sea : MonoBehaviour
 	public float timeBetweenTreeSpawn;
 	public int maxTreeCountEachSide;
 	public LayerMask planetMask;
+	public float walkerSpawnDelay = 10f;
 
 	public SmokeEmitter EvaporationParticle;
 	private float lastTimeSpawnedWalker;
@@ -60,7 +61,7 @@ public class Sea : MonoBehaviour
 	void Update()
 	{
 		// spawn walker
-		if (Chronos.Instance.Time - lastTimeSpawnedWalker > 10 && Planet.Instance.Ozone > 75 && ratio > 0.75f)
+		if (Chronos.Instance.Time - lastTimeSpawnedWalker > walkerSpawnDelay && Planet.Instance.Ozone > 75 && ratio > 0.75f)
 		{
 			lastTimeSpawnedWalker = Chronos.Instance.Time;
 			Walker walker = Instantiate(walkerprefab);
