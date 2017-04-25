@@ -50,6 +50,8 @@ public class WindParticle : MonoBehaviour
 		if (disabled)
 			return;
 
+		GetComponentInChildren<SpriteRenderer>().enabled = polenized;
+
 		// Destroy on hitting ground
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero, 1000f, maskPlanet);
 		if (hit.collider != null)
@@ -77,7 +79,7 @@ public class WindParticle : MonoBehaviour
 				inFire = true;
 				polenized = false;
 			}
-			else if (!inFire)
+			else if (!inFire && hitTree.collider.GetComponentInParent<Tree>().MyState.Equals(Tree.States.Idle))
 				polenized = true;
 		}
 

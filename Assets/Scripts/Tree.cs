@@ -16,6 +16,7 @@ public class Tree : MonoBehaviour
 	private float fadeTimer = 0;
 
 	States state;
+	public States MyState{get{return state;}}
 
 	void Awake()
 	{
