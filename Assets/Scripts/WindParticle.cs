@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 public class WindParticle : MonoBehaviour
 {
@@ -68,28 +69,31 @@ public class WindParticle : MonoBehaviour
 		RaycastHit2D hitTree = Physics2D.Raycast(transform.position, Vector2.zero);
 		if (hitTree.collider != null && hitTree.collider.GetComponentInParent<Tree>() != null)
 		{
-			if (inFire && hitTree.collider.GetComponentInParent<FireAbleObject>() != null && !hitTree.collider.GetComponentInParent<FireAbleObject>().IsOnFire)
+			var tree = hitTree.collider.GetComponentInParent<Tree>();
+			var fire = hitTree.collider.GetComponentInParent<FireAbleObject>();
+			if (inFire && fire != null && !fire.IsOnFire)
 			{
 				// propagate fire particle on other tree;
-				hitTree.collider.GetComponentInParent<FireAbleObject>().StartFire();
+				fire.StartFire();
 
 			}
-			else if (hitTree.collider.GetComponentInParent<FireAbleObject>() != null && hitTree.collider.GetComponentInParent<FireAbleObject>().IsOnFire)
+			else if (fire != null && fire.IsOnFire)
 			{
 				inFire = true;
 				polenized = false;
 			}
-			else if (!inFire && hitTree.collider.GetComponentInParent<Tree>().MyState.Equals(Tree.States.Idle))
+			else if (!inFire && tree.MyState.Equals(Tree.States.Idle) && tree.Sprites.Last().gameObject.activeInHierarchy)
 				polenized = true;
 		}
 
-		
+
 		foreach (var cloud in Groups.Get<RainCloud>())
 		{
 			var distance = Mathf.Abs((cloud.transform.position - transform.position).magnitude);
 
-			if (distance < 90){
-				cloud.transform.position += cloud.transform.right * moveSpeed * Chronos.Instance.DeltaTime * (1- distance/90);
+			if (distance < 90)
+			{
+				cloud.transform.position += cloud.transform.right * moveSpeed * Chronos.Instance.DeltaTime * (1 - distance / 90);
 			}
 		}
 
