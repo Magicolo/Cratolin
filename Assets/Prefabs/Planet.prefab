@@ -3564,7 +3564,7 @@ MonoBehaviour:
   planetMask:
     serializedVersion: 2
     m_Bits: 256
-  walkerSpawnDelay: 30
+  walkerSpawnDelay: 45
   EvaporationParticle: {fileID: 114892767432799320}
   SeaCollider: {fileID: 61997521418958304}
   lstTreesSpawnedLeft: []
@@ -3711,7 +3711,7 @@ MonoBehaviour:
   planetMask:
     serializedVersion: 2
     m_Bits: 256
-  walkerSpawnDelay: 30
+  walkerSpawnDelay: 45
   EvaporationParticle: {fileID: 114068480539093816}
   SeaCollider: {fileID: 61567051720165028}
   lstTreesSpawnedLeft: []
@@ -3759,7 +3759,7 @@ MonoBehaviour:
   planetMask:
     serializedVersion: 2
     m_Bits: 256
-  walkerSpawnDelay: 13
+  walkerSpawnDelay: 15
   EvaporationParticle: {fileID: 114071666581338378}
   SeaCollider: {fileID: 61278129134416062}
   lstTreesSpawnedLeft: []
@@ -3820,7 +3820,7 @@ MonoBehaviour:
   planetMask:
     serializedVersion: 2
     m_Bits: 256
-  walkerSpawnDelay: 12
+  walkerSpawnDelay: 18
   EvaporationParticle: {fileID: 114507529923583616}
   SeaCollider: {fileID: 61345275596223404}
   lstTreesSpawnedLeft: []
@@ -3909,7 +3909,7 @@ MonoBehaviour:
   planetMask:
     serializedVersion: 2
     m_Bits: 256
-  walkerSpawnDelay: 10
+  walkerSpawnDelay: 15
   EvaporationParticle: {fileID: 114876656350633480}
   SeaCollider: {fileID: 61176652455211820}
   lstTreesSpawnedLeft: []
@@ -3951,7 +3951,7 @@ MonoBehaviour:
   planetMask:
     serializedVersion: 2
     m_Bits: 256
-  walkerSpawnDelay: 22
+  walkerSpawnDelay: 30
   EvaporationParticle: {fileID: 114370487627847188}
   SeaCollider: {fileID: 61381772182008730}
   lstTreesSpawnedLeft: []
@@ -3977,7 +3977,7 @@ MonoBehaviour:
   planetMask:
     serializedVersion: 2
     m_Bits: 256
-  walkerSpawnDelay: 10
+  walkerSpawnDelay: 15
   EvaporationParticle: {fileID: 114921755124200622}
   SeaCollider: {fileID: 61102488470985722}
   lstTreesSpawnedLeft: []
@@ -4439,7 +4439,7 @@ MonoBehaviour:
   planetMask:
     serializedVersion: 2
     m_Bits: 256
-  walkerSpawnDelay: 16
+  walkerSpawnDelay: 20
   EvaporationParticle: {fileID: 114371574151977990}
   SeaCollider: {fileID: 61314172724805564}
   lstTreesSpawnedLeft: []
@@ -4595,7 +4595,7 @@ MonoBehaviour:
   planetMask:
     serializedVersion: 2
     m_Bits: 256
-  walkerSpawnDelay: 24
+  walkerSpawnDelay: 30
   EvaporationParticle: {fileID: 114918773756857696}
   SeaCollider: {fileID: 61478472260272544}
   lstTreesSpawnedLeft: []

@@ -13,7 +13,7 @@ public class Seedling : MonoBehaviour
 	public GameObject Fire;
 
 	bool isGoingRight = true;
-	bool inFire;
+	public bool inFire;
 	float lastTimeInFire;
 	float stateTime;
 	States state;
@@ -83,7 +83,7 @@ public class Seedling : MonoBehaviour
 			position = new Vector2(0, TargetY);
 
 		Visual.localPosition = position;
-		
+
 		Visual.GetComponentInChildren<SpriteRenderer>().flipX = !isGoingRight;
 
 		if (position.y >= TargetY)

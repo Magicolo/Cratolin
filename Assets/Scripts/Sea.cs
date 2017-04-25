@@ -35,6 +35,7 @@ public class Sea : MonoBehaviour
 	}
 	private float lastTimeSpawnedTree;
 	bool burning;
+	bool canSpawnWalker;
 	public List<Tree> lstTreesSpawnedLeft = new List<Tree>();
 	public List<Tree> lstTreesSpawnedRight = new List<Tree>();
 
@@ -60,11 +61,17 @@ public class Sea : MonoBehaviour
 
 	void Update()
 	{
-		// spawn walker
-		if (Chronos.Instance.Time - lastTimeSpawnedWalker > walkerSpawnDelay && Planet.Instance.Ozone > 75 && ratio > 0.75f)
+		if (!canSpawnWalker && Planet.Instance.Ozone > 75 && ratio > 0.75f)
 		{
 			lastTimeSpawnedWalker = Chronos.Instance.Time;
-			Walker walker = Instantiate(walkerprefab);
+			canSpawnWalker = true;
+		}
+
+		// spawn walker
+		if (canSpawnWalker && Chronos.Instance.Time - lastTimeSpawnedWalker > walkerSpawnDelay && Groups.Get<Walker>().Count < 20)
+		{
+			lastTimeSpawnedWalker = Chronos.Instance.Time;
+			var walker = Instantiate(walkerprefab);
 			walker.transform.position = transform.position * 1.05f;
 		}
 
