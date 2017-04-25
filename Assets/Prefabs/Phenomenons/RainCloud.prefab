@@ -87,7 +87,7 @@ MonoBehaviour:
     type: 2}
   rainZoneWidth: 60
   timeBetweenRainDrop: 0.1
-  lifeTime: 4
+  lifeTime: 7
   audioClip: {fileID: 8300000, guid: 5113bd8111c67124ba4c2fb8c928fbbb, type: 3}
 --- !u!114 &114917812166383154
 MonoBehaviour:

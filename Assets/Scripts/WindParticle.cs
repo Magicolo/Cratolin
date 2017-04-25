@@ -83,6 +83,16 @@ public class WindParticle : MonoBehaviour
 				polenized = true;
 		}
 
+		
+		foreach (var cloud in Groups.Get<RainCloud>())
+		{
+			var distance = Mathf.Abs((cloud.transform.position - transform.position).magnitude);
+
+			if (distance < 90){
+				cloud.transform.position += cloud.transform.right * moveSpeed * Chronos.Instance.DeltaTime * (1- distance/90);
+			}
+		}
+
 		lifeTimer += Chronos.Instance.DeltaTime;
 
 		transform.up = transform.position.normalized;

@@ -21,6 +21,15 @@ public class RainCloud : MonoBehaviour
 		SoundManager.Instance.PlaySound(audioClip);
 	}
 
+	void OnEnable()
+	{
+		Groups.Add(this);
+	}
+	void OnDisable()
+	{
+		Groups.Remove(this);
+	}
+
 	// Update is called once per frame
 	void Update()
 	{
