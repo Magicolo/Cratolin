@@ -51,9 +51,6 @@ public class LifeMeteor : MonoBehaviour
 		var direction = (Planet.Instance.Root.position - transform.position).normalized;
 		transform.position += direction * Speed * SlowDownRatio;
 		transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(Vector3.down, direction), Chronos.Instance.DeltaTime);
-
-		if (cloudCollisionCount > 0)
-			SwitchState(States.Melting);
 	}
 
 	void UpdateMelting()
@@ -109,11 +106,18 @@ public class LifeMeteor : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D collision)
 	{
-		var sea = collision.GetComponentInParent<Sea>();
+		if(collision != null && collision.transform != null){
+			foreach (var sea in Groups.Get<Sea>())
+			{
+				var distance = Mathf.Abs((sea.transform.position - transform.position).magnitude);
 
-		if (sea != null)
-			sea.CanSpawnLifeAround = true;
-		else if (collision.GetComponentInParent<Planet>() != null)
+				if (distance < 150){
+					sea.CanSpawnLifeAround = true;
+				}
+			}
+		}
+			
+		if (collision.GetComponentInParent<Planet>() != null)
 			StartCoroutine(Break());
 	}
 }
