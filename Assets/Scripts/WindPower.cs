@@ -15,11 +15,12 @@ public class WindPower : PowerBase
 
 	public override GameObject Create(Vector2 position)
 	{
+		inPreview = false;
+		windPreview.gameObject.SetActive(false);
+
 		if (!CanPlace(position))
 			return null;
 
-		windPreview.gameObject.SetActive(false);
-		inPreview = false;
 		StartCoroutine("WindPreviewAnimate");
 
 		var direction = position.normalized;
@@ -69,7 +70,8 @@ public class WindPower : PowerBase
 		inPreview = true;
 		windPreview.transform.parent = null;
 		windPreview.gameObject.SetActive(true);
-		windPreview.color = Color.white;
+		windPreview.color = new Color(1f, 1f, 1f, 0.5f);
+		Update();
 	}
 
 	void Update()
@@ -79,5 +81,7 @@ public class WindPower : PowerBase
 			Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			windPreview.transform.position = pos.normalized * 370;
 		}
+
+		windPreview.gameObject.SetActive(inPreview);
 	}
 }
