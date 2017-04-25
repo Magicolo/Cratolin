@@ -93,7 +93,7 @@ public class Walker : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void LateUpdate()
+	void FixedUpdate()
 	{
 		isWalking = !ReachedGoal && (!IsEvolved || Chronos.Instance.Time - timeSinceLastFear > 1f);
 
@@ -106,7 +106,7 @@ public class Walker : MonoBehaviour
 
 
 		// stick to ground
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, 100000, WalkerCollision);
+		RaycastHit2D hit = Physics2D.Raycast(transform.position + transform.up * 100f, -transform.up, 100000, WalkerCollision);
 		if (hit.collider != null)
 		{
 			Collider2D col = hit.collider;
