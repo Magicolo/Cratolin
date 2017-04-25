@@ -124,7 +124,7 @@ public class Seedling : MonoBehaviour
 		else if (!isGoingRight && !canGoLeft)
 			isGoingRight = true;
 
-		Visual.GetComponentInChildren<SpriteRenderer>().flipX = !isGoingRight;
+		//Visual.GetComponentInChildren<SpriteRenderer>().flipX = !isGoingRight;
 
 		Visual.transform.localScale = new Vector3((isGoingRight ? -1 : 1), 1, 1);
 
