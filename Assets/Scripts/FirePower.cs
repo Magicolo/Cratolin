@@ -15,6 +15,8 @@ public class FirePower : PowerBase
 
 	public override GameObject Create(Vector2 position)
 	{
+		firePreview.gameObject.SetActive(false);
+
 		if (!CanPlace(position))
 			return null;
 
@@ -60,8 +62,6 @@ public class FirePower : PowerBase
 				seedling.CatchFire();
 
 		}
-
-		firePreview.gameObject.SetActive(false);
 
 		return null;
 	}
