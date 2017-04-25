@@ -7,7 +7,7 @@ public class TreePower : PowerBase
 	public ListOfPrefab Prefabs;
 
 	public override int RemainingUses { get { return -1; } }
-	public override PowerManager.Powers Power { get { return PowerManager.Powers.Seed; } }
+	public override PowerManager.Powers Power { get { return PowerManager.Powers.Tree; } }
 
 	public override GameObject Create(Vector2 position)
 	{
