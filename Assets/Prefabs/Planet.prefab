@@ -4258,7 +4258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FullCO2: {r: 0.36862746, g: 0.3137255, b: 0.23137255, a: 0.60784316}
-  FullOzone: {r: 0.112889275, g: 0.73044974, b: 0.85294116, a: 0.484}
+  FullOzone: {r: 0.112889275, g: 0.73044974, b: 0.85294116, a: 0.7529412}
 --- !u!114 &114684293517185536
 MonoBehaviour:
   m_ObjectHideFlags: 1
