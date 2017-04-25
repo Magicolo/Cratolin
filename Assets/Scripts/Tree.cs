@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Tree : MonoBehaviour
 {
-
 	public static readonly List<Tree> Trees = new List<Tree>();
 
 	public enum States { Spawning, Idle }
@@ -16,7 +15,7 @@ public class Tree : MonoBehaviour
 	private float fadeTimer = 0;
 
 	States state;
-	public States MyState{get{return state;}}
+	public States MyState { get { return state; } }
 
 	void Awake()
 	{
