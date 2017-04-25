@@ -20,7 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4076475277179204}
   - component: {fileID: 114417374435547216}
-  m_Layer: 0
+  - component: {fileID: 58666610146247010}
+  - component: {fileID: 50628295351528178}
+  m_Layer: 13
   m_Name: PlanetChunk5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4489024157835510}
   - component: {fileID: 212282290029902006}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1167392937543706}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -546.9738, y: 29.60292, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4489024157835510}
@@ -70,6 +72,41 @@ Transform:
   m_Father: {fileID: 4076475277179204}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50628295351528178
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1167392937543706}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 99
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &58666610146247010
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1167392937543706}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 49.28
 --- !u!114 &114417374435547216
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,6 +121,7 @@ MonoBehaviour:
   Renderer: {fileID: 212282290029902006}
   splater: {fileID: 0}
   GravityFactor: 0
+  orianteVersSpeed: 1
 --- !u!212 &212282290029902006
 SpriteRenderer:
   m_ObjectHideFlags: 1

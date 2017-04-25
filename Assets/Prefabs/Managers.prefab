@@ -399,7 +399,7 @@ MonoBehaviour:
   TreeBurnTemperatureThreshold: 70
   SeaDryoffTemperatureThreshold: 80
   SeaDryoffRate: -0.2
-  FirePowerNBFirableObjectInFireNeeded: 15
+  FirePowerNBFirableObjectInFireNeeded: 20
   LavaExtinguish: 1
 --- !u!114 &114426515515147834
 MonoBehaviour:
