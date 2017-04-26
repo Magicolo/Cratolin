@@ -26,6 +26,8 @@ public class GameConstants : MonoBehaviour
 
 	public float LavaExtinguish = 1;
 
+	public bool WindTakesFireWithVolcano;
+
 
 	void Awake()
 	{

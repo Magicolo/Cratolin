@@ -33,6 +33,8 @@ public class RainCloud : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		transform.up = transform.position.normalized;
+
 		if (Chronos.Instance.Time - lastTimeSpawn > timeBetweenRainDrop)
 		{
 			lastTimeSpawn = Chronos.Instance.Time;

@@ -8,6 +8,8 @@ Shader "Orbis/HeatDistortion"
         _Height("Height",Int) = 100
 		[MaterialToggle] _PixelSnap ("Pixel snap", Float) = 0
         _WaveForce("Wave Force",Float) = 1
+        _HeatFactor("Heat Factor",Float) = 1
+        _ColdFactor("Cold Factor",Float) = 1
 	}
 
     SubShader
@@ -36,6 +38,8 @@ Shader "Orbis/HeatDistortion"
             float _Width;
             float _Height;
             float _WaveForce;
+            float _HeatFactor;
+            float _ColdFactor;
 
             v2f vert(appdata_base v) {
                 v2f o;
@@ -53,7 +57,7 @@ Shader "Orbis/HeatDistortion"
             half4 frag(v2f i) : SV_Target
             {
                 
-                float4 posNormalized = (i.grabPos - float4(0.5,0.5,0,0)) * sin( 2*_Time.g)*2 ;
+                float4 posNormalized = (i.grabPos - float4(0.5,0.5,0,0)) * sin( 10*_Time.g)*0.3;
                 float4 posCentered = posNormalized * 10;
                 float4 offset = float4(posCentered.x/_Width, posCentered.y/_Height, 0, 0);
                 
@@ -61,14 +65,25 @@ Shader "Orbis/HeatDistortion"
                 fixed4 heaMapCol = tex2D(_HeatMap, i.grabPos + posNormalized / _WaveForce);
                 half4 c = tex2Dproj(_BackgroundTexture, i.grabPos);
                 //return float4(0,heaMapCol.b,0,1);
-                float4 p = i.grabPos + offset  * heaMapCol.b+ float4(heaMapCol.r, heaMapCol.g,0,0) * 0.005 * (1-heaMapCol.b);
+                float revb = (1-heaMapCol.b);
+                float4 p = i.grabPos + offset * revb + float4(heaMapCol.r, heaMapCol.g,0,0) * 0.01 * revb;
                 
+                //return heaMapCol;
                 half4 bgcolor = tex2Dproj(_BackgroundTexture, p);
-                float r = bgcolor.r;
-                return (half4(r,bgcolor.g,bgcolor.b,1) + c)/2;
+                float r = bgcolor.r * (1 + _HeatFactor) ;
+                float b = bgcolor.b * (1 + _ColdFactor) ;
+                float ratio = (1+_HeatFactor* revb);
+                return half4(
+                    (r * _HeatFactor * revb + c.r) / (ratio + _ColdFactor* revb),
+                    (bgcolor.g * _HeatFactor * revb + c.g) / (ratio + _ColdFactor* revb),
+                    (b * _HeatFactor * revb + c.b) / (ratio),
+                    1
+                );
+                //return (half4(r,bgcolor.g,bgcolor.b,1) + c)/2;
             }
             ENDCG
         }
 
     }
 }
+

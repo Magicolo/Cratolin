@@ -56,7 +56,7 @@ TrailRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6f28beff0c384a6429130a1cad4c20db, type: 2}
+  - {fileID: 2100000, guid: cab072aa093dcda4d9d7f2ee20b38965, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -146,6 +146,7 @@ MonoBehaviour:
   - {fileID: 114046027632892338, guid: 0fa82a2b05cbdaa458a0a238a6e8056f, type: 2}
   - {fileID: 114450053469841580, guid: e496bf0eec776a84d9633b7574652668, type: 2}
   - {fileID: 114636673595509074, guid: 3b62f76df7a68724597ca714d29061ac, type: 2}
+  InFireColor: {r: 0.6838235, g: 0.17095588, b: 0.17095588, a: 0.753}
 --- !u!212 &212346766772774596
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -179,7 +180,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -5
   m_Sprite: {fileID: 21300000, guid: 119bd67f94fe1fb42a42ad8fde512ae1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

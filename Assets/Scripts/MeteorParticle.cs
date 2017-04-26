@@ -17,7 +17,7 @@ public class MeteorParticle : ParticleBase
 
 	protected override void Despawn()
 	{
-		SoundManager.Instance.PlaySound(destroyAudio);
+		SoundManager.Instance.PlaySound(destroyAudio,0.6f);
 
 		if (Splater != null)
 		{

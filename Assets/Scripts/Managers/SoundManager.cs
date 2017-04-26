@@ -35,7 +35,7 @@ public class SoundManager : MonoBehaviour
 		cameraTransform = Camera.main.transform;
 	}
 
-	public float PlaySound(string pResourceName)
+	public float PlaySound(string pResourceName, float volume = 1f)
 	{
 		AudioClip soundClip = Load(pResourceName);
 		if (soundClip == null)
@@ -45,14 +45,14 @@ public class SoundManager : MonoBehaviour
 		}
 		else
 		{
-			return ExecuteSound(soundClip, false, Vector3.zero);
+			return ExecuteSound(soundClip, false, Vector3.zero, volume);
 		}
 	}
 
-	public float PlayPitchAudio(string pResourceName)
+	public float PlayPitchAudio(string pResourceName, float volume = 1f)
 	{
 		AudioClip soundClip = Load(pResourceName);
-		GameObject soundGameObject = PlayClipAt(soundClip, Vector3.zero);
+		GameObject soundGameObject = PlayClipAt(soundClip, Vector3.zero, volume);
 		soundGameObject.transform.parent = cameraTransform;
 		soundGameObject.transform.localPosition = Vector3.zero;
 		soundGameObject.GetComponent<AudioSource>().pitch = UnityEngine.Random.Range(0.8f, 1.2f);
@@ -60,22 +60,22 @@ public class SoundManager : MonoBehaviour
 		return 0;
 	}
 
-	private IEnumerator PlayLoadedAudioWhenReady(AudioClip pClip)
+	private IEnumerator PlayLoadedAudioWhenReady(AudioClip pClip, float volume = 1f)
 	{
 		while (pClip.isReadyToPlay == false)
 		{
 			yield return new WaitForSeconds(0.05f);
 		}
 
-		ExecuteSound(pClip, false, Vector3.zero);
+		ExecuteSound(pClip, false, Vector3.zero, volume);
 	}
 
-	public float PlaySound(AudioClip pSoundClip)
+	public float PlaySound(AudioClip pSoundClip, float volume = 1 )
 	{
-		return ExecuteSound(pSoundClip, false, Vector3.zero);
+		return ExecuteSound(pSoundClip, false, Vector3.zero, volume);
 	}
 
-	public float PlaySoundAt(string pResourceName, Vector3 pSoundPosition)
+	public float PlaySoundAt(string pResourceName, Vector3 pSoundPosition, float volume = 1)
 	{
 		AudioClip soundClip = Load(pResourceName);
 		if (soundClip == null)
@@ -85,13 +85,13 @@ public class SoundManager : MonoBehaviour
 		}
 		else
 		{
-			return ExecuteSound(soundClip, true, pSoundPosition);
+			return ExecuteSound(soundClip, true, pSoundPosition, volume);
 		}
 	}
 
-	public float PlaySoundAt(AudioClip pSoundClip, Vector3 pSoundPosition)
+	public float PlaySoundAt(AudioClip pSoundClip, Vector3 pSoundPosition, float volume = 1)
 	{
-		return ExecuteSound(pSoundClip, true, pSoundPosition);
+		return ExecuteSound(pSoundClip, true, pSoundPosition, volume);
 	}
 
 	public float PlaySoundSuccess(bool pIsSuccess)
@@ -121,7 +121,7 @@ public class SoundManager : MonoBehaviour
 		return PlaySound(clip);
 	}
 
-	private float ExecuteSound(AudioClip pSoundClip, bool pIs3DSound, Vector3 p3DSoundPosition)
+	private float ExecuteSound(AudioClip pSoundClip, bool pIs3DSound, Vector3 p3DSoundPosition, float volume)
 	{
 		//if(bool.Parse(PlayerPrefs.GetString("sound")))
 		{
@@ -129,11 +129,11 @@ public class SoundManager : MonoBehaviour
 			{
 				if (pIs3DSound)
 				{
-					PlayClipAt(pSoundClip, p3DSoundPosition);
+					PlayClipAt(pSoundClip, p3DSoundPosition, volume);
 				}
 				else
 				{
-					GameObject soundGameObject = PlayClipAt(pSoundClip, Vector3.zero);
+					GameObject soundGameObject = PlayClipAt(pSoundClip, Vector3.zero, volume);
 					soundGameObject.transform.parent = cameraTransform;
 					soundGameObject.transform.localPosition = Vector3.zero;
 
@@ -145,12 +145,13 @@ public class SoundManager : MonoBehaviour
 	}
 
 	//Isntantiate a game obect with an AudioSource component playing the audio file. The game object is destroyed when audip has finshied playing.
-	private GameObject PlayClipAt(AudioClip clip, Vector3 pos)
+	private GameObject PlayClipAt(AudioClip clip, Vector3 pos, float volume)
 	{
 		GameObject tempGO = new GameObject("TempAudio");
 		tempGO.transform.position = pos;
 		AudioSource aSource = tempGO.AddComponent<AudioSource>();
 		aSource.clip = clip;
+		aSource.volume = volume;
 
 		lastAudioPlayed = clip.name;
 		lastTimeAudioPlayed = Chronos.Instance.Time;

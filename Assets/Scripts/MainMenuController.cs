@@ -23,7 +23,6 @@ public class MainMenuController : MonoBehaviour {
             
             Tree newTree = Instantiate(treePrefab[Random.Range(0, treePrefab.Length)], hit.point, Quaternion.FromToRotation(Vector2.up, tr.position.normalized), Planet.Instance.Root);
         }
-
         
     }
 	

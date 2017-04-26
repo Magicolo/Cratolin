@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-public class Rotator : MonoBehaviour
+public class CoreRotator : MonoBehaviour
 {
 	public float Rotations = 1f;
 	public Transform Transform;
@@ -12,14 +12,19 @@ public class Rotator : MonoBehaviour
             Transform = transform;
     }
 
+	float lastT = 0;
+
 	void Update()
 	{
 		var f = Mathf.Clamp((Planet.Instance.Temperature / 50),MinTemperaturSpeedFactor,1);
 		var s = Rotations * f ;
+		var z = Transform.localEulerAngles.z;
+		var t = Chronos.Instance.Time - lastT;
+		lastT = Chronos.Instance.Time;
 
 		Transform.localEulerAngles = new Vector3(
 			Transform.localEulerAngles.x,
 			Transform.localEulerAngles.y,
-			Chronos.Instance.NormalizedTime * s * 360f);
+			z + t * s);
 	}
 }

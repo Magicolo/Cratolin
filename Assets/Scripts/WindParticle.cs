@@ -7,6 +7,8 @@ public class WindParticle : MonoBehaviour
 	public float distanceFormPlanetCenter;
 	public float moveSpeed;
 	public Tree[] TreePrefab;
+	public Color InFireColor;
+	private Color NormalColor;
 
 	private float direction = 1;
 	private float lifeTimer;
@@ -20,6 +22,7 @@ public class WindParticle : MonoBehaviour
 	void OnEnable()
 	{
 		Groups.Add(this);
+		NormalColor = GetComponentInChildren<TrailRenderer>().material.GetColor("_TintColor");
 	}
 
 	void OnDisable()
@@ -50,6 +53,9 @@ public class WindParticle : MonoBehaviour
 
 		if (disabled)
 			return;
+	
+		var color = (inFire)? InFireColor : NormalColor;
+		GetComponentInChildren<TrailRenderer>().material.SetColor("_TintColor", new Color(color.r,color.g,color.b,color.a));
 
 		GetComponentInChildren<SpriteRenderer>().enabled = polenized;
 
@@ -66,6 +72,13 @@ public class WindParticle : MonoBehaviour
 		}
 
 		RaycastHit2D hitTree = Physics2D.Raycast(transform.position, Vector2.zero);
+		
+		if (GameConstants.Instance.WindTakesFireWithVolcano && hitTree.collider != null 
+			&& hitTree.collider.GetComponentInParent<Volcano>() != null){
+				inFire = true;
+				polenized = false;
+		}
+
 		if (hitTree.collider != null && hitTree.collider.GetComponentInParent<Tree>() != null)
 		{
 			var tree = hitTree.collider.GetComponentInParent<Tree>();
@@ -90,9 +103,12 @@ public class WindParticle : MonoBehaviour
 		{
 			var distance = Mathf.Abs((cloud.transform.position - transform.position).magnitude);
 
+			if (distance < 70)
+				inFire = false;
+
 			if (distance < 90)
 			{
-				cloud.transform.position += cloud.transform.right * moveSpeed * Chronos.Instance.DeltaTime * (1 - distance / 90);
+				cloud.transform.position += cloud.transform.right * moveSpeed * 0.4f * Chronos.Instance.DeltaTime * (1 - distance / 90);
 			}
 		}
 

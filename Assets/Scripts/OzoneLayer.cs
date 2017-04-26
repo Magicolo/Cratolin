@@ -18,8 +18,8 @@ public class OzoneLayer : MonoBehaviour {
 		var c = Color.Lerp(FullCO2,FullOzone,t);
 		sr.color = new Color(c.r, c.g, c.b, a);
 
-        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "MainMenu")
-            sr.color = FullOzone;
+        //if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "MainMenu")
+            //sr.color = FullOzone;
 	}
 
 }
