@@ -53,9 +53,9 @@ public class WindParticle : MonoBehaviour
 
 		if (disabled)
 			return;
-	
-		var color = (inFire)? InFireColor : NormalColor;
-		GetComponentInChildren<TrailRenderer>().material.SetColor("_TintColor", new Color(color.r,color.g,color.b,color.a));
+
+		var color = (inFire) ? InFireColor : NormalColor;
+		GetComponentInChildren<TrailRenderer>().material.SetColor("_TintColor", new Color(color.r, color.g, color.b, color.a));
 
 		GetComponentInChildren<SpriteRenderer>().enabled = polenized;
 
@@ -63,7 +63,7 @@ public class WindParticle : MonoBehaviour
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero, 1000f, maskPlanet);
 		if (hit.collider != null)
 		{
-			if (polenized && Groups.Get<Tree>().Count(t => Vector2.Distance(transform.position, t.transform.position) > 50f) < 5f)
+			if (polenized && Groups.Get<Tree>().Count(t => Vector2.Distance(transform.position, t.transform.position) > 100f) < 3f)
 				Instantiate(TreePrefab[Random.Range(0, TreePrefab.Length)], transform.position, Quaternion.FromToRotation(Vector2.up, transform.position.normalized), Planet.Instance.Root);
 
 			Destroy(gameObject, 5);
@@ -72,11 +72,12 @@ public class WindParticle : MonoBehaviour
 		}
 
 		RaycastHit2D hitTree = Physics2D.Raycast(transform.position, Vector2.zero);
-		
-		if (GameConstants.Instance.WindTakesFireWithVolcano && hitTree.collider != null 
-			&& hitTree.collider.GetComponentInParent<Volcano>() != null){
-				inFire = true;
-				polenized = false;
+
+		if (GameConstants.Instance.WindTakesFireWithVolcano && hitTree.collider != null
+			&& hitTree.collider.GetComponentInParent<Volcano>() != null)
+		{
+			inFire = true;
+			polenized = false;
 		}
 
 		if (hitTree.collider != null && hitTree.collider.GetComponentInParent<Tree>() != null)
